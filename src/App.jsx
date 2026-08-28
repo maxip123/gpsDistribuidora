@@ -1,0 +1,96 @@
+import React, { useState, useMemo } from 'react';
+import Navbar from './components/Navbar';
+import HeroDeals from './components/HeroDeals';
+import ProductGrid from './components/ProductGrid';
+import WholesaleFeatures from './components/WholesaleFeatures';
+import Footer from './components/Footer';
+import { CATEGORIES, PRODUCTS } from './data/catalog';
+
+export default function App() {
+  const [selectedCategory, setSelectedCategory] = useState('todas');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Filter products based on Category and Search Query
+  const filteredProducts = useMemo(() => {
+    return PRODUCTS.filter((product) => {
+      // Category filter
+      const matchesCategory =
+        selectedCategory === 'todas' || product.category === selectedCategory;
+
+      // Search filter (name, description, COD, tag, category)
+      const query = searchQuery.toLowerCase().trim();
+      const matchesSearch =
+        !query ||
+        product.name.toLowerCase().includes(query) ||
+        product.cod.toLowerCase().includes(query) ||
+        product.description.toLowerCase().includes(query) ||
+        product.categoryLabel.toLowerCase().includes(query) ||
+        (product.tag && product.tag.toLowerCase().includes(query));
+
+      return matchesCategory && matchesSearch;
+    });
+  }, [selectedCategory, searchQuery]);
+
+  // Total weekly offers
+  const weeklyOffersCount = useMemo(() => {
+    return PRODUCTS.filter(p => p.isWeeklyOffer).length;
+  }, []);
+
+  // Current category metadata
+  const currentCategoryData = useMemo(() => {
+    return CATEGORIES.find(c => c.id === selectedCategory);
+  }, [selectedCategory]);
+
+  // Scroll to catalog section
+  const handleScrollToCatalog = () => {
+    const el = document.getElementById('catalogo');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <div className="min-h-screen w-full max-w-full overflow-x-clip flex flex-col bg-slate-100/60 selection:bg-amber-400 selection:text-slate-950 font-sans">
+      
+      {/* Top Navbar & Category Navigation */}
+      <Navbar
+        selectedCategory={selectedCategory}
+        onSelectCategory={(catId) => {
+          setSelectedCategory(catId);
+          if (searchQuery) setSearchQuery('');
+        }}
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+      />
+
+      {/* Main Content */}
+      <main className="flex-1 w-full max-w-full overflow-x-clip">
+        
+        {/* Weekly Offers Hero Spotlight (Shown when no search is active) */}
+        {!searchQuery && selectedCategory === 'todas' && (
+          <HeroDeals
+            onExploreClick={handleScrollToCatalog}
+            totalOffersCount={weeklyOffersCount}
+          />
+        )}
+
+        {/* Product Catalog Grid with 5-row Pagination */}
+        <ProductGrid
+          products={filteredProducts}
+          selectedCategory={selectedCategory}
+          categoryData={currentCategoryData}
+          searchQuery={searchQuery}
+          onClearSearch={() => setSearchQuery('')}
+        />
+
+        {/* Wholesale Features & FAQ */}
+        <WholesaleFeatures />
+
+      </main>
+
+      {/* Footer */}
+      <Footer />
+
+    </div>
+  );
+}
