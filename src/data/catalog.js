@@ -8,13 +8,15 @@ export const STORE_CONFIG = {
   slogan: "Cerca de tu negocio",
   subtitle: "Distribuidora Mayorista de Pañales, Limpieza, Perfumería y Comestibles",
   phone: "+54 9 381 347-0635",
-  phoneRaw: "3813470635",
+  phoneRaw: "5493813470635",
   email: "gpsgerentecomercial@gmail.com",
-  instagram: "gps_distribucionestuc",
+  instagram: "@gps_distribucionestuc",
+  instagramUrl: "https://www.instagram.com/gps_distribucionestuc/",
   location: "Tucumán, Argentina",
   schedule: "Lunes a Viernes de 8:00 a 17:00 hs | Sábados de 8:30 a 13:00 hs",
   commercialNote: "Precios y venta exclusivos por bulto cerrado (U.B) para comercios y distribuidores."
 };
+
 
 export const CATEGORIES = [
   { id: "todas", name: "Todas las Ofertas", icon: "Flame", count: 68, color: "text-amber-500" },

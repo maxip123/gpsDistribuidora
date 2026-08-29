@@ -10,7 +10,8 @@ Catálogo web moderno y 100% responsivo para **G.P.S Distribuciones** (*"Cerca d
 - **Categorización Oficial:** Organizado por rubros (Limpieza, Papelería, Pañales y Bebés, Protección Femenina, Perfumería, Comestibles y Almacén, Accesorios y Bazar).
 - **Paginación Adaptable (10 filas):** Muestra exactamente 10 filas de productos según la pantalla (10 en móvil, 20 en tablet, 30/40 en desktop) sin desbordes laterales.
 - **Buscador en Tiempo Real:** Filtrado instantáneo por nombre, marca (Cif, Huggies, Hellmann's, Dove...) o código SKU.
-- **Contacto Directo por WhatsApp:** Enlace rápido al canal de ventas (`381-3470635`).
+- **Contacto Directo por WhatsApp:** Enlace rápido al canal de ventas (`+54 9 381 347-0635`).
+- **Instagram Oficial:** [@gps_distribucionestuc](https://www.instagram.com/gps_distribucionestuc/).
 - **Gestión Simple desde el Frontend:** Todos los productos, precios y ofertas se administran directamente desde `src/data/catalog.js`.
 
 ---

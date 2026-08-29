@@ -24,7 +24,11 @@ dist-ssr
 *.sw?
 
 .env
+.env.*
 
-# Include .agents folder (skills and customizations)
-!.agents
-!.agents/**
+# AI & Agent artifacts
+.agents/
+.agents
+agents/
+.gemini/
+.claude/

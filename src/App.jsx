@@ -83,7 +83,7 @@ export default function App() {
           onClearSearch={() => setSearchQuery('')}
         />
 
-        {/* Wholesale Features & FAQ */}
+        {/* Wholesale Features */}
         <WholesaleFeatures />
 
       </main>

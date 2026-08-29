@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { 
   Search, 
   Phone, 
@@ -12,7 +12,9 @@ import {
   Scroll,
   Heart,
   BookOpen, 
-  X
+  X,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import { STORE_CONFIG, CATEGORIES } from '../data/catalog';
 import logoImg from '../assets/logo.jpg';
@@ -37,9 +39,54 @@ export default function Navbar({
   onSearchChange
 }) {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+  
+  const scrollContainerRef = useRef(null);
+
+  // Check scroll position to show/hide arrows and fade masks
+  const checkScroll = () => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const { scrollLeft, scrollWidth, clientWidth } = el;
+    setCanScrollLeft(scrollLeft > 4);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 4);
+  };
+
+  useEffect(() => {
+    checkScroll();
+    const el = scrollContainerRef.current;
+    if (el) {
+      el.addEventListener('scroll', checkScroll, { passive: true });
+    }
+    window.addEventListener('resize', checkScroll);
+    return () => {
+      if (el) el.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, [selectedCategory]);
+
+  const handleScroll = (direction) => {
+    const el = scrollContainerRef.current;
+    if (!el) return;
+    const scrollAmount = direction === 'left' ? -220 : 220;
+    el.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    setTimeout(checkScroll, 300);
+  };
+
+  const handleCategoryClick = (catId, e) => {
+    onSelectCategory(catId);
+    if (e?.currentTarget) {
+      e.currentTarget.scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+        block: 'nearest'
+      });
+    }
+  };
 
   return (
-    <header className="sticky top-0 z-40 w-full max-w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs overflow-hidden">
+    <header className="sticky top-0 z-40 w-full max-w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
       
       {/* Main Brand & Search Bar */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 sm:py-3.5">
@@ -137,10 +184,33 @@ export default function Navbar({
         </div>
       </div>
 
-      {/* Contained Category Navigation Ribbon */}
-      <nav className="w-full border-t border-slate-100 bg-slate-50/90 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-2 sm:px-6">
-          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar scroll-smooth py-2 px-1">
+      {/* ============================================================= */}
+      {/* CATEGORY CAROUSEL / NAV RIBBON WITH SCROLL ARROWS */}
+      {/* ============================================================= */}
+      <nav className="relative w-full border-t border-slate-100 bg-slate-50/95 py-1.5">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 relative flex items-center">
+          
+          {/* Left Arrow Button */}
+          {canScrollLeft && (
+            <button
+              onClick={() => handleScroll('left')}
+              className="absolute left-1 z-20 flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/95 text-slate-700 shadow-md border border-slate-200 hover:bg-slate-100 active:scale-95 transition-all cursor-pointer"
+              title="Ver categorías anteriores"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+          )}
+
+          {/* Left Gradient Mask when scrollable */}
+          {canScrollLeft && (
+            <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-slate-50/95 to-transparent pointer-events-none z-10" />
+          )}
+
+          {/* Scrollable Track */}
+          <div 
+            ref={scrollContainerRef}
+            className="flex items-center gap-1.5 overflow-x-auto no-scrollbar scroll-smooth py-1 px-3 w-full"
+          >
             {CATEGORIES.map((cat) => {
               const Icon = categoryIcons[cat.icon] || Sparkles;
               const isSelected = selectedCategory === cat.id;
@@ -149,15 +219,15 @@ export default function Navbar({
               return (
                 <button
                   key={cat.id}
-                  onClick={() => onSelectCategory(cat.id)}
-                  className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-lg text-xs md:text-sm font-semibold transition-all duration-150 shrink-0 cursor-pointer whitespace-nowrap ${
+                  onClick={(e) => handleCategoryClick(cat.id, e)}
+                  className={`flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-xl text-xs md:text-sm font-bold transition-all duration-150 shrink-0 cursor-pointer whitespace-nowrap select-none ${
                     isSelected
                       ? isOffersTab
-                        ? 'bg-rose-600 text-white shadow-xs'
-                        : 'bg-blue-600 text-white shadow-xs'
+                        ? 'bg-rose-600 text-white shadow-xs scale-[1.02]'
+                        : 'bg-blue-600 text-white shadow-xs scale-[1.02]'
                       : isOffersTab
-                      ? 'bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/70'
+                      ? 'bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200 hover:border-rose-300'
+                      : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-100 border border-slate-200/80 hover:border-slate-300'
                   }`}
                 >
                   <Icon className={`w-3.5 h-3.5 shrink-0 ${
@@ -168,12 +238,12 @@ export default function Navbar({
                       : cat.color
                   }`} />
                   <span>{cat.name}</span>
-                  <span className={`text-[10px] font-bold px-1.5 py-0.2 rounded-full shrink-0 ${
+                  <span className={`text-[10px] font-extrabold px-1.5 py-0.2 rounded-full shrink-0 ${
                     isSelected
                       ? 'bg-white/20 text-white'
                       : isOffersTab
-                      ? 'bg-rose-200/70 text-rose-800'
-                      : 'bg-slate-200 text-slate-600'
+                      ? 'bg-rose-200/70 text-rose-900'
+                      : 'bg-slate-100 text-slate-600'
                   }`}>
                     {cat.count}
                   </span>
@@ -181,6 +251,23 @@ export default function Navbar({
               );
             })}
           </div>
+
+          {/* Right Gradient Mask when scrollable */}
+          {canScrollRight && (
+            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-slate-50/95 to-transparent pointer-events-none z-10" />
+          )}
+
+          {/* Right Arrow Button */}
+          {canScrollRight && (
+            <button
+              onClick={() => handleScroll('right')}
+              className="absolute right-1 z-20 flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/95 text-slate-700 shadow-md border border-slate-200 hover:bg-slate-100 active:scale-95 transition-all cursor-pointer"
+              title="Ver más categorías"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          )}
+
         </div>
       </nav>
     </header>
