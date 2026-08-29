@@ -103,9 +103,6 @@ export default function Navbar({
                 alt="G.P.S Distribuciones Logo" 
                 className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-amber-400 shadow-xs"
               />
-              <span className="absolute -bottom-1 -right-1 bg-blue-600 text-white text-[8px] sm:text-[9px] font-bold px-1 sm:px-1.5 py-0.2 rounded-full ring-2 ring-white">
-                B2B
-              </span>
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-1">
