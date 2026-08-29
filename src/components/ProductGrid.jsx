@@ -7,6 +7,8 @@ import {
   HeartHandshake, 
   Shield, 
   ShoppingBag, 
+  Scroll,
+  Heart,
   BookOpen, 
   SearchX, 
   ArrowUpDown,
@@ -16,13 +18,13 @@ import {
 import ProductCard from './ProductCard';
 
 const categoryIcons = {
-  bebes: Baby,
   limpieza: Sparkles,
-  alimentos: Utensils,
+  papeleria: Scroll,
+  bebes: Baby,
+  femenina: Heart,
   perfumeria: HeartHandshake,
-  adultos: Shield,
+  almacen: Utensils,
   bazar: ShoppingBag,
-  libreria: BookOpen,
   todas: Flame,
 };
 

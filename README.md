@@ -1,16 +1,47 @@
-# React + Vite
+# G.P.S Distribuciones • Catálogo Virtual Mayorista
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Catálogo web moderno y 100% responsivo para **G.P.S Distribuciones** (*"Cerca de tu negocio"*), distribuidora mayorista de pañales, artículos de limpieza, perfumería, comestibles y bazar.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Características Principales
 
-## React Compiler
+- **Catálogo Digital por Bulto Cerrado (U.B):** Presentación clara de productos con cantidad mínima por bulto, rendimiento unitario ($/u) y precios mayoristas destacados.
+- **Categorización Oficial:** Organizado por rubros (Limpieza, Papelería, Pañales y Bebés, Protección Femenina, Perfumería, Comestibles y Almacén, Accesorios y Bazar).
+- **Paginación Adaptable (10 filas):** Muestra exactamente 10 filas de productos según la pantalla (10 en móvil, 20 en tablet, 30/40 en desktop) sin desbordes laterales.
+- **Buscador en Tiempo Real:** Filtrado instantáneo por nombre, marca (Cif, Huggies, Hellmann's, Dove...) o código SKU.
+- **Contacto Directo por WhatsApp:** Enlace rápido al canal de ventas (`381-3470635`).
+- **Gestión Simple desde el Frontend:** Todos los productos, precios y ofertas se administran directamente desde `src/data/catalog.js`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+## 🛠️ Tecnologías
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- **React 19**
+- **Vite 6**
+- **Tailwind CSS v4**
+- **Lucide React** (iconos)
+
+---
+
+## 💻 Comandos Rápidos
+
+```bash
+# Instalar dependencias
+npm install
+
+# Levantar servidor de desarrollo
+npm run dev
+
+# Compilar para producción
+npm run build
+```
+
+---
+
+## 📝 ¿Cómo agregar o editar productos?
+
+Edita directamente el archivo:
+📄 **`src/data/catalog.js`**
+
+Allí puedes modificar precios, nombres, unidades por bulto (U.B), imágenes y categorías.

@@ -9,6 +9,8 @@ import {
   HeartHandshake, 
   Shield, 
   ShoppingBag, 
+  Scroll,
+  Heart,
   BookOpen, 
   X
 } from 'lucide-react';
@@ -23,6 +25,8 @@ const categoryIcons = {
   HeartHandshake: HeartHandshake,
   Shield: Shield,
   ShoppingBag: ShoppingBag,
+  Scroll: Scroll,
+  Heart: Heart,
   BookOpen: BookOpen,
 };
 
@@ -63,7 +67,7 @@ export default function Navbar({
                 </span>
               </div>
               <p className="text-[11px] sm:text-xs text-slate-500 font-medium tracking-wide mt-0.5 hidden xs:block">
-                Catálogo Virtual Mayorista
+                {STORE_CONFIG.slogan} • Catálogo Virtual Mayorista
               </p>
             </div>
           </div>
@@ -76,7 +80,7 @@ export default function Navbar({
               <Search className={`w-4 h-4 ml-3.5 transition-colors ${isSearchFocused ? 'text-blue-600' : 'text-slate-400'}`} />
               <input
                 type="text"
-                placeholder="Buscar en el catálogo por producto, marca o código..."
+                placeholder="Buscar por marca (Cif, Ala, Huggies, Hellmann's, Dove...) o código..."
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
                 onFocus={() => setIsSearchFocused(true)}
@@ -98,13 +102,13 @@ export default function Navbar({
           {/* Quick WhatsApp Contact Button */}
           <div className="flex items-center shrink-0">
             <a
-              href={`https://wa.me/${STORE_CONFIG.phone.replace(/[^0-9]/g, '')}?text=Hola!%20Quisiera%20consultar%20por%20el%20catálogo%20mayorista.`}
+              href={`https://wa.me/${STORE_CONFIG.phoneRaw}?text=Hola%20G.P.S%20Distribuciones!%20Quisiera%20consultar%20por%20el%20catálogo%20mayorista.`}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 rounded-xl transition-all shadow-2xs hover:shadow-xs active:scale-95 whitespace-nowrap"
             >
               <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600" />
-              <span className="hidden sm:inline">Consultar por WhatsApp</span>
+              <span className="hidden sm:inline">WhatsApp Ventas</span>
               <span className="sm:hidden">WhatsApp</span>
             </a>
           </div>
