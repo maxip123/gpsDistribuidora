@@ -44,7 +44,7 @@ export default function HeroDeals({
 
             <div className="flex items-center gap-2 bg-slate-800/80 backdrop-blur-xs px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl border border-slate-700/60 text-xs">
               <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-400 shrink-0" />
-              <span className="font-semibold text-white">Factura A y B</span>
+              <span className="font-semibold text-white">Facturas</span>
             </div>
 
             <div className="flex items-center gap-2 bg-slate-800/80 backdrop-blur-xs px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl border border-slate-700/60 text-xs">

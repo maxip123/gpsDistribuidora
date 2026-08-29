@@ -1,31 +1,11 @@
 import React from 'react';
 import { 
-  Package, 
-  Flame
+  Package
 } from 'lucide-react';
 
 export default function ProductCard({ product }) {
   // Price calculations
   const unitPrice = product.priceBulto / product.bultoUnits;
-  const discountPercent = product.oldPriceBulto 
-    ? Math.round(((product.oldPriceBulto - product.priceBulto) / product.oldPriceBulto) * 100)
-    : 0;
-
-  // Badge styling
-  const renderBadge = () => {
-    if (!product.badgeText) return null;
-
-    let badgeClass = "bg-rose-600 text-white";
-    if (product.badgeType === "savings") badgeClass = "bg-emerald-600 text-white";
-    if (product.badgeType === "standard") badgeClass = "bg-blue-600 text-white";
-
-    return (
-      <span className={`inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md shadow-2xs ${badgeClass}`}>
-        {product.badgeType === 'hot' && <Flame className="w-3 h-3" />}
-        {product.badgeText}
-      </span>
-    );
-  };
 
   return (
     <div className="group relative bg-white rounded-2xl border border-slate-200/90 hover:border-blue-400/80 hover:shadow-xl transition-all duration-200 flex flex-col justify-between overflow-hidden">
@@ -33,16 +13,6 @@ export default function ProductCard({ product }) {
       {/* Card Top / Image Area */}
       <div>
         <div className="relative bg-slate-50 p-4 border-b border-slate-100 flex items-center justify-center overflow-hidden h-52">
-          
-          {/* Top Badges */}
-          <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5 items-start">
-            {renderBadge()}
-            {discountPercent > 0 && (
-              <span className="bg-amber-400 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded shadow-2xs">
-                -{discountPercent}% OFF
-              </span>
-            )}
-          </div>
 
           {/* COD / SKU Tag */}
           <div className="absolute top-3 right-3 z-10">
