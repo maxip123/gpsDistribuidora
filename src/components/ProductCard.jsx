@@ -84,11 +84,6 @@ export default function ProductCard({ product }) {
               <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
                 Precio Mayorista:
               </span>
-              {product.oldPriceBulto && (
-                <span className="text-xs font-semibold text-slate-400 line-through">
-                  ${product.oldPriceBulto.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                </span>
-              )}
             </div>
 
             <div className="flex items-baseline gap-1.5 mt-0.5">
