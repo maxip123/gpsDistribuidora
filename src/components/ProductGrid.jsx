@@ -189,6 +189,65 @@ export default function ProductGrid({
       {/* Grid of Product Cards */}
       {currentItems.length > 0 ? (
         <>
+          {/* Top Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="mb-4 sm:mb-5 pb-3 border-b border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 w-full">
+              {/* Counter info */}
+              <div className="text-xs text-slate-500 font-medium text-center sm:text-left">
+                Página <strong className="text-slate-900">{validCurrentPage}</strong> de <strong className="text-slate-900">{totalPages}</strong> ({startIndex + 1} a {endIndex} de {totalItems})
+              </div>
+
+              {/* Page Buttons */}
+              <div className="flex items-center gap-1.5 flex-wrap justify-center">
+                {/* Previous button */}
+                <button
+                  onClick={() => handlePageChange(Math.max(1, validCurrentPage - 1))}
+                  disabled={validCurrentPage === 1}
+                  className={`inline-flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors ${
+                    validCurrentPage === 1
+                      ? 'bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed'
+                      : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 active:scale-95 shadow-2xs'
+                  }`}
+                >
+                  <ChevronLeft className="w-4 h-4 shrink-0" />
+                  <span className="hidden xs:inline">Anterior</span>
+                </button>
+
+                {/* Number buttons */}
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => {
+                  const isCurrent = pageNum === validCurrentPage;
+                  return (
+                    <button
+                      key={pageNum}
+                      onClick={() => handlePageChange(pageNum)}
+                      className={`w-8 h-8 sm:w-8.5 sm:h-8.5 flex items-center justify-center rounded-xl text-xs font-extrabold transition-all cursor-pointer ${
+                        isCurrent
+                          ? 'bg-blue-600 text-white shadow-xs'
+                          : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
+                      }`}
+                    >
+                      {pageNum}
+                    </button>
+                  );
+                })}
+
+                {/* Next button */}
+                <button
+                  onClick={() => handlePageChange(Math.min(totalPages, validCurrentPage + 1))}
+                  disabled={validCurrentPage === totalPages}
+                  className={`inline-flex items-center gap-1 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors ${
+                    validCurrentPage === totalPages
+                      ? 'bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed'
+                      : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50 active:scale-95 shadow-2xs'
+                  }`}
+                >
+                  <span className="hidden xs:inline">Siguiente</span>
+                  <ChevronRight className="w-4 h-4 shrink-0" />
+                </button>
+              </div>
+            </div>
+          )}
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 w-full">
             {currentItems.map((product) => (
               <ProductCard
@@ -199,7 +258,7 @@ export default function ProductGrid({
           </div>
 
           {/* ============================================================= */}
-          {/* PAGINATION CONTROLS (10 FILAS POR PÁGINA) */}
+          {/* BOTTOM PAGINATION CONTROLS */}
           {/* ============================================================= */}
           {totalPages > 1 && (
             <div className="mt-8 sm:mt-10 pt-5 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 w-full">
