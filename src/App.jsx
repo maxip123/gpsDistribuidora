@@ -31,9 +31,9 @@ export default function App() {
     });
   }, [selectedCategory, searchQuery]);
 
-  // Total weekly offers
-  const weeklyOffersCount = useMemo(() => {
-    return PRODUCTS.filter(p => p.isWeeklyOffer).length;
+  // Total catalog offers count
+  const totalOffersCount = useMemo(() => {
+    return PRODUCTS.length;
   }, []);
 
   // Current category metadata
@@ -70,7 +70,7 @@ export default function App() {
         {!searchQuery && selectedCategory === 'todas' && (
           <HeroDeals
             onExploreClick={handleScrollToCatalog}
-            totalOffersCount={weeklyOffersCount}
+            totalOffersCount={totalOffersCount}
           />
         )}
 

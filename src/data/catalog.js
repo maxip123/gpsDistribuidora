@@ -18,15 +18,15 @@ export const STORE_CONFIG = {
 };
 
 
-export const CATEGORIES = [
-  { id: "todas", name: "Todas las Ofertas", icon: "Flame", count: 68, color: "text-amber-500" },
-  { id: "limpieza", name: "Limpieza para el Hogar", icon: "Sparkles", count: 18, color: "text-emerald-500" },
-  { id: "papeleria", name: "Papelería", icon: "Scroll", count: 10, color: "text-teal-500" },
-  { id: "bebes", name: "Pañales y Bebés", icon: "Baby", count: 7, color: "text-blue-500" },
-  { id: "femenina", name: "Protección Femenina", icon: "Heart", count: 6, color: "text-pink-500" },
-  { id: "perfumeria", name: "Perfumería y Cuidado", icon: "HeartHandshake", count: 14, color: "text-purple-500" },
-  { id: "almacen", name: "Comestibles y Almacén", icon: "Utensils", count: 18, color: "text-orange-500" },
-  { id: "bazar", name: "Accesorios y Bazar", icon: "ShoppingBag", count: 15, color: "text-indigo-500" },
+const RAW_CATEGORIES = [
+  { id: "todas", name: "Todas las Ofertas", icon: "Flame", color: "text-amber-500" },
+  { id: "limpieza", name: "Limpieza para el Hogar", icon: "Sparkles", color: "text-emerald-500" },
+  { id: "papeleria", name: "Papelería", icon: "Scroll", color: "text-teal-500" },
+  { id: "bebes", name: "Pañales y Bebés", icon: "Baby", color: "text-blue-500" },
+  { id: "femenina", name: "Protección Femenina", icon: "Heart", color: "text-pink-500" },
+  { id: "perfumeria", name: "Perfumería y Cuidado", icon: "HeartHandshake", color: "text-purple-500" },
+  { id: "almacen", name: "Comestibles y Almacén", icon: "Utensils", color: "text-orange-500" },
+  { id: "bazar", name: "Accesorios y Bazar", icon: "ShoppingBag", color: "text-indigo-500" },
 ];
 
 export const PRODUCTS = [
@@ -1554,3 +1554,11 @@ export const PRODUCTS = [
     tag: "Bolsas de Residuos"
   }
 ];
+
+export const CATEGORIES = RAW_CATEGORIES.map(cat => ({
+  ...cat,
+  count: cat.id === 'todas'
+    ? PRODUCTS.length
+    : PRODUCTS.filter(p => p.category === cat.id).length
+}));
+
