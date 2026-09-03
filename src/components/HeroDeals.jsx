@@ -31,8 +31,7 @@ export default function HeroDeals({
           </h1>
 
           <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl">
-            Consultá la lista actualizada de precios y promociones para tu negocio. 
-            Todos los artículos se presentan con su cantidad mínima por bulto y costo unitario sugerido.
+            Promociones para tu negocio. Todos los artículos se presentan con su cantidad mínima por bulto y costo unitario.
           </p>
 
           {/* Validity badge */}
