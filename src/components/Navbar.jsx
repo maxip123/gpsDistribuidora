@@ -211,7 +211,7 @@ export default function Navbar({
             {CATEGORIES.map((cat) => {
               const Icon = categoryIcons[cat.icon] || Sparkles;
               const isSelected = selectedCategory === cat.id;
-              const isOffersTab = cat.id === "todas";
+              const isOffersTab = cat.id === "todas" || cat.id === "ofertas";
 
               return (
                 <button

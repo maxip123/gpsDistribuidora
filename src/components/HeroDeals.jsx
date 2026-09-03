@@ -35,6 +35,12 @@ export default function HeroDeals({
             Todos los artículos se presentan con su cantidad mínima por bulto y costo unitario sugerido.
           </p>
 
+          {/* Validity badge */}
+          <div className="inline-flex items-center gap-2 bg-amber-400/15 border border-amber-400/40 rounded-xl px-3 py-2">
+            <span className="text-amber-300 text-[10px] sm:text-xs font-bold uppercase tracking-wider">📅 Válida desde el</span>
+            <span className="text-amber-200 text-xs sm:text-sm font-extrabold tracking-tight">31 al 05 de Septiembre</span>
+          </div>
+
           {/* Clean highlights */}
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1">
             <div className="flex items-center gap-2 bg-slate-800/80 backdrop-blur-xs px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl border border-slate-700/60 text-xs">

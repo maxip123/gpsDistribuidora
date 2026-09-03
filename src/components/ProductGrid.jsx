@@ -26,6 +26,7 @@ const categoryIcons = {
   almacen: Utensils,
   bazar: ShoppingBag,
   todas: Flame,
+  ofertas: Flame,
 };
 
 // Responsive items per page: exactly 10 rows on all screen widths
@@ -128,7 +129,7 @@ export default function ProductGrid({
           {/* Title & Count */}
           <div className="flex items-center gap-2.5 min-w-0">
             <div className={`p-2 rounded-xl shrink-0 ${
-              selectedCategory === 'todas' 
+              selectedCategory === 'todas' || selectedCategory === 'ofertas'
                 ? 'bg-rose-50 text-rose-600 border border-rose-200' 
                 : 'bg-blue-50 text-blue-600 border border-blue-200'
             }`}>

@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import { CATEGORIES, PRODUCTS } from './data/catalog';
 
 export default function App() {
-  const [selectedCategory, setSelectedCategory] = useState('todas');
+  const [selectedCategory, setSelectedCategory] = useState('ofertas');
   const [searchQuery, setSearchQuery] = useState('');
 
   // Filter products based on Category and Search Query
@@ -15,16 +15,21 @@ export default function App() {
     return PRODUCTS.filter((product) => {
       // Category filter
       const matchesCategory =
-        selectedCategory === 'todas' || product.category === selectedCategory;
+        selectedCategory === 'todas' ||
+        selectedCategory === 'ofertas' ||
+        product.category === selectedCategory;
 
       // Search filter (name, description, COD, tag, category)
       const query = searchQuery.toLowerCase().trim();
       const matchesSearch =
         !query ||
-        product.name.toLowerCase().includes(query) ||
-        product.cod.toLowerCase().includes(query) ||
-        product.description.toLowerCase().includes(query) ||
-        product.categoryLabel.toLowerCase().includes(query) ||
+        (product.name && product.name.toLowerCase().includes(query)) ||
+        (product.nombre && product.nombre.toLowerCase().includes(query)) ||
+        (product.cod && product.cod.toLowerCase().includes(query)) ||
+        (product.description && product.description.toLowerCase().includes(query)) ||
+        (product.descripcion && product.descripcion.toLowerCase().includes(query)) ||
+        (product.categoryLabel && product.categoryLabel.toLowerCase().includes(query)) ||
+        (product.categoria && product.categoria.toLowerCase().includes(query)) ||
         (product.tag && product.tag.toLowerCase().includes(query));
 
       return matchesCategory && matchesSearch;
@@ -38,7 +43,7 @@ export default function App() {
 
   // Current category metadata
   const currentCategoryData = useMemo(() => {
-    return CATEGORIES.find(c => c.id === selectedCategory);
+    return CATEGORIES.find(c => c.id === selectedCategory) || CATEGORIES[0];
   }, [selectedCategory]);
 
   // Scroll to catalog section
@@ -67,7 +72,7 @@ export default function App() {
       <main className="flex-1 w-full max-w-full overflow-x-clip">
         
         {/* Weekly Offers Hero Spotlight (Shown when no search is active) */}
-        {!searchQuery && selectedCategory === 'todas' && (
+        {!searchQuery && (selectedCategory === 'todas' || selectedCategory === 'ofertas') && (
           <HeroDeals
             onExploreClick={handleScrollToCatalog}
             totalOffersCount={totalOffersCount}
