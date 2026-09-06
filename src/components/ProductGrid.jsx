@@ -90,9 +90,17 @@ export default function ProductGrid({
     }
 
     if (sortBy === 'price-asc') {
-      list.sort((a, b) => a.priceBulto - b.priceBulto);
+      list.sort((a, b) => {
+        const pA = a.unitPrice || a.precio || (a.bultoUnits > 0 && a.priceBulto > 0 ? a.priceBulto / a.bultoUnits : 0);
+        const pB = b.unitPrice || b.precio || (b.bultoUnits > 0 && b.priceBulto > 0 ? b.priceBulto / b.bultoUnits : 0);
+        return pA - pB;
+      });
     } else if (sortBy === 'price-desc') {
-      list.sort((a, b) => b.priceBulto - a.priceBulto);
+      list.sort((a, b) => {
+        const pA = a.unitPrice || a.precio || (a.bultoUnits > 0 && a.priceBulto > 0 ? a.priceBulto / a.bultoUnits : 0);
+        const pB = b.unitPrice || b.precio || (b.bultoUnits > 0 && b.priceBulto > 0 ? b.priceBulto / b.bultoUnits : 0);
+        return pB - pA;
+      });
     } else if (sortBy === 'moq-asc') {
       list.sort((a, b) => a.bultoUnits - b.bultoUnits);
     }

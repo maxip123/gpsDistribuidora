@@ -3,7 +3,8 @@ import {
   Flame, 
   PackageCheck, 
   Sparkles,
-  ShieldCheck
+  ShieldCheck,
+  Calendar
 } from 'lucide-react';
 
 export default function HeroDeals({ 
@@ -24,27 +25,25 @@ export default function HeroDeals({
           </div>
 
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            Ofertas y Precios por <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-200">
-              Bulto Cerrado
-            </span>
+            Ofertas y Promociones
           </h1>
 
           <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl">
-            Promociones para tu negocio. Todos los artículos se presentan con su cantidad mínima por bulto y costo unitario.
+            Promociones para tu negocio con los mejores precios mayoristas y costo unitario.
           </p>
 
           {/* Validity badge */}
-          <div className="inline-flex items-center gap-2 bg-amber-400/15 border border-amber-400/40 rounded-xl px-3 py-2">
-            <span className="text-amber-300 text-[10px] sm:text-xs font-bold uppercase tracking-wider">📅 Válida desde el</span>
-            <span className="text-amber-200 text-xs sm:text-sm font-extrabold tracking-tight">31 al 05 de Septiembre</span>
+          <div className="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700/70 rounded-xl px-3 py-1.5 sm:py-2">
+            <Calendar className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+            <span className="text-slate-400 text-[10px] sm:text-xs font-semibold uppercase tracking-wider">Válida del</span>
+            <span className="text-slate-100 text-xs sm:text-sm font-bold tracking-tight">07 al 12 de Septiembre</span>
           </div>
 
           {/* Clean highlights */}
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1">
             <div className="flex items-center gap-2 bg-slate-800/80 backdrop-blur-xs px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl border border-slate-700/60 text-xs">
               <PackageCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400 shrink-0" />
-              <span className="font-semibold text-white">Venta por Bulto</span>
+              <span className="font-semibold text-white">Venta Mayorista</span>
             </div>
 
             <div className="flex items-center gap-2 bg-slate-800/80 backdrop-blur-xs px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl border border-slate-700/60 text-xs">

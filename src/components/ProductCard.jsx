@@ -8,11 +8,13 @@ import { STORE_CONFIG } from '../data/catalog';
 
 export default function ProductCard({ product }) {
   // Price calculations
-  const unitPrice = product.bultoUnits > 0 && product.priceBulto > 0
-    ? product.priceBulto / product.bultoUnits
-    : (product.unitPrice || product.precio || 0);
+  const unitPrice = product.unitPrice || product.precio || (
+    product.bultoUnits > 0 && product.priceBulto > 0
+      ? product.priceBulto / product.bultoUnits
+      : 0
+  );
 
-  const isFreeOrPromo = !product.priceBulto || product.priceBulto === 0;
+  const isFreeOrPromo = !unitPrice || unitPrice === 0;
 
   const whatsappMessage = encodeURIComponent(
     `Hola G.P.S Distribuciones! Quisiera consultar por la oferta: ${product.name} (${product.description || ''})`
@@ -28,7 +30,9 @@ export default function ProductCard({ product }) {
         {product.badgeText && (
           <div className="absolute top-3 left-3 z-10">
             <span className={`inline-flex items-center gap-1 text-[11px] font-extrabold px-2.5 py-1 rounded-lg uppercase tracking-tight shadow-xs ${
-              product.badgeType === 'hot'
+              product.badgeType === 'unilever' || product.badgeType === 'purple' || (product.badgeText && product.badgeText.toUpperCase().includes('UNILEVER'))
+                ? 'bg-purple-600 hover:bg-purple-500 text-white shadow-md shadow-purple-600/30 ring-1 ring-purple-300/40'
+                : product.badgeType === 'hot'
                 ? 'bg-rose-500 text-white'
                 : 'bg-amber-400 text-amber-950'
             }`}>
@@ -38,16 +42,34 @@ export default function ProductCard({ product }) {
           </div>
         )}
 
-        {/* Product Image */}
-        <img
-          src={product.image}
-          alt={product.name}
-          loading="lazy"
-          className="max-h-44 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-          onError={(e) => {
-            e.target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=80";
-          }}
-        />
+        {/* Product Image(s) */}
+        {product.images && product.images.length > 1 ? (
+          <div className={`grid gap-1.5 w-full px-2 h-44 ${product.images.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
+            {product.images.map((src, i) => (
+              <div key={i} className="relative w-full h-full">
+                <img
+                  src={src}
+                  alt={`${product.name} variante ${i + 1}`}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                  onError={(e) => {
+                    e.target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=80";
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <img
+            src={product.image}
+            alt={product.name}
+            loading="lazy"
+            className="max-h-44 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            onError={(e) => {
+              e.target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=80";
+            }}
+          />
+        )}
 
         {/* Category Tag pill */}
         <div className="absolute bottom-2 left-3">
@@ -55,23 +77,49 @@ export default function ProductCard({ product }) {
             {product.tag || product.categoria || product.categoryLabel}
           </span>
         </div>
+
+        {/* Gift product thumbnail */}
+        {product.giftImage && (
+          <div className="absolute bottom-2 right-2 flex flex-col items-center gap-0.5 max-w-[72px]">
+            <span className="text-[9px] font-extrabold text-rose-600 uppercase tracking-tight leading-none">🎁 Regalo</span>
+            <div className="w-16 h-16 rounded-xl border-2 border-rose-400 bg-white shadow-md overflow-hidden flex items-center justify-center">
+              <img
+                src={product.giftImage}
+                alt={product.giftName || "Producto de regalo"}
+                loading="lazy"
+                className="w-full h-full object-contain p-0.5"
+              />
+            </div>
+          </div>
+        )}
       </div>
 
       {/* ── DETAILS AREA (flex-1 so price stays at bottom) ─────────── */}
       <div className="p-4 flex flex-col flex-1 space-y-3">
 
+        {/* Brand label */}
+        {product.brandLabel && (
+          <div className="inline-flex items-center gap-1.5 self-start px-2.5 py-1 rounded-full bg-blue-600 text-white text-[10px] font-extrabold uppercase tracking-wider shadow-sm">
+            <span>⭐</span>
+            <span>{product.brandLabel}</span>
+          </div>
+        )}
+
         {/* Title */}
-        <h3 className="font-bold text-slate-900 text-base leading-snug group-hover:text-blue-700 transition-colors line-clamp-2 min-h-[2.75rem]">
+        <h3 className="font-bold text-slate-900 text-base leading-snug group-hover:text-blue-700 transition-colors">
           {product.name}
+          {product.giftName && (
+            <span className="block text-xs font-semibold text-rose-600 mt-0.5">
+              + {product.giftName} de regalo
+            </span>
+          )}
         </h3>
 
-        {/* Description for priced products / spacer for promos */}
-        {!isFreeOrPromo ? (
+        {/* Description for priced products */}
+        {product.description && !isFreeOrPromo && (
           <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
             {product.description}
           </p>
-        ) : (
-          <div className="flex-1" />
         )}
 
         {/* MOQ BOX */}
@@ -89,25 +137,25 @@ export default function ProductCard({ product }) {
               </div>
             </div>
             <span className="text-[10px] font-bold text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded shrink-0 whitespace-nowrap">
-              {product.bultoUnits > 1 ? 'Bulto Cerrado' : 'Promo'}
+              {product.bultoUnits > 1 ? `${product.bultoUnits} Unidades` : 'Promo'}
             </span>
           </div>
 
           <div className="mt-1.5 pt-1.5 border-t border-blue-100 flex items-center justify-between gap-2 text-[11px] text-blue-900">
             <span className="text-blue-700 shrink-0">
-              {isFreeOrPromo ? 'Condición:' : 'Rendimiento:'}
+              {isFreeOrPromo ? 'Condición:' : 'Presentación:'}
             </span>
             <span className="font-bold text-blue-950 text-right">
               {isFreeOrPromo
                 ? product.description
-                : `$${unitPrice.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} c/u`
+                : (product.description || `${product.bultoUnits} unidades`)
               }
             </span>
           </div>
         </div>
 
-        {/* PRICE BOX */}
-        <div className="pt-1">
+        {/* PRICE BOX - SIEMPRE FIJADO ARRIBA DEL BOTON CON mt-auto */}
+        <div className="mt-auto pt-2">
           {isFreeOrPromo ? (
             <div className="bg-rose-50/80 border border-rose-200 rounded-xl p-2.5 flex items-center justify-between">
               <div>
@@ -124,15 +172,15 @@ export default function ProductCard({ product }) {
             </div>
           ) : (
             <div>
-              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                Precio Mayorista:
+              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
+                Precio por Unidad:
               </span>
               <div className="flex items-baseline gap-1.5 mt-0.5">
                 <span className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
-                  ${product.priceBulto.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  ${unitPrice.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
                 <span className="text-xs font-bold text-slate-500">
-                  / bulto
+                  c/u
                 </span>
               </div>
             </div>

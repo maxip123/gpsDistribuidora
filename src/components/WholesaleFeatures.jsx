@@ -12,6 +12,15 @@ export default function WholesaleFeatures() {
     <section className="w-full max-w-full overflow-hidden bg-slate-100/70 border-t border-slate-200 py-8 sm:py-12 px-3 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10">
         
+        {/* Banner informativo de ofertas */}
+        <div className="w-full rounded-2xl bg-gradient-to-r from-red-600 via-red-600 to-red-500 py-4 px-6 text-center shadow-md border border-red-500/30">
+          <p className="text-white text-sm sm:text-base md:text-lg font-semibold leading-relaxed">
+            Ofertas válidas durante la semana de promoción.
+            <br />
+            Sujetas a disponibilidad de stock al momento de la compra.
+          </p>
+        </div>
+
         {/* 3 Pillars */}
         <div>
           <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8 px-2">
