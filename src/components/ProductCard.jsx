@@ -1,12 +1,16 @@
 import React from 'react';
 import { 
-  Package,
   MessageCircle,
   Sparkles
 } from 'lucide-react';
 import { STORE_CONFIG } from '../data/catalog';
+import ComboCard from './ComboCard';
 
 export default function ProductCard({ product }) {
+  if (product.isCombo) {
+    return <ComboCard product={product} />;
+  }
+
   // Price calculations
   const unitPrice = product.unitPrice || product.precio || (
     product.bultoUnits > 0 && product.priceBulto > 0
@@ -30,11 +34,11 @@ export default function ProductCard({ product }) {
         {product.badgeText && (
           <div className="absolute top-3 left-3 z-10">
             <span className={`inline-flex items-center gap-1 text-[11px] font-extrabold px-2.5 py-1 rounded-lg uppercase tracking-tight shadow-xs ${
-              product.badgeType === 'unilever' || product.badgeType === 'purple' || (product.badgeText && product.badgeText.toUpperCase().includes('UNILEVER'))
+              product.badgeType === 'unilever' || product.badgeType === 'purple' || (product.badgeText && (product.badgeText.toUpperCase().includes('UNILEVER') || product.badgeText.toUpperCase().includes('ESPECIAL')))
                 ? 'bg-purple-600 hover:bg-purple-500 text-white shadow-md shadow-purple-600/30 ring-1 ring-purple-300/40'
                 : product.badgeType === 'hot'
                 ? 'bg-rose-500 text-white'
-                : 'bg-amber-400 text-amber-950'
+                : 'bg-amber-400 text-amber-950 shadow-xs'
             }`}>
               <Sparkles className="w-3 h-3" />
               {product.badgeText}
@@ -115,43 +119,14 @@ export default function ProductCard({ product }) {
           )}
         </h3>
 
-        {/* Description for priced products */}
-        {product.description && !isFreeOrPromo && (
-          <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed">
-            {product.description}
-          </p>
-        )}
-
-        {/* MOQ BOX */}
-        <div className="bg-blue-50/70 border-2 border-blue-200/80 rounded-xl p-2.5">
-          <div className="flex items-start justify-between gap-2">
-            <div className="flex items-start gap-1.5">
-              <Package className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-              <div>
-                <span className="text-[10px] font-extrabold text-blue-950 uppercase tracking-tight leading-tight block">
-                  Mínimo de compra
-                </span>
-                <span className="text-[11px] font-bold text-blue-800 leading-tight block">
-                  {product.bultoUnitLabel}
-                </span>
-              </div>
-            </div>
-            <span className="text-[10px] font-bold text-blue-700 bg-blue-100 px-1.5 py-0.5 rounded shrink-0 whitespace-nowrap">
-              {product.bultoUnits > 1 ? `${product.bultoUnits} Unidades` : 'Promo'}
-            </span>
-          </div>
-
-          <div className="mt-1.5 pt-1.5 border-t border-blue-100 flex items-center justify-between gap-2 text-[11px] text-blue-900">
-            <span className="text-blue-700 shrink-0">
-              {isFreeOrPromo ? 'Condición:' : 'Presentación:'}
-            </span>
-            <span className="font-bold text-blue-950 text-right">
-              {isFreeOrPromo
-                ? product.description
-                : (product.description || `${product.bultoUnits} unidades`)
-              }
-            </span>
-          </div>
+        {/* CONDICION - Recuadro light blue estilizado */}
+        <div className="bg-blue-50/80 border border-blue-200/90 rounded-xl p-2.5 flex items-center justify-between gap-2 text-xs sm:text-[13px]">
+          <span className="font-bold text-blue-700 shrink-0">
+            Condición:
+          </span>
+          <span className="font-black text-blue-950 tracking-tight text-right uppercase">
+            {product.condicion || product.descripcion || product.description}
+          </span>
         </div>
 
         {/* PRICE BOX - SIEMPRE FIJADO ARRIBA DEL BOTON CON mt-auto */}

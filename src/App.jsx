@@ -30,7 +30,9 @@ export default function App() {
         (product.descripcion && product.descripcion.toLowerCase().includes(query)) ||
         (product.categoryLabel && product.categoryLabel.toLowerCase().includes(query)) ||
         (product.categoria && product.categoria.toLowerCase().includes(query)) ||
-        (product.tag && product.tag.toLowerCase().includes(query));
+        (product.tag && product.tag.toLowerCase().includes(query)) ||
+        (product.searchKeywords && product.searchKeywords.toLowerCase().includes(query)) ||
+        (product.comboIncludes && product.comboIncludes.some(item => item.name.toLowerCase().includes(query)));
 
       return matchesCategory && matchesSearch;
     });
