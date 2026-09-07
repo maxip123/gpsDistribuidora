@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import Navbar from './components/Navbar';
 import HeroDeals from './components/HeroDeals';
+import DailyOffersCarousel from './components/DailyOffersCarousel';
 import ProductGrid from './components/ProductGrid';
 import WholesaleFeatures from './components/WholesaleFeatures';
 import Footer from './components/Footer';
@@ -75,10 +76,14 @@ export default function App() {
         
         {/* Weekly Offers Hero Spotlight (Shown when no search is active) */}
         {!searchQuery && (selectedCategory === 'todas' || selectedCategory === 'ofertas') && (
-          <HeroDeals
-            onExploreClick={handleScrollToCatalog}
-            totalOffersCount={totalOffersCount}
-          />
+          <>
+            <HeroDeals
+              onExploreClick={handleScrollToCatalog}
+              totalOffersCount={totalOffersCount}
+            />
+            {/* Daily Offers Carousel (07 al 13 de Septiembre) */}
+            <DailyOffersCarousel />
+          </>
         )}
 
         {/* Product Catalog Grid with 5-row Pagination */}

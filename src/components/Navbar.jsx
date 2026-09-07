@@ -14,7 +14,8 @@ import {
   BookOpen, 
   X,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  Zap
 } from 'lucide-react';
 import { STORE_CONFIG, CATEGORIES } from '../data/catalog';
 import logoImg from '../assets/logo.jpg';
@@ -208,6 +209,24 @@ export default function Navbar({
             ref={scrollContainerRef}
             className="flex items-center gap-1.5 overflow-x-auto no-scrollbar scroll-smooth py-1 px-3 w-full"
           >
+            {/* Direct button to Daily Offers Carousel */}
+            <button
+              onClick={() => {
+                const el = document.getElementById('ofertas-diarias');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs md:text-sm font-semibold bg-amber-50 text-amber-900 hover:bg-amber-100 border border-amber-300 transition-all shrink-0 cursor-pointer shadow-2xs"
+              title="Ver Ofertas Diarias de la Semana"
+            >
+              <Zap className="w-3.5 h-3.5 text-amber-600 fill-amber-500 shrink-0" />
+              <span>Ofertas Diarias</span>
+              <span className="text-[10px] font-bold uppercase px-1.5 py-0.2 rounded-md bg-amber-200 text-amber-900">
+                07-12 SEP
+              </span>
+            </button>
+
             {CATEGORIES.map((cat) => {
               const Icon = categoryIcons[cat.icon] || Sparkles;
               const isSelected = selectedCategory === cat.id;

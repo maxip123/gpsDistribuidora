@@ -8,7 +8,8 @@ import {
 } from 'lucide-react';
 
 export default function HeroDeals({ 
-  totalOffersCount 
+  totalOffersCount,
+  onExploreClick 
 }) {
   return (
     <div className="relative w-full max-w-full overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 text-white py-6 sm:py-8 md:py-10 px-3 sm:px-6 lg:px-8 border-b border-slate-700/50">
@@ -55,6 +56,29 @@ export default function HeroDeals({
               <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-400 shrink-0" />
               <span className="font-semibold text-white">{totalOffersCount} Ofertas</span>
             </div>
+          </div>
+
+          {/* Action buttons */}
+          <div className="flex flex-wrap items-center gap-2.5 pt-2">
+            <button
+              onClick={() => {
+                const el = document.getElementById('ofertas-diarias');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm transition-all active:scale-95 cursor-pointer shadow-2xs"
+            >
+              <Flame className="w-4 h-4 fill-slate-950 text-slate-950" />
+              <span>Promos del Día (07 al 12 SEP)</span>
+            </button>
+
+            {onExploreClick && (
+              <button
+                onClick={onExploreClick}
+                className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-slate-800/90 hover:bg-slate-700 border border-slate-700 text-slate-200 hover:text-white text-xs sm:text-sm font-semibold transition cursor-pointer"
+              >
+                <span>Explorar Catálogo</span>
+              </button>
+            )}
           </div>
 
         </div>
