@@ -18,9 +18,10 @@ export const STORE_CONFIG = {
   minOrderAmount: 50000
 };
 
-// Una sola categoría activa: Ofertas de la Semana
+// Categorías activas
 const RAW_CATEGORIES = [
   { id: "ofertas", name: "Ofertas de la Semana", icon: "Flame", color: "text-rose-500" },
+  { id: "nuevo-ingreso", name: "Nuevo Ingreso", sectionTitle: "Toallas Húmedas Daddy", icon: "Sparkles", color: "text-amber-500" },
 ];
 
 export const PRODUCTS = [
@@ -403,12 +404,89 @@ export const PRODUCTS = [
     badgeType: "purple",
     image: "/ilovepdf_images-extracted07/img296.jpg",
     isWeeklyOffer: true
+  },
+  // ── NUEVOS INGRESOS: TOALLAS HÚMEDAS DADDY ──────────────────────
+  {
+    id: 17,
+    cod: "DODDY-SENS-96",
+    nombre: "Toallas Húmedas Doddy Piel Sensible",
+    name: "Toallas Húmedas Doddy Piel Sensible",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Bebés",
+    category: "nuevo-ingreso",
+    categoryLabel: "Nuevo Ingreso",
+    tag: "Toallas Húmedas",
+    badgeText: "NUEVO INGRESO",
+    badgeType: "new",
+    image: "/Daddy/WhatsApp Image 2026-09-07 at 3.52.41 PM.jpeg",
+    noPrice: true,
+    searchKeywords: "toallas toallitas humedas daddy doddy piel sensible bebes nuevo ingreso"
+  },
+  {
+    id: 18,
+    cod: "DODDY-MANZ-96",
+    nombre: "Toallas Húmedas Doddy Manzanilla",
+    name: "Toallas Húmedas Doddy Manzanilla",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Bebés",
+    category: "nuevo-ingreso",
+    categoryLabel: "Nuevo Ingreso",
+    tag: "Toallas Húmedas",
+    badgeText: "NUEVO INGRESO",
+    badgeType: "new",
+    image: "/Daddy/WhatsApp Image 2026-09-07 at 3.53.01 PM.jpeg",
+    noPrice: true,
+    searchKeywords: "toallas toallitas humedas daddy doddy manzanilla bebes nuevo ingreso"
+  },
+  {
+    id: 19,
+    cod: "DODDY-ALOE-96",
+    nombre: "Toallas Húmedas Doddy Aloe Vera",
+    name: "Toallas Húmedas Doddy Aloe Vera",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Bebés",
+    category: "nuevo-ingreso",
+    categoryLabel: "Nuevo Ingreso",
+    tag: "Toallas Húmedas",
+    badgeText: "NUEVO INGRESO",
+    badgeType: "new",
+    image: "/Daddy/WhatsApp Image 2026-09-07 at 3.53.28 PM.jpeg",
+    noPrice: true,
+    searchKeywords: "toallas toallitas humedas daddy doddy aloe vera bebes nuevo ingreso"
+  },
+  {
+    id: 20,
+    cod: "DODDY-VITE-96",
+    nombre: "Toallas Húmedas Doddy Vitamina E",
+    name: "Toallas Húmedas Doddy Vitamina E",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Bebés",
+    category: "nuevo-ingreso",
+    categoryLabel: "Nuevo Ingreso",
+    tag: "Toallas Húmedas",
+    badgeText: "NUEVO INGRESO",
+    badgeType: "new",
+    image: "/Daddy/WhatsApp Image 2026-09-07 at 3.54.17 PM.jpeg",
+    noPrice: true,
+    searchKeywords: "toallas toallitas humedas daddy doddy vitamina e bebes nuevo ingreso"
   }
 ];
 
+export const NEW_ARRIVALS = PRODUCTS.filter(p => p.category === 'nuevo-ingreso');
+
 export const CATEGORIES = RAW_CATEGORIES.map(cat => ({
   ...cat,
-  count: PRODUCTS.length
+  count: cat.id === 'nuevo-ingreso'
+    ? PRODUCTS.filter(p => p.category === 'nuevo-ingreso').length
+    : PRODUCTS.filter(p => p.category !== 'nuevo-ingreso').length
 }));
 
 

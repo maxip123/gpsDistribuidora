@@ -76,6 +76,21 @@ export default function Navbar({
   };
 
   const handleCategoryClick = (catId, e) => {
+    if (catId === 'nuevo-ingreso') {
+      const el = document.getElementById('nuevos-ingresos');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+      if (e?.currentTarget) {
+        e.currentTarget.scrollIntoView({
+          behavior: 'smooth',
+          inline: 'center',
+          block: 'nearest'
+        });
+      }
+      return;
+    }
+
     onSelectCategory(catId);
     if (e?.currentTarget) {
       e.currentTarget.scrollIntoView({
@@ -231,6 +246,7 @@ export default function Navbar({
               const Icon = categoryIcons[cat.icon] || Sparkles;
               const isSelected = selectedCategory === cat.id;
               const isOffersTab = cat.id === "todas" || cat.id === "ofertas";
+              const isNewArrival = cat.id === "nuevo-ingreso";
 
               return (
                 <button
@@ -240,25 +256,33 @@ export default function Navbar({
                     isSelected
                       ? isOffersTab
                         ? 'bg-rose-600 text-white shadow-xs scale-[1.02]'
+                        : isNewArrival
+                        ? 'bg-amber-400 text-amber-950 shadow-xs scale-[1.02]'
                         : 'bg-blue-600 text-white shadow-xs scale-[1.02]'
                       : isOffersTab
                       ? 'bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200 hover:border-rose-300'
+                      : isNewArrival
+                      ? 'bg-amber-50 text-amber-900 hover:bg-amber-100 border border-amber-300 hover:border-amber-400'
                       : 'bg-white text-slate-700 hover:text-slate-950 hover:bg-slate-100 border border-slate-200/80 hover:border-slate-300'
                   }`}
                 >
                   <Icon className={`w-3.5 h-3.5 shrink-0 ${
                     isSelected 
-                      ? 'text-white' 
+                      ? isNewArrival ? 'text-amber-950 fill-amber-950/20' : 'text-white' 
                       : isOffersTab 
                       ? 'text-rose-600' 
+                      : isNewArrival
+                      ? 'text-amber-600'
                       : cat.color
                   }`} />
                   <span>{cat.name}</span>
                   <span className={`text-[10px] font-extrabold px-1.5 py-0.2 rounded-full shrink-0 ${
                     isSelected
-                      ? 'bg-white/20 text-white'
+                      ? isNewArrival ? 'bg-amber-950/15 text-amber-950' : 'bg-white/20 text-white'
                       : isOffersTab
                       ? 'bg-rose-200/70 text-rose-900'
+                      : isNewArrival
+                      ? 'bg-amber-200 text-amber-900'
                       : 'bg-slate-100 text-slate-600'
                   }`}>
                     {cat.count}

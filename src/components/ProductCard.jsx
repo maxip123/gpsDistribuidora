@@ -21,20 +21,24 @@ export default function ProductCard({ product }) {
   const isFreeOrPromo = !unitPrice || unitPrice === 0;
 
   const whatsappMessage = encodeURIComponent(
-    `Hola G.P.S Distribuciones! Quisiera consultar por la oferta: ${product.name} (${product.description || ''})`
+    product.noPrice
+      ? `Hola G.P.S Distribuciones! Quisiera consultar por el nuevo ingreso: ${product.name}`
+      : `Hola G.P.S Distribuciones! Quisiera consultar por la oferta: ${product.name} (${product.description || ''})`
   );
 
   return (
     <div className="group relative bg-white rounded-2xl border border-slate-200/90 hover:border-blue-400/80 hover:shadow-xl transition-all duration-200 flex flex-col overflow-hidden">
 
       {/* ── IMAGE AREA ─────────────────────────────────────────────── */}
-      <div className="relative bg-slate-50 p-4 border-b border-slate-100 flex items-center justify-center overflow-hidden h-52">
+      <div className={`relative bg-slate-50 p-4 border-b border-slate-100 flex items-center justify-center overflow-hidden ${product.noPrice ? 'h-48' : 'h-52'}`}>
 
         {/* Badge */}
         {product.badgeText && (
           <div className="absolute top-3 left-3 z-10">
             <span className={`inline-flex items-center gap-1 text-[11px] font-extrabold px-2.5 py-1 rounded-lg uppercase tracking-tight shadow-xs ${
-              product.badgeType === 'unilever' || product.badgeType === 'purple' || (product.badgeText && (product.badgeText.toUpperCase().includes('UNILEVER') || product.badgeText.toUpperCase().includes('ESPECIAL')))
+              product.badgeType === 'new' || (product.badgeText && product.badgeText.toUpperCase().includes('NUEVO'))
+                ? 'bg-amber-400 text-amber-950 font-black shadow-md shadow-amber-400/25 border border-amber-300'
+                : product.badgeType === 'unilever' || product.badgeType === 'purple' || (product.badgeText && (product.badgeText.toUpperCase().includes('UNILEVER') || product.badgeText.toUpperCase().includes('ESPECIAL')))
                 ? 'bg-purple-600 hover:bg-purple-500 text-white shadow-md shadow-purple-600/30 ring-1 ring-purple-300/40'
                 : product.badgeType === 'hot'
                 ? 'bg-rose-500 text-white'
@@ -119,58 +123,62 @@ export default function ProductCard({ product }) {
           )}
         </h3>
 
-        {/* CONDICION - Recuadro light blue estilizado */}
-        <div className="bg-blue-50/80 border border-blue-200/90 rounded-xl p-2.5 flex items-center justify-between gap-2 text-xs sm:text-[13px]">
-          <span className="font-bold text-blue-700 shrink-0">
-            Condición:
-          </span>
-          <span className="font-black text-blue-950 tracking-tight text-right uppercase">
-            {product.condicion || product.descripcion || product.description}
-          </span>
-        </div>
+        {/* CONDICION - Recuadro light blue estilizado (solo si tiene condición) */}
+        {(product.condicion || product.descripcion || product.description) && (
+          <div className="bg-blue-50/80 border border-blue-200/90 rounded-xl p-2.5 flex items-center justify-between gap-2 text-xs sm:text-[13px]">
+            <span className="font-bold text-blue-700 shrink-0">
+              Condición:
+            </span>
+            <span className="font-black text-blue-950 tracking-tight text-right uppercase">
+              {product.condicion || product.descripcion || product.description}
+            </span>
+          </div>
+        )}
 
-        {/* PRICE BOX - SIEMPRE FIJADO ARRIBA DEL BOTON CON mt-auto */}
-        <div className="mt-auto pt-2">
-          {isFreeOrPromo ? (
-            <div className="bg-rose-50/80 border border-rose-200 rounded-xl p-2.5 flex items-center justify-between">
+        {/* PRICE BOX - SIEMPRE FIJADO ARRIBA DEL BOTON CON mt-auto (solo si tiene precio) */}
+        {!product.noPrice && (
+          <div className="mt-auto pt-2">
+            {isFreeOrPromo ? (
+              <div className="bg-rose-50/80 border border-rose-200 rounded-xl p-2.5 flex items-center justify-between">
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-rose-600 block">
+                    Promoción Especial
+                  </span>
+                  <span className="text-lg font-extrabold text-rose-950">
+                    Consultar Precio
+                  </span>
+                </div>
+                <span className="bg-rose-600 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-lg shadow-2xs">
+                  PROMO
+                </span>
+              </div>
+            ) : (
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-rose-600 block">
-                  Promoción Especial
+                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
+                  Precio por Unidad:
                 </span>
-                <span className="text-lg font-extrabold text-rose-950">
-                  Consultar Precio
-                </span>
+                <div className="flex items-baseline gap-1.5 mt-0.5">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
+                    ${unitPrice.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </span>
+                  <span className="text-xs font-bold text-slate-500">
+                    c/u
+                  </span>
+                </div>
               </div>
-              <span className="bg-rose-600 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-lg shadow-2xs">
-                PROMO
-              </span>
-            </div>
-          ) : (
-            <div>
-              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
-                Precio por Unidad:
-              </span>
-              <div className="flex items-baseline gap-1.5 mt-0.5">
-                <span className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
-                  ${unitPrice.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                </span>
-                <span className="text-xs font-bold text-slate-500">
-                  c/u
-                </span>
-              </div>
-            </div>
-          )}
-        </div>
+            )}
+          </div>
+        )}
 
       </div>
 
       {/* ── WHATSAPP BUTTON ─────────────────────────────────────────── */}
-      <div className="p-4 pt-0">
+      <div className={`p-4 pt-0 ${product.noPrice ? 'mt-auto' : ''}`}>
         <a
           href={`https://wa.me/${STORE_CONFIG.phoneRaw}?text=${whatsappMessage}`}
           target="_blank"
           rel="noreferrer"
-          className="w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-emerald-700 text-white font-bold py-2 px-3 rounded-xl text-xs transition-colors duration-200 shadow-2xs"
+          className="w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-emerald-700 text-white font-bold py-2.5 px-3 rounded-xl text-xs transition-colors duration-200 shadow-2xs"
         >
           <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
           <span>Consultar por WhatsApp</span>

@@ -4,26 +4,25 @@ import HeroDeals from './components/HeroDeals';
 import DailyOffersCarousel from './components/DailyOffersCarousel';
 import ProductGrid from './components/ProductGrid';
 import WholesaleFeatures from './components/WholesaleFeatures';
+import NewArrivalsSection from './components/NewArrivalsSection';
 import Footer from './components/Footer';
-import { CATEGORIES, PRODUCTS } from './data/catalog';
+import { CATEGORIES, PRODUCTS, NEW_ARRIVALS } from './data/catalog';
 
 export default function App() {
   const [selectedCategory, setSelectedCategory] = useState('ofertas');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Filter products based on Category and Search Query
+  // Filter products based on Search Query (El catálogo principal siempre mapea las ofertas)
   const filteredProducts = useMemo(() => {
     return PRODUCTS.filter((product) => {
-      // Category filter
-      const matchesCategory =
-        selectedCategory === 'todas' ||
-        selectedCategory === 'ofertas' ||
-        product.category === selectedCategory;
+      // Los nuevos ingresos tienen su sección dedicada abajo del catálogo
+      if (product.category === 'nuevo-ingreso') return false;
 
       // Search filter (name, description, COD, tag, category)
       const query = searchQuery.toLowerCase().trim();
-      const matchesSearch =
-        !query ||
+      if (!query) return true;
+
+      return (
         (product.name && product.name.toLowerCase().includes(query)) ||
         (product.nombre && product.nombre.toLowerCase().includes(query)) ||
         (product.cod && product.cod.toLowerCase().includes(query)) ||
@@ -32,16 +31,14 @@ export default function App() {
         (product.categoryLabel && product.categoryLabel.toLowerCase().includes(query)) ||
         (product.categoria && product.categoria.toLowerCase().includes(query)) ||
         (product.tag && product.tag.toLowerCase().includes(query)) ||
-        (product.searchKeywords && product.searchKeywords.toLowerCase().includes(query)) ||
-        (product.comboIncludes && product.comboIncludes.some(item => item.name.toLowerCase().includes(query)));
-
-      return matchesCategory && matchesSearch;
+        (product.searchKeywords && product.searchKeywords.toLowerCase().includes(query))
+      );
     });
-  }, [selectedCategory, searchQuery]);
+  }, [searchQuery]);
 
   // Total catalog offers count
   const totalOffersCount = useMemo(() => {
-    return PRODUCTS.length;
+    return PRODUCTS.filter(p => p.category === 'ofertas').length;
   }, []);
 
   // Current category metadata
@@ -66,6 +63,11 @@ export default function App() {
         onSelectCategory={(catId) => {
           setSelectedCategory(catId);
           if (searchQuery) setSearchQuery('');
+          if (catId === 'nuevo-ingreso') {
+            setTimeout(() => {
+              handleScrollToCatalog();
+            }, 100);
+          }
         }}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
@@ -94,6 +96,9 @@ export default function App() {
           searchQuery={searchQuery}
           onClearSearch={() => setSearchQuery('')}
         />
+
+        {/* Nuevos Ingresos Section (Toallas Húmedas Daddy) - Abajo del catálogo */}
+        <NewArrivalsSection products={NEW_ARRIVALS} />
 
         {/* Wholesale Features */}
         <WholesaleFeatures />

@@ -27,6 +27,7 @@ const categoryIcons = {
   bazar: ShoppingBag,
   todas: Flame,
   ofertas: Flame,
+  'nuevo-ingreso': Sparkles,
 };
 
 // Responsive items per page: exactly 10 rows on all screen widths
@@ -137,7 +138,9 @@ export default function ProductGrid({
           {/* Title & Count */}
           <div className="flex items-center gap-2.5 min-w-0">
             <div className={`p-2 rounded-xl shrink-0 ${
-              selectedCategory === 'todas' || selectedCategory === 'ofertas'
+              selectedCategory === 'nuevo-ingreso'
+                ? 'bg-amber-50 text-amber-600 border border-amber-300'
+                : selectedCategory === 'todas' || selectedCategory === 'ofertas'
                 ? 'bg-rose-50 text-rose-600 border border-rose-200' 
                 : 'bg-blue-50 text-blue-600 border border-blue-200'
             }`}>
@@ -148,7 +151,7 @@ export default function ProductGrid({
                 <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight truncate">
                   {searchQuery 
                     ? `Resultados para "${searchQuery}"`
-                    : categoryData?.name || 'Catálogo de Ofertas'
+                    : 'Ofertas de la Semana'
                   }
                 </h2>
                 <span className="bg-slate-100 text-slate-700 text-[11px] sm:text-xs font-bold px-2 py-0.5 rounded-full border border-slate-200 shrink-0">
@@ -164,17 +167,19 @@ export default function ProductGrid({
           {/* Quick Toolbar / Sort Controls */}
           <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
             {/* Filter: Only Weekly Offers */}
-            <button
-              onClick={() => setOnlyWeeklyOffers(!onlyWeeklyOffers)}
-              className={`flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-colors cursor-pointer border whitespace-nowrap ${
-                onlyWeeklyOffers
-                  ? 'bg-rose-50 text-rose-700 border-rose-300 shadow-2xs'
-                  : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
-              }`}
-            >
-              <Flame className={`w-3.5 h-3.5 shrink-0 ${onlyWeeklyOffers ? 'text-rose-600' : 'text-slate-400'}`} />
-              <span>Ofertas Semanales</span>
-            </button>
+            {selectedCategory !== 'nuevo-ingreso' && (
+              <button
+                onClick={() => setOnlyWeeklyOffers(!onlyWeeklyOffers)}
+                className={`flex-1 sm:flex-none inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-colors cursor-pointer border whitespace-nowrap ${
+                  onlyWeeklyOffers
+                    ? 'bg-rose-50 text-rose-700 border-rose-300 shadow-2xs'
+                    : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
+                }`}
+              >
+                <Flame className={`w-3.5 h-3.5 shrink-0 ${onlyWeeklyOffers ? 'text-rose-600' : 'text-slate-400'}`} />
+                <span>Ofertas Semanales</span>
+              </button>
+            )}
 
             {/* Sort Dropdown */}
             <div className="flex-1 sm:flex-none inline-flex items-center justify-between sm:justify-start gap-1 bg-slate-50 border border-slate-200 rounded-xl px-2.5 py-1.5 text-xs text-slate-700">
