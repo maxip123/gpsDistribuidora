@@ -7,7 +7,9 @@ import {
   MessageCircle, 
   Play, 
   Pause,
-  Tag
+  Tag,
+  ShoppingBag,
+  ExternalLink
 } from 'lucide-react';
 import { DAILY_OFFERS } from '../data/dailyOffers';
 import { STORE_CONFIG } from '../data/catalog';
@@ -147,7 +149,7 @@ export default function DailyOffersCarousel() {
             </span>
             <div className="flex items-center gap-2">
               <h2 className="text-xs sm:text-sm font-bold text-slate-800">
-                Ofertas del Día
+                Compre Ahora
               </h2>
               <span className="text-[11px] text-slate-500 hidden sm:inline">•</span>
               <span className="text-[11px] font-medium text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200/70">
@@ -274,25 +276,53 @@ export default function DailyOffersCarousel() {
 
             </div>
 
-            {/* ACTION BUTTONS */}
-            <div className="shrink-0 flex items-center sm:flex-col gap-2 w-full sm:w-auto pt-1 sm:pt-0 sm:pl-3 sm:border-l sm:border-slate-100">
-              <a
-                href={getWhatsAppLink(activeOffer)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm transition shadow-2xs active:scale-95"
-              >
-                <MessageCircle className="w-4 h-4 fill-white" />
-                <span>Pedir Oferta</span>
-              </a>
+            {/* RIGHT SECTION: Notice & Action Buttons */}
+            <div className="shrink-0 flex flex-col md:flex-row items-center gap-3 w-full md:w-auto pt-2 md:pt-0 md:pl-4 md:border-l md:border-slate-100">
+              
+              {/* Compre Ahora info text */}
+              <div className="text-left md:text-right max-w-xs space-y-0.5 bg-slate-50 md:bg-transparent p-2.5 md:p-0 rounded-xl border md:border-0 border-slate-200/70">
+                <p className="text-xs font-semibold text-slate-800 leading-snug">
+                  Registrate en <strong className="text-[#f4364c] font-bold">Compre Ahora</strong> y accedé a ofertas exclusivas todos los días.
+                </p>
+                <p className="text-[11px] text-slate-500 leading-tight">
+                  Promociones válidas únicamente comprando desde la aplicación.
+                </p>
+              </div>
 
-              <button
-                onClick={() => setLightboxOpen(true)}
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold border border-slate-200 transition cursor-pointer"
-              >
-                <Maximize2 className="w-3.5 h-3.5" />
-                <span>Ver Flyer</span>
-              </button>
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row md:flex-col gap-2 w-full sm:w-auto shrink-0">
+                <a
+                  href="https://www.compreahora.com.ar/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-[#f4364c] hover:bg-[#e0263c] text-white font-bold text-xs sm:text-sm transition shadow-sm hover:shadow active:scale-95 whitespace-nowrap"
+                >
+                  <ShoppingBag className="w-4 h-4" />
+                  <span>Comprá Ahora</span>
+                  <ExternalLink className="w-3 h-3 opacity-75" />
+                </a>
+
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setLightboxOpen(true)}
+                    className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold border border-slate-200 transition cursor-pointer whitespace-nowrap"
+                  >
+                    <Maximize2 className="w-3.5 h-3.5" />
+                    <span>Ver Flyer</span>
+                  </button>
+
+                  <a
+                    href={getWhatsAppLink(activeOffer)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1 p-1.5 rounded-xl text-slate-500 hover:text-emerald-700 hover:bg-emerald-50 border border-transparent hover:border-emerald-200 transition"
+                    title="Consultar por WhatsApp"
+                  >
+                    <MessageCircle className="w-4 h-4 text-emerald-600" />
+                  </a>
+                </div>
+              </div>
+
             </div>
 
           </div>
@@ -358,15 +388,27 @@ export default function DailyOffersCarousel() {
                 </p>
               </div>
 
-              <a
-                href={getWhatsAppLink(activeOffer)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition"
-              >
-                <MessageCircle className="w-3.5 h-3.5 fill-white" />
-                <span>Pedir</span>
-              </a>
+              <div className="shrink-0 flex items-center gap-2">
+                <a
+                  href="https://www.compreahora.com.ar/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#f4364c] hover:bg-[#e0263c] text-white font-bold text-xs transition shadow-xs active:scale-95"
+                >
+                  <ShoppingBag className="w-3.5 h-3.5" />
+                  <span>Comprá Ahora</span>
+                </a>
+
+                <a
+                  href={getWhatsAppLink(activeOffer)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 rounded-xl text-slate-500 hover:text-emerald-700 hover:bg-emerald-50 border border-slate-200 transition"
+                  title="Consultar por WhatsApp"
+                >
+                  <MessageCircle className="w-4 h-4 text-emerald-600" />
+                </a>
+              </div>
             </div>
           </div>
         </div>

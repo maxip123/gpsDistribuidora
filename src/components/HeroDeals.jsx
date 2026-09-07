@@ -68,7 +68,7 @@ export default function HeroDeals({
               className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm transition-all active:scale-95 cursor-pointer shadow-2xs"
             >
               <Flame className="w-4 h-4 fill-slate-950 text-slate-950" />
-              <span>Promos del Día (07 al 12 SEP)</span>
+              <span>Ofertas Compre Ahora (07 al 12 SEP)</span>
             </button>
 
             {onExploreClick && (

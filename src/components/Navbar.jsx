@@ -218,10 +218,10 @@ export default function Navbar({
                 }
               }}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs md:text-sm font-semibold bg-amber-50 text-amber-900 hover:bg-amber-100 border border-amber-300 transition-all shrink-0 cursor-pointer shadow-2xs"
-              title="Ver Ofertas Diarias de la Semana"
+              title="Ver Ofertas Compre Ahora"
             >
               <Zap className="w-3.5 h-3.5 text-amber-600 fill-amber-500 shrink-0" />
-              <span>Ofertas Diarias</span>
+              <span>Ofertas Compre Ahora</span>
               <span className="text-[10px] font-bold uppercase px-1.5 py-0.2 rounded-md bg-amber-200 text-amber-900">
                 07-12 SEP
               </span>
