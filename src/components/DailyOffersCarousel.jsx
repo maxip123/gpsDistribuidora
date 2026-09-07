@@ -147,13 +147,16 @@ export default function DailyOffersCarousel() {
             <span className="p-1 rounded-md bg-rose-50 text-rose-600 border border-rose-200/60">
               <Tag className="w-3.5 h-3.5" />
             </span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
               <h2 className="text-xs sm:text-sm font-bold text-slate-800">
                 Compre Ahora
               </h2>
-              <span className="text-[11px] text-slate-500 hidden sm:inline">•</span>
-              <span className="text-[11px] font-medium text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200/70">
+              <span className="text-[11px] text-slate-400 hidden sm:inline">•</span>
+              <span className="text-[11px] font-medium text-slate-600 bg-white px-2 py-0.5 rounded border border-slate-200/70">
                 07 al 12 de Septiembre
+              </span>
+              <span className="text-[11px] font-semibold text-rose-700 bg-rose-50 px-2 py-0.5 rounded border border-rose-200/70">
+                Únicamente para clientes
               </span>
             </div>
           </div>
