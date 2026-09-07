@@ -149,7 +149,7 @@ export default function DailyOffersCarousel() {
             </span>
             <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
               <h2 className="text-xs sm:text-sm font-bold text-slate-800">
-                Compre Ahora
+                Comprá Ahora
               </h2>
               <span className="text-[11px] text-slate-400 hidden sm:inline">•</span>
               <span className="text-[11px] font-medium text-slate-600 bg-white px-2 py-0.5 rounded border border-slate-200/70">
@@ -285,7 +285,7 @@ export default function DailyOffersCarousel() {
               {/* Compre Ahora info text */}
               <div className="text-left md:text-right max-w-xs space-y-0.5 bg-slate-50 md:bg-transparent p-2.5 md:p-0 rounded-xl border md:border-0 border-slate-200/70">
                 <p className="text-xs font-semibold text-slate-800 leading-snug">
-                  Registrate en <strong className="text-[#f4364c] font-bold">Compre Ahora</strong> y accedé a ofertas exclusivas todos los días.
+                  Registrate en <strong className="text-[#f4364c] font-bold">Comprá Ahora</strong> y accedé a ofertas exclusivas todos los días.
                 </p>
                 <p className="text-[11px] text-slate-500 leading-tight">
                   Promociones válidas únicamente comprando desde la aplicación.
