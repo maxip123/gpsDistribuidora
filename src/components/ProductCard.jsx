@@ -20,6 +20,11 @@ export default function ProductCard({ product }) {
 
   const isFreeOrPromo = !unitPrice || unitPrice === 0;
 
+  const discountText = product.discount || (
+    (product.condicion || product.descripcion || product.description || '')
+      .match(/(\d+%\s*(?:DE\s*)?DESC|\d+%\s*OFF|\d+%)/i)?.[0]
+  );
+
   const whatsappMessage = encodeURIComponent(
     product.noPrice
       ? `Hola G.P.S Distribuciones! Quisiera consultar por el nuevo ingreso: ${product.name}`
@@ -155,15 +160,20 @@ export default function ProductCard({ product }) {
             ) : (
               <div>
                 <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
-                  Precio por Unidad:
+                  {product.priceLabel ? `${product.priceLabel}:` : 'Precio por Unidad:'}
                 </span>
-                <div className="flex items-baseline gap-1.5 mt-0.5">
+                <div className="flex items-baseline flex-wrap gap-1.5 mt-0.5">
                   <span className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
                     ${unitPrice.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
                   <span className="text-xs font-bold text-slate-500">
                     c/u
                   </span>
+                  {discountText && (
+                    <span className="ml-1 inline-flex items-center text-xs font-black text-rose-600 bg-rose-50 border border-rose-200/90 px-2 py-0.5 rounded-lg shadow-2xs">
+                      {discountText}
+                    </span>
+                  )}
                 </div>
               </div>
             )}

@@ -122,17 +122,19 @@ export default function ProductGrid({
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
-    const element = document.getElementById('catalogo');
+    const element = document.getElementById('ofertas-semana-header') || document.getElementById('catalogo');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navHeight = 90;
+      const y = element.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
   return (
-    <section id="catalogo" className="w-full max-w-7xl mx-auto px-3 sm:px-6 py-6 sm:py-8 overflow-hidden">
+    <section id="catalogo" className="w-full max-w-7xl mx-auto px-3 sm:px-6 py-6 sm:py-8 overflow-hidden scroll-mt-24">
       
       {/* Section Header & Filters Bar */}
-      <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-xs mb-6 w-full">
+      <div id="ofertas-semana-header" className="scroll-mt-28 bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-xs mb-6 w-full">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3.5">
           
           {/* Title & Count */}

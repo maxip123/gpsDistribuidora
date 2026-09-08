@@ -79,7 +79,9 @@ export default function Navbar({
     if (catId === 'nuevo-ingreso') {
       const el = document.getElementById('nuevos-ingresos');
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+        const navHeight = 90;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+        window.scrollTo({ top: y, behavior: 'smooth' });
       }
       if (e?.currentTarget) {
         e.currentTarget.scrollIntoView({
@@ -89,6 +91,14 @@ export default function Navbar({
         });
       }
       return;
+    }
+
+    // Al tocar Ofertas de la Semana, hacer scroll exacto al título
+    const headerEl = document.getElementById('ofertas-semana-header') || document.getElementById('catalogo');
+    if (headerEl) {
+      const navHeight = 90;
+      const y = headerEl.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
 
     onSelectCategory(catId);

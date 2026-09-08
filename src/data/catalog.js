@@ -405,6 +405,110 @@ export const PRODUCTS = [
     image: "/ilovepdf_images-extracted07/img296.jpg",
     isWeeklyOffer: true
   },
+  // ── REXONA ANTITRANSPIRANTE ──────────────────────────────────────
+  {
+    id: 21,
+    cod: "REX-AER-150",
+    nombre: "Rexona 150ml W/M Antitranspirante",
+    name: "Rexona 150ml W/M Antitranspirante",
+    precio: 3486.16,
+    unitPrice: 3486.16,
+    priceLabel: "Precio Base",
+    discount: "5% DESC",
+    categoria: "Cuidado Personal",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    tag: "Cuidado Personal",
+    condicion: "COMPRA 6U O MÁS CON 5% DESC",
+    descripcion: "COMPRA 6U O MÁS CON 5% DESC",
+    description: "COMPRA 6U O MÁS CON 5% DESC",
+    badgeText: "REXONA",
+    badgeType: "savings",
+    image: "/ilovepdf_images-extracted07/img279.jpg",
+    images: [
+      "/ilovepdf_images-extracted07/img279.jpg",
+      "/ilovepdf_images-extracted07/img278.jpg"
+    ],
+    isWeeklyOffer: true
+  },
+  // ── DOVE SH/AC ───────────────────────────────────────────────────
+  {
+    id: 22,
+    cod: "DOV-SHAC-180",
+    nombre: "Dove SH/AC 180ml",
+    name: "Dove SH/AC 180ml",
+    precio: 2559.76,
+    unitPrice: 2559.76,
+    priceLabel: "Precio Base",
+    discount: "15% DESC",
+    categoria: "Cuidado Personal",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    tag: "Cuidado Personal",
+    condicion: "COMPRA 24U O MÁS CON 15% DESC",
+    descripcion: "COMPRA 24U O MÁS CON 15% DESC",
+    description: "COMPRA 24U O MÁS CON 15% DESC",
+    badgeText: "DOVE",
+    badgeType: "savings",
+    image: "/ilovepdf_images-extracted07/img284.jpg",
+    images: [
+      "/ilovepdf_images-extracted07/img284.jpg",
+      "/ilovepdf_images-extracted07/img281.jpg"
+    ],
+    isWeeklyOffer: true
+  },
+  // ── SEDAL SH/AC DP ───────────────────────────────────────────────
+  {
+    id: 23,
+    cod: "SED-SHAC-620DP",
+    nombre: "Sedal SH/AC 620ml DP",
+    name: "Sedal SH/AC 620ml DP",
+    precio: 4345.29,
+    unitPrice: 4345.29,
+    priceLabel: "Precio Base",
+    discount: "15% DESC",
+    categoria: "Cuidado Personal",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    tag: "Cuidado Personal",
+    condicion: "COMPRA 4U O MÁS 15% DESC",
+    descripcion: "COMPRA 4U O MÁS 15% DESC",
+    description: "COMPRA 4U O MÁS 15% DESC",
+    badgeText: "SEDAL",
+    badgeType: "savings",
+    image: "/ilovepdf_images-extracted07/img287.jpg",
+    images: [
+      "/ilovepdf_images-extracted07/img287.jpg",
+      "/ilovepdf_images-extracted07/img288.jpg"
+    ],
+    isWeeklyOffer: true
+  },
+  // ── REXONA JABÓN ─────────────────────────────────────────────────
+  {
+    id: 24,
+    cod: "REX-JAB-120",
+    nombre: "Rexona Jabón 120gr",
+    name: "Rexona Jabón 120gr",
+    precio: 967.05,
+    unitPrice: 967.05,
+    priceLabel: "Precio Base",
+    discount: "9% DESC",
+    categoria: "Cuidado Personal",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    tag: "Cuidado Personal",
+    condicion: "COMPRA 36U O MÁS CON 9% DE DESC",
+    descripcion: "COMPRA 36U O MÁS CON 9% DE DESC",
+    description: "COMPRA 36U O MÁS CON 9% DE DESC",
+    badgeText: "REXONA",
+    badgeType: "savings",
+    image: "/ilovepdf_images-extracted07/img275.jpg",
+    images: [
+      "/ilovepdf_images-extracted07/img275.jpg",
+      "/ilovepdf_images-extracted07/img274.jpg"
+    ],
+    isWeeklyOffer: true
+  },
   // ── NUEVOS INGRESOS: TOALLAS HÚMEDAS DADDY ──────────────────────
   {
     id: 17,

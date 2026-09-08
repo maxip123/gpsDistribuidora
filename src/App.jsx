@@ -47,10 +47,13 @@ export default function App() {
   }, [selectedCategory]);
 
   // Scroll to catalog section
+  // Scroll to catalog section (exact title position)
   const handleScrollToCatalog = () => {
-    const el = document.getElementById('catalogo');
+    const el = document.getElementById('ofertas-semana-header') || document.getElementById('catalogo');
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const navHeight = 90;
+      const y = el.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
 
@@ -63,11 +66,6 @@ export default function App() {
         onSelectCategory={(catId) => {
           setSelectedCategory(catId);
           if (searchQuery) setSearchQuery('');
-          if (catId === 'nuevo-ingreso') {
-            setTimeout(() => {
-              handleScrollToCatalog();
-            }, 100);
-          }
         }}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
