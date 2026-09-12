@@ -70,8 +70,6 @@ export default function Footer() {
           {/* Copyright and note */}
           <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-4 text-slate-400 text-center md:text-right text-[11px] sm:text-xs">
             <p>© {new Date().getFullYear()} G.P.S Distribuciones.</p>
-            <span className="hidden sm:inline text-slate-600">•</span>
-            <span className="text-amber-400/90 font-medium">Bulto Cerrado</span>
           </div>
 
         </div>

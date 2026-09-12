@@ -19,7 +19,7 @@ export default function DailyOffersCarousel() {
     const now = new Date();
     const isSept = now.getMonth() === 8;
     const day = now.getDate();
-    if (isSept && day >= 7 && day <= 12) {
+    if (isSept && day >= 14 && day <= 20) {
       const idx = DAILY_OFFERS.findIndex(o => o.dayNum === day);
       if (idx !== -1) return idx;
     }
@@ -39,7 +39,7 @@ export default function DailyOffersCarousel() {
 
   // Identify today's day number
   const todayDate = new Date();
-  const currentDayNum = (todayDate.getMonth() === 8) ? todayDate.getDate() : 7;
+  const currentDayNum = (todayDate.getMonth() === 8) ? todayDate.getDate() : null;
 
   // Next & Prev handlers
   const goToNext = useCallback(() => {
@@ -153,7 +153,7 @@ export default function DailyOffersCarousel() {
               </h2>
               <span className="text-[11px] text-slate-400 hidden sm:inline">•</span>
               <span className="text-[11px] font-medium text-slate-600 bg-white px-2 py-0.5 rounded border border-slate-200/70">
-                07 al 12 de Septiembre
+                14 al 20 de Septiembre
               </span>
               <span className="text-[11px] font-semibold text-rose-700 bg-rose-50 px-2 py-0.5 rounded border border-rose-200/70">
                 Únicamente para clientes
