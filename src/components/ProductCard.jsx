@@ -175,6 +175,9 @@ export default function ProductCard({ product }) {
                     </span>
                   )}
                 </div>
+                <p className="text-[10.5px] sm:text-[11px] text-slate-400 font-medium mt-1">
+                  Precio sujeto a modificaciones.
+                </p>
               </div>
             )}
           </div>

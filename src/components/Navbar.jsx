@@ -248,15 +248,49 @@ export default function Navbar({
               <Zap className="w-3.5 h-3.5 text-amber-600 fill-amber-500 shrink-0" />
               <span>Ofertas Comprá Ahora</span>
               <span className="text-[10px] font-bold uppercase px-1.5 py-0.2 rounded-md bg-amber-200 text-amber-900">
-                07-12 SEP
+                14-20 SEP
               </span>
             </button>
 
             {CATEGORIES.map((cat) => {
               const Icon = categoryIcons[cat.icon] || Sparkles;
               const isSelected = selectedCategory === cat.id;
-              const isOffersTab = cat.id === "todas" || cat.id === "ofertas";
+              const isOffersTab = cat.id === "ofertas";
+              const isAllTab = cat.id === "todas";
               const isNewArrival = cat.id === "nuevo-ingreso";
+
+              if (isOffersTab) {
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={(e) => handleCategoryClick(cat.id, e)}
+                    className={`flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-xl text-xs md:text-sm font-bold transition-all duration-150 shrink-0 cursor-pointer whitespace-nowrap select-none border ${
+                      isSelected
+                        ? 'bg-rose-600 text-white border-rose-600 shadow-xs scale-[1.02]'
+                        : 'bg-rose-50 text-rose-700 border-rose-300 hover:bg-rose-100 hover:border-rose-400'
+                    }`}
+                  >
+                    <Flame className={`w-3.5 h-3.5 shrink-0 ${
+                      isSelected ? 'text-white fill-white/20' : 'text-rose-500 fill-rose-500/20'
+                    }`} />
+                    <span>Ofertas de la Semana</span>
+                    <span className={`text-[10px] font-bold uppercase px-1.5 py-0.2 rounded-md shrink-0 ${
+                      isSelected
+                        ? 'bg-white/25 text-white'
+                        : 'bg-rose-200 text-rose-900'
+                    }`}>
+                      14-20 SEP
+                    </span>
+                    <span className={`text-[10px] font-extrabold px-1.5 py-0.2 rounded-full shrink-0 ${
+                      isSelected
+                        ? 'bg-white/20 text-white'
+                        : 'bg-rose-200/70 text-rose-900'
+                    }`}>
+                      {cat.count}
+                    </span>
+                  </button>
+                );
+              }
 
               return (
                 <button
@@ -264,12 +298,12 @@ export default function Navbar({
                   onClick={(e) => handleCategoryClick(cat.id, e)}
                   className={`flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-xl text-xs md:text-sm font-bold transition-all duration-150 shrink-0 cursor-pointer whitespace-nowrap select-none ${
                     isSelected
-                      ? isOffersTab
+                      ? isAllTab
                         ? 'bg-rose-600 text-white shadow-xs scale-[1.02]'
                         : isNewArrival
                         ? 'bg-amber-400 text-amber-950 shadow-xs scale-[1.02]'
                         : 'bg-blue-600 text-white shadow-xs scale-[1.02]'
-                      : isOffersTab
+                      : isAllTab
                       ? 'bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200 hover:border-rose-300'
                       : isNewArrival
                       ? 'bg-amber-50 text-amber-900 hover:bg-amber-100 border border-amber-300 hover:border-amber-400'
@@ -279,7 +313,7 @@ export default function Navbar({
                   <Icon className={`w-3.5 h-3.5 shrink-0 ${
                     isSelected 
                       ? isNewArrival ? 'text-amber-950 fill-amber-950/20' : 'text-white' 
-                      : isOffersTab 
+                      : isAllTab
                       ? 'text-rose-600' 
                       : isNewArrival
                       ? 'text-amber-600'
@@ -289,7 +323,7 @@ export default function Navbar({
                   <span className={`text-[10px] font-extrabold px-1.5 py-0.2 rounded-full shrink-0 ${
                     isSelected
                       ? isNewArrival ? 'bg-amber-950/15 text-amber-950' : 'bg-white/20 text-white'
-                      : isOffersTab
+                      : isAllTab
                       ? 'bg-rose-200/70 text-rose-900'
                       : isNewArrival
                       ? 'bg-amber-200 text-amber-900'

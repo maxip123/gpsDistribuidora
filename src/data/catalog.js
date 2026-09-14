@@ -170,9 +170,9 @@ export const PRODUCTS = [
   },
   {
     id: 7,
-    cod: "DOV-SHAC-200",
-    nombre: "Dove SH/AC Reconstrucción Completa 200ml",
-    name: "Dove SH/AC Reconstrucción Completa 200ml",
+    cod: "DOV-SHAC-180",
+    nombre: "Dove SH/AC Todas las Fragancias 180ml",
+    name: "Dove SH/AC Todas las Fragancias 180ml",
     precio: 2559.76,
     unitPrice: 2559.76,
     priceLabel: "Precio Base",
@@ -192,7 +192,7 @@ export const PRODUCTS = [
       "/ilovepdf_images-extracted 014(1)/img267.jpg"
     ],
     isWeeklyOffer: true,
-    searchKeywords: "dove shampoo acondicionador reconstruccion completa 200ml cuidado capilar unilever"
+    searchKeywords: "dove shampoo acondicionador todas las fragancias 180ml cuidado capilar unilever"
   },
   {
     id: 8,
@@ -343,8 +343,8 @@ export const PRODUCTS = [
   {
     id: 14,
     cod: "ALA-POL-400",
-    nombre: "Jabón en Polvo Ala Dual 400gr",
-    name: "Jabón en Polvo Ala Dual 400gr",
+    nombre: "Jabón en Polvo Ala Dual Regular y Matic 400gr",
+    name: "Jabón en Polvo Ala Dual Regular y Matic 400gr",
     precio: 1049.87,
     unitPrice: 1049.87,
     priceBulto: 50393.76,
@@ -361,13 +361,13 @@ export const PRODUCTS = [
     badgeType: "savings",
     image: "/ilovepdf_images-extracted 014(1)/img312.jpg",
     isWeeklyOffer: true,
-    searchKeywords: "jabon polvo ala dual matic mano 400gr bicarbonato lavado limpieza"
+    searchKeywords: "jabon polvo ala dual regular y matic mano 400gr bicarbonato lavado limpieza"
   },
   {
     id: 15,
     cod: "ALA-LIQ-800DP",
-    nombre: "Jabón Líquido Ala Eco Lavado DP 800ml",
-    name: "Jabón Líquido Ala Eco Lavado DP 800ml",
+    nombre: "Jabón Líquido Ala Eco Lavado Baja Espuma DP 800ml",
+    name: "Jabón Líquido Ala Eco Lavado Baja Espuma DP 800ml",
     precio: 2514.58,
     unitPrice: 2514.58,
     priceBulto: 15087.48,
@@ -384,7 +384,7 @@ export const PRODUCTS = [
     badgeType: "savings",
     image: "/ilovepdf_images-extracted 014(1)/img313.jpg",
     isWeeklyOffer: true,
-    searchKeywords: "jabon liquido ala eco lavado doypack 800ml lavado mano limpieza"
+    searchKeywords: "jabon liquido ala eco lavado baja espuma doypack 800ml lavado mano limpieza"
   },
   {
     id: 16,
