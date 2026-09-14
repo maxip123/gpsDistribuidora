@@ -264,24 +264,24 @@ export default function Navbar({
                   <button
                     key={cat.id}
                     onClick={(e) => handleCategoryClick(cat.id, e)}
-                    className={`flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-xl text-xs md:text-sm font-bold transition-all duration-150 shrink-0 cursor-pointer whitespace-nowrap select-none border ${
+                    className={`flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-all duration-150 shrink-0 cursor-pointer whitespace-nowrap select-none border-2 shadow-2xs ${
                       isSelected
-                        ? 'bg-rose-600 text-white border-rose-600 shadow-xs scale-[1.02]'
+                        ? 'bg-rose-600 text-white border-rose-600 shadow-xs scale-[1.03]'
                         : 'bg-rose-50 text-rose-700 border-rose-300 hover:bg-rose-100 hover:border-rose-400'
                     }`}
                   >
-                    <Flame className={`w-3.5 h-3.5 shrink-0 ${
+                    <Flame className={`w-4 h-4 shrink-0 ${
                       isSelected ? 'text-white fill-white/20' : 'text-rose-500 fill-rose-500/20'
                     }`} />
-                    <span>Ofertas de la Semana</span>
-                    <span className={`text-[10px] font-bold uppercase px-1.5 py-0.2 rounded-md shrink-0 ${
+                    <span className="uppercase tracking-wide">OFERTAS DE LA SEMANA</span>
+                    <span className={`text-[10px] sm:text-[10.5px] font-black uppercase px-2 py-0.5 rounded-md shrink-0 ${
                       isSelected
                         ? 'bg-white/25 text-white'
                         : 'bg-rose-200 text-rose-900'
                     }`}>
                       14-20 SEP
                     </span>
-                    <span className={`text-[10px] font-extrabold px-1.5 py-0.2 rounded-full shrink-0 ${
+                    <span className={`text-[10px] sm:text-[10.5px] font-extrabold px-1.5 py-0.2 rounded-full shrink-0 ${
                       isSelected
                         ? 'bg-white/20 text-white'
                         : 'bg-rose-200/70 text-rose-900'
