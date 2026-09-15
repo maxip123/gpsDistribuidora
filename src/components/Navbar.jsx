@@ -269,22 +269,6 @@ export default function Navbar({
               </span>
             </button>
 
-            {/* Direct button to Download Catalog PDF in Ribbon */}
-            <a
-              href={STORE_CONFIG.catalogPdfUrl}
-              download={STORE_CONFIG.catalogPdfFilename}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-blue-50 text-blue-900 hover:bg-blue-100 border border-blue-200 transition-all shrink-0 cursor-pointer shadow-2xs group"
-              title="Descargar Catálogo Completo en PDF"
-            >
-              <FileDown className="w-3.5 h-3.5 text-blue-600 group-hover:translate-y-0.5 transition-transform shrink-0" />
-              <span>Descargar Catálogo</span>
-              <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.2 rounded-md bg-blue-200 text-blue-900">
-                PDF
-              </span>
-            </a>
-
             {CATEGORIES.map((cat) => {
               const Icon = categoryIcons[cat.icon] || Sparkles;
               const isSelected = selectedCategory === cat.id;
