@@ -4,8 +4,10 @@ import {
   PackageCheck, 
   Sparkles,
   ShieldCheck,
-  Calendar
+  Calendar,
+  FileDown
 } from 'lucide-react';
+import { STORE_CONFIG } from '../data/catalog';
 
 export default function HeroDeals({ 
   totalOffersCount,
@@ -70,6 +72,20 @@ export default function HeroDeals({
               <Flame className="w-4 h-4 fill-slate-950 text-slate-950" />
               <span>Ofertas Comprá Ahora (14 al 20 SEP)</span>
             </button>
+
+            <a
+              href={STORE_CONFIG.catalogPdfUrl}
+              download={STORE_CONFIG.catalogPdfFilename}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm transition-all active:scale-95 shadow-md hover:shadow-blue-500/25 border border-blue-400/40 cursor-pointer"
+            >
+              <FileDown className="w-4 h-4 text-blue-200 group-hover:translate-y-0.5 transition-transform shrink-0" />
+              <span>Descargar Catálogo Completo</span>
+              <span className="inline-block px-1.5 py-0.5 text-[10px] font-black uppercase bg-blue-700/90 rounded tracking-wider text-blue-100 border border-blue-400/30">
+                PDF
+              </span>
+            </a>
 
             {onExploreClick && (
               <button

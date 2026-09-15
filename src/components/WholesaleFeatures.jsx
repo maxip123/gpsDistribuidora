@@ -3,7 +3,8 @@ import {
   Package, 
   Truck, 
   Phone, 
-  Percent
+  Percent,
+  FileDown
 } from 'lucide-react';
 import { STORE_CONFIG } from '../data/catalog';
 
@@ -76,26 +77,42 @@ export default function WholesaleFeatures() {
           </div>
         </div>
 
-        {/* WhatsApp direct consult banner */}
-        <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white rounded-2xl p-5 sm:p-7 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-5 border border-slate-800 shadow-lg">
-          <div className="space-y-1 text-center md:text-left">
+        {/* Banner de descarga de catálogo completo y WhatsApp */}
+        <div className="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white rounded-2xl p-5 sm:p-7 flex flex-col lg:flex-row items-center justify-between gap-5 border border-slate-800 shadow-lg">
+          <div className="space-y-1.5 text-center lg:text-left max-w-2xl">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-[11px] font-bold uppercase tracking-wider">
+              <span>Catálogo PDF Oficial 2026</span>
+            </div>
             <h3 className="text-base sm:text-lg md:text-xl font-extrabold tracking-tight text-white">
-              ¿Buscás algún producto o marca que no está en el catálogo?
+              ¿Querés tener el catálogo completo en tu negocio o celular?
             </h3>
-            <p className="text-xs text-slate-300">
-              Escribinos por WhatsApp y consultá por el listado completo de artículos y stock.
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Descargá el catálogo oficial de G.P.S Distribuciones con todas las líneas de productos, marcas y unidades por bulto cerrado para consultar sin conexión en cualquier momento.
             </p>
           </div>
 
-          <a
-            href={`https://wa.me/${STORE_CONFIG.phoneRaw}?text=Hola%20G.P.S%20Distribuciones!%20Quisiera%20consultar%20por%20un%20producto%20específico.`}
-            target="_blank"
-            rel="noreferrer"
-            className="w-full md:w-auto inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black px-5 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-md active:scale-95 shrink-0"
-          >
-            <Phone className="w-4 h-4 fill-slate-950 shrink-0" />
-            <span>Consultar por WhatsApp</span>
-          </a>
+          <div className="flex flex-col sm:flex-row items-center gap-2.5 w-full lg:w-auto shrink-0">
+            <a
+              href={STORE_CONFIG.catalogPdfUrl}
+              download={STORE_CONFIG.catalogPdfFilename}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold px-4 sm:px-5 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-md hover:shadow-blue-500/25 border border-blue-400/30 active:scale-95 cursor-pointer"
+            >
+              <FileDown className="w-4 h-4 text-blue-200 group-hover:translate-y-0.5 transition-transform" />
+              <span>Descargar Catálogo PDF</span>
+            </a>
+
+            <a
+              href={`https://wa.me/${STORE_CONFIG.phoneRaw}?text=Hola%20G.P.S%20Distribuciones!%20Quisiera%20consultar%20por%20un%20producto%20específico.`}
+              target="_blank"
+              rel="noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black px-4 sm:px-5 py-3 rounded-xl text-xs sm:text-sm transition-all shadow-md active:scale-95 cursor-pointer"
+            >
+              <Phone className="w-4 h-4 fill-slate-950 shrink-0" />
+              <span>Consultar por WhatsApp</span>
+            </a>
+          </div>
         </div>
 
       </div>

@@ -15,7 +15,8 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  Zap
+  Zap,
+  FileDown
 } from 'lucide-react';
 import { STORE_CONFIG, CATEGORIES } from '../data/catalog';
 import logoImg from '../assets/logo.jpg';
@@ -115,28 +116,28 @@ export default function Navbar({
     <header className="sticky top-0 z-40 w-full max-w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
       
       {/* Main Brand & Search Bar */}
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 sm:py-3.5">
-        <div className="flex items-center justify-between gap-2 sm:gap-4">
+      <div className="max-w-7xl mx-auto px-2.5 sm:px-6 py-2 sm:py-3.5">
+        <div className="flex items-center justify-between gap-1.5 sm:gap-4">
           
           {/* Logo & Brand Identity */}
           <div 
-            className="flex items-center gap-2 sm:gap-3 cursor-pointer select-none shrink-0" 
+            className="flex items-center gap-1.5 sm:gap-3 cursor-pointer select-none min-w-0 shrink" 
             onClick={() => onSelectCategory("todas")}
           >
-            <div className="relative">
+            <div className="relative shrink-0">
               <img 
                 src={logoImg} 
                 alt="G.P.S Distribuciones Logo" 
-                className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-amber-400 shadow-xs"
+                className="w-9 h-9 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-amber-400 shadow-xs"
               />
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-1">
-                <span className="text-lg sm:text-xl md:text-2xl font-extrabold tracking-tight text-slate-900 leading-none truncate">
-                  G.P.S <span className="text-blue-600 font-bold">Distribuciones</span>
+                <span className="text-base sm:text-xl md:text-2xl font-extrabold tracking-tight text-slate-900 leading-none truncate">
+                  G.P.S <span className="text-blue-600 font-bold hidden min-[440px]:inline">Distribuciones</span>
                 </span>
               </div>
-              <p className="text-[11px] sm:text-xs text-slate-500 font-medium tracking-wide mt-0.5 hidden xs:block">
+              <p className="text-[11px] sm:text-xs text-slate-500 font-medium tracking-wide mt-0.5 hidden sm:block truncate">
                 {STORE_CONFIG.slogan} • Catálogo Virtual Mayorista
               </p>
             </div>
@@ -169,15 +170,31 @@ export default function Navbar({
             </div>
           </div>
 
-          {/* Quick WhatsApp Contact Button */}
-          <div className="flex items-center shrink-0">
+          {/* Quick Actions: Download Catalog PDF & WhatsApp Contact */}
+          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            <a
+              href={STORE_CONFIG.catalogPdfUrl}
+              download={STORE_CONFIG.catalogPdfFilename}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1 px-2.5 sm:px-3.5 py-1.5 sm:py-2.5 text-xs sm:text-sm font-bold text-blue-800 bg-blue-50/90 hover:bg-blue-100 hover:text-blue-900 border border-blue-200/90 rounded-xl transition-all shadow-2xs hover:shadow-xs active:scale-95 whitespace-nowrap"
+              title="Descargar Catálogo Completo en PDF"
+            >
+              <FileDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 group-hover:translate-y-0.5 transition-transform shrink-0" />
+              <span className="hidden md:inline">Descargar Catálogo</span>
+              <span className="md:hidden">Catálogo PDF</span>
+              <span className="hidden md:inline-block text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded-md bg-blue-200/80 text-blue-900 tracking-wider">
+                PDF
+              </span>
+            </a>
+
             <a
               href={`https://wa.me/${STORE_CONFIG.phoneRaw}?text=Hola%20G.P.S%20Distribuciones!%20Quisiera%20consultar%20por%20el%20catálogo%20mayorista.`}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 rounded-xl transition-all shadow-2xs hover:shadow-xs active:scale-95 whitespace-nowrap"
+              className="inline-flex items-center gap-1 px-2.5 sm:px-3.5 py-1.5 sm:py-2.5 text-xs sm:text-sm font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 rounded-xl transition-all shadow-2xs hover:shadow-xs active:scale-95 whitespace-nowrap"
             >
-              <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600" />
+              <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" />
               <span className="hidden sm:inline">WhatsApp Ventas</span>
               <span className="sm:hidden">WhatsApp</span>
             </a>
@@ -251,6 +268,22 @@ export default function Navbar({
                 14-20 SEP
               </span>
             </button>
+
+            {/* Direct button to Download Catalog PDF in Ribbon */}
+            <a
+              href={STORE_CONFIG.catalogPdfUrl}
+              download={STORE_CONFIG.catalogPdfFilename}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs md:text-sm font-bold bg-blue-50 text-blue-900 hover:bg-blue-100 border border-blue-200 transition-all shrink-0 cursor-pointer shadow-2xs group"
+              title="Descargar Catálogo Completo en PDF"
+            >
+              <FileDown className="w-3.5 h-3.5 text-blue-600 group-hover:translate-y-0.5 transition-transform shrink-0" />
+              <span>Descargar Catálogo</span>
+              <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.2 rounded-md bg-blue-200 text-blue-900">
+                PDF
+              </span>
+            </a>
 
             {CATEGORIES.map((cat) => {
               const Icon = categoryIcons[cat.icon] || Sparkles;

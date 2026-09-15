@@ -15,7 +15,9 @@ export const STORE_CONFIG = {
   location: "Tucumán, Argentina",
   schedule: "Lunes a Viernes de 8:00 a 17:00 hs | Sábados de 8:30 a 13:00 hs",
   commercialNote: "Precios y venta exclusivos por bulto cerrado (U.B) para comercios y distribuidores.",
-  minOrderAmount: 50000
+  minOrderAmount: 50000,
+  catalogPdfUrl: "/Cat%C3%A1logo%20GPS.pdf",
+  catalogPdfFilename: "Catálogo GPS.pdf"
 };
 
 // Categorías activas

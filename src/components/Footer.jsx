@@ -1,7 +1,7 @@
 import React from 'react';
 import logoImg from '../assets/logo.jpg';
 import { STORE_CONFIG } from '../data/catalog';
-import { Phone } from 'lucide-react';
+import { Phone, FileDown } from 'lucide-react';
 
 function InstagramIcon({ className = "w-3.5 h-3.5" }) {
   return (
@@ -45,7 +45,18 @@ export default function Footer() {
           </div>
 
           {/* Social & Contact Links */}
-          <div className="flex items-center gap-3 flex-wrap justify-center">
+          <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap justify-center">
+            <a
+              href={STORE_CONFIG.catalogPdfUrl}
+              download={STORE_CONFIG.catalogPdfFilename}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-950/60 hover:bg-blue-900/80 text-blue-300 border border-blue-800/60 text-xs font-semibold transition-colors"
+            >
+              <FileDown className="w-3.5 h-3.5 text-blue-400" />
+              <span>Catálogo PDF</span>
+            </a>
+
             <a
               href={`https://wa.me/${STORE_CONFIG.phoneRaw}?text=Hola%20G.P.S%20Distribuciones!%20Quisiera%20consultar%20por%20el%20catálogo%20mayorista.`}
               target="_blank"
