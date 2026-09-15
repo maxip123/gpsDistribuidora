@@ -32,7 +32,7 @@ export default function ProductCard({ product }) {
   );
 
   return (
-    <div className="group relative bg-white rounded-2xl border border-slate-200/90 hover:border-blue-400/80 hover:shadow-xl transition-all duration-200 flex flex-col overflow-hidden">
+    <div className="group relative bg-white rounded-2xl border border-slate-200/90 hover:border-blue-400/80 hover:shadow-xl transition-all duration-200 flex flex-col overflow-hidden h-full">
 
       {/* ── IMAGE AREA ─────────────────────────────────────────────── */}
       <div className={`relative bg-slate-50 p-4 border-b border-slate-100 flex items-center justify-center overflow-hidden ${product.noPrice ? 'h-48' : 'h-52'}`}>
