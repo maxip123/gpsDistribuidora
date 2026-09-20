@@ -12,7 +12,7 @@ import { STORE_CONFIG } from '../data/catalog';
 
 export default function ComboCard({ product }) {
   const whatsappMessage = encodeURIComponent(
-    `Hola G.P.S Distribuciones! Quisiera consultar por el ${product.name} (Cód: ${product.cod}): Comprando los 4 Skip llevás 1 Comfort Frescor Intenso 450ml de regalo.`
+    `Hola G.P.S Distribuciones! Quisiera consultar por el ${product.name} (Cód: ${product.cod}): Comprando todo el combo completo para acceder al regalo de ${product.giftName}.`
   );
 
   return (
@@ -28,10 +28,10 @@ export default function ComboCard({ product }) {
         {/* Top Header inside Banner */}
         <div className="relative z-10 space-y-2">
           <div className="flex items-center justify-between gap-2 flex-wrap">
-            {/* Especial Unilever Pill Badge */}
+            {/* Pill Badge */}
             <span className="inline-flex items-center gap-1 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider bg-purple-600 text-white shadow-md shadow-purple-900/50 ring-1 ring-purple-300/40">
               <Sparkles className="w-3 h-3 text-purple-200" />
-              {product.badgeText || "ESPECIAL UNILEVER"}
+              {product.badgeText || "PROMO COMBO"}
             </span>
 
             {/* Micro Tag */}
@@ -43,29 +43,29 @@ export default function ComboCard({ product }) {
           {/* Main Headline Banner (Visual Hero) */}
           <div className="text-center pt-1 pb-1">
             <div className="inline-block bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white font-black text-xs sm:text-[13px] px-3 py-1 rounded-xl uppercase tracking-tight shadow-md border border-rose-400/30">
-              Comprá los 4 Skip
+              {product.comboTitle || "Comprando el Combo Completo"}
             </div>
             <div className="text-amber-300 font-extrabold text-sm sm:text-base tracking-tight uppercase mt-1 drop-shadow-sm flex items-center justify-center gap-1.5">
-              <span>y llevate 1 Comfort de regalo</span>
+              <span>{product.comboSubtitle || `¡Llevate ${product.giftName} de regalo!`}</span>
               <Gift className="w-4 h-4 text-amber-300 shrink-0 inline" />
             </div>
             <div className="text-cyan-100 text-[10px] font-semibold tracking-wider uppercase opacity-90 mt-0.5">
-              Ropa más limpia y fresca
+              {product.comboTagline || "Comprando todos los productos te llevás el regalo"}
             </div>
           </div>
         </div>
 
-        {/* Visual Lineup: 4 Skips in 2x2 Grid + Featured Comfort Gift Below */}
+        {/* Visual Lineup: Products in Grid + Featured Gift Below */}
         <div className="relative z-10 flex-1 flex flex-col justify-center space-y-3 my-2">
           
-          {/* 4 Skips in 2x2 Grid */}
-          <div className="grid grid-cols-2 gap-2.5">
+          {/* Products in Grid */}
+          <div className={`grid gap-2 ${product.comboIncludes?.length > 4 ? 'grid-cols-2 sm:grid-cols-3' : 'grid-cols-2'}`}>
             {product.comboIncludes?.map((item, idx) => (
               <div 
                 key={idx} 
-                className="bg-white/95 backdrop-blur-xs rounded-xl p-2.5 shadow-sm border border-white/80 flex flex-col items-center justify-between text-center transition-transform duration-200 hover:scale-[1.03]"
+                className="bg-white/95 backdrop-blur-xs rounded-xl p-2 shadow-sm border border-white/80 flex flex-col items-center justify-between text-center transition-transform duration-200 hover:scale-[1.03]"
               >
-                <div className="w-full h-18 sm:h-22 flex items-center justify-center overflow-hidden">
+                <div className="w-full h-16 sm:h-20 flex items-center justify-center overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -74,15 +74,12 @@ export default function ComboCard({ product }) {
                   />
                 </div>
                 <div className="mt-1 w-full">
-                  <span className="text-[10px] sm:text-[11px] font-black text-slate-800 leading-tight block">
+                  <span className="text-[10px] sm:text-[11px] font-black text-slate-800 leading-tight block truncate">
                     {item.short || item.name}
                   </span>
                   <div className="flex items-center justify-center gap-1 mt-0.5">
-                    <span className="text-[9px] font-bold text-blue-600">
-                      {item.vol || "800 ml"}
-                    </span>
-                    <span className="text-[8px] font-semibold text-emerald-700 bg-emerald-50 px-1 py-0.2 rounded">
-                      ✓
+                    <span className="text-[9.5px] font-extrabold text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded">
+                      {item.qty || item.vol}
                     </span>
                   </div>
                 </div>
@@ -95,12 +92,12 @@ export default function ComboCard({ product }) {
             <div className="h-px bg-white/25 flex-1" />
             <span className="text-amber-300 font-black text-[11px] sm:text-xs uppercase tracking-wider flex items-center gap-1 drop-shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-              + Llevate de Regalo
+              + TE DAN DE REGALO
             </span>
             <div className="h-px bg-white/25 flex-1" />
           </div>
 
-          {/* Comfort Gift Card Below (Full Width, Featured with Sello) */}
+          {/* Gift Card Below (Full Width, Featured with Sello) */}
           <div className="relative bg-gradient-to-r from-white via-rose-50/70 to-white rounded-xl p-3 shadow-lg border-2 border-rose-400 ring-2 ring-rose-400/30 flex items-center gap-3 transition-transform duration-200 hover:scale-[1.02]">
             
             {/* Sello Flotante ¡DE REGALO! */}
@@ -111,7 +108,7 @@ export default function ComboCard({ product }) {
               </span>
             </div>
 
-            <div className="w-16 h-22 sm:w-18 sm:h-24 shrink-0 bg-white rounded-lg p-1.5 border border-rose-200 shadow-2xs flex items-center justify-center">
+            <div className="w-16 h-20 sm:w-18 sm:h-22 shrink-0 bg-white rounded-lg p-1.5 border border-rose-200 shadow-2xs flex items-center justify-center">
               <img
                 src={product.comboGift?.image || product.giftImage}
                 alt={product.comboGift?.name || product.giftName}
@@ -122,7 +119,7 @@ export default function ComboCard({ product }) {
 
             <div className="min-w-0 flex-1 space-y-1">
               <span className="text-[9px] font-black uppercase tracking-wider text-rose-600 block">
-                Suavizante Gratis
+                {product.giftCategory || "Bonificación Especial"}
               </span>
               <span className="text-xs sm:text-sm font-black text-slate-900 leading-tight block">
                 {product.comboGift?.name || product.giftName}
@@ -131,9 +128,11 @@ export default function ComboCard({ product }) {
                 <span className="text-[10px] font-black bg-rose-600 text-white px-2 py-0.5 rounded-md shadow-2xs uppercase tracking-tight">
                   100% Bonificado
                 </span>
-                <span className="text-[10px] font-extrabold text-rose-800">
-                  x 450 ml
-                </span>
+                {product.giftQtyLabel && (
+                  <span className="text-[10px] font-extrabold text-rose-800">
+                    {product.giftQtyLabel}
+                  </span>
+                )}
               </div>
             </div>
 
@@ -145,15 +144,15 @@ export default function ComboCard({ product }) {
         <div className="relative z-10 flex items-center justify-between text-[9px] sm:text-[10px] text-cyan-100 font-semibold border-t border-white/15 pt-2">
           <div className="flex items-center gap-1">
             <Check className="w-3 h-3 text-emerald-400 shrink-0" />
-            <span>Limpieza profunda</span>
+            <span>Todo lo que se muestra</span>
           </div>
           <div className="flex items-center gap-1">
             <Check className="w-3 h-3 text-emerald-400 shrink-0" />
-            <span>Cuida tu ropa</span>
+            <span>Stock asegurado</span>
           </div>
           <div className="flex items-center gap-1">
             <Check className="w-3 h-3 text-emerald-400 shrink-0" />
-            <span>Frescura intensa</span>
+            <span>Regalo incluido</span>
           </div>
         </div>
 
@@ -190,26 +189,26 @@ export default function ComboCard({ product }) {
           <div className="space-y-1">
             <div className="flex items-center gap-1.5 text-blue-900 font-bold text-xs uppercase tracking-wider">
               <Package className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-              <span>Incluye:</span>
+              <span>COMPRANDO TODO LO QUE SE MUESTRA:</span>
             </div>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1 pl-5 text-[11px] text-slate-700 font-medium list-disc">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1 pl-5 text-[11.5px] text-slate-700 font-medium list-disc">
               {product.comboIncludes?.map((item, i) => (
                 <li key={i} className="leading-tight">
-                  1 {item.name}
+                  <strong className="text-slate-900 font-bold">{item.qty}</strong> {item.name}
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Regalo */}
-          <div className="pt-2 border-t border-slate-200/80 flex items-start gap-2">
+          <div className="pt-2 border-t border-slate-200/80 flex items-start gap-2 bg-rose-50/70 p-2.5 rounded-xl border border-rose-200/60">
             <Gift className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
             <div className="min-w-0">
               <span className="text-[11px] font-extrabold text-rose-700 uppercase tracking-tight block">
-                Regalo:
+                TE DAN DE REGALO (100% BONIFICADO):
               </span>
-              <span className="text-xs font-bold text-rose-950 block">
-                1 {product.comboGift?.name || product.giftName}
+              <span className="text-xs sm:text-sm font-black text-rose-950 block">
+                {product.comboGift?.name || product.giftName}
               </span>
             </div>
           </div>
@@ -220,15 +219,15 @@ export default function ComboCard({ product }) {
               <ShoppingCart className="w-3.5 h-3.5 text-blue-600 shrink-0" />
               <div>
                 <span className="text-[10px] font-extrabold text-blue-950 uppercase tracking-tight block">
-                  Mínimo de compra
+                  Condición de la Promo
                 </span>
                 <span className="text-xs font-bold text-blue-800 block">
-                  {product.minOrderLabel || "1 combo completo"}
+                  {product.minOrderLabel || "Comprando todo lo que se muestra te dan el regalo"}
                 </span>
               </div>
             </div>
             <span className="text-[10px] font-bold text-purple-700 bg-purple-100 border border-purple-200 px-2 py-0.5 rounded-lg shrink-0">
-              Promo
+              Promo Combo
             </span>
           </div>
 
@@ -249,7 +248,7 @@ export default function ComboCard({ product }) {
           <div className="flex-1 bg-purple-50 border border-purple-200/80 rounded-xl p-2.5 flex items-center justify-between">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-wider text-purple-700 block">
-                Promoción Especial Unilever
+                {product.brandLabel || "Promoción Especial Unilever"}
               </span>
               <span className="text-sm sm:text-base font-black text-purple-950">
                 Consultar Precio Combo

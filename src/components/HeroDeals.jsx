@@ -37,7 +37,7 @@ export default function HeroDeals({
           <div className="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700/70 rounded-xl px-3 py-1.5 sm:py-2">
             <Calendar className="w-3.5 h-3.5 text-blue-400 shrink-0" />
             <span className="text-slate-400 text-[10px] sm:text-xs font-semibold uppercase tracking-wider">Válida del</span>
-            <span className="text-slate-100 text-xs sm:text-sm font-bold tracking-tight">14 al 20 de Septiembre</span>
+            <span className="text-slate-100 text-xs sm:text-sm font-bold tracking-tight">21 al 26 de Septiembre</span>
           </div>
 
           {/* Clean highlights */}
@@ -68,7 +68,7 @@ export default function HeroDeals({
               className="inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs sm:text-sm transition-all active:scale-95 cursor-pointer shadow-2xs"
             >
               <Flame className="w-4 h-4 fill-slate-950 text-slate-950" />
-              <span>Ofertas Comprá Ahora (14 al 20 SEP)</span>
+              <span>Ofertas Comprá Ahora (21 al 24 SEP)</span>
             </button>
 
             {onExploreClick && (

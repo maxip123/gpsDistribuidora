@@ -158,7 +158,7 @@ export default function ProductGrid({
                 </h2>
                 {!searchQuery && (selectedCategory === 'todas' || selectedCategory === 'ofertas') && (
                   <span className="bg-rose-50 text-rose-700 text-[11px] sm:text-xs font-bold px-2 py-0.5 rounded-md border border-rose-200 shrink-0">
-                    14 al 20 de Septiembre
+                    21 al 26 de Septiembre
                   </span>
                 )}
                 <span className="bg-slate-100 text-slate-700 text-[11px] sm:text-xs font-bold px-2 py-0.5 rounded-full border border-slate-200 shrink-0">

@@ -121,7 +121,11 @@ export default function ProductCard({ product }) {
         {/* Title */}
         <h3 className="font-bold text-slate-900 text-base leading-snug group-hover:text-blue-700 transition-colors">
           {product.name}
-          {product.giftName && (
+          {product.giftLabel ? (
+            <span className="block text-xs font-semibold text-rose-600 mt-0.5">
+              {product.giftLabel}
+            </span>
+          ) : product.giftName && (
             <span className="block text-xs font-semibold text-rose-600 mt-0.5">
               + {product.giftName} de regalo
             </span>
