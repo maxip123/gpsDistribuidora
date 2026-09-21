@@ -137,13 +137,17 @@ export default function ComboCard({ product }) {
               </div>
 
               {/* Discount Banner Below (matching flyer red circle 10% Descuento) */}
-              <div className="relative bg-gradient-to-r from-white via-rose-50/80 to-white rounded-xl p-3 shadow-lg border-2 border-rose-400 ring-2 ring-rose-400/30 flex items-center gap-3 transition-transform duration-200 hover:scale-[1.02]">
-                <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-full bg-gradient-to-br from-red-600 via-rose-600 to-red-700 text-white flex flex-col items-center justify-center shadow-md border-2 border-white ring-2 ring-red-400/40">
-                  <span className="text-sm sm:text-base font-black leading-none">{product.discount}</span>
-                  <span className="text-[8px] sm:text-[8.5px] font-bold uppercase tracking-tight leading-none mt-0.5">Descuento</span>
+              <div className="relative bg-gradient-to-r from-white via-rose-50/80 to-white rounded-xl p-3 shadow-lg border-2 border-rose-400 ring-2 ring-rose-400/30 flex items-center justify-center gap-3.5 transition-transform duration-200 hover:scale-[1.02]">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-full bg-gradient-to-br from-red-600 via-rose-600 to-red-700 text-white flex flex-col items-center justify-center text-center shadow-md border-2 border-white ring-2 ring-red-400/40 p-1">
+                  <span className="text-base sm:text-lg font-black leading-none text-center">
+                    {product.discount ? product.discount.replace(/\s*off/i, '').trim() : '10%'}
+                  </span>
+                  <span className="text-[8px] sm:text-[8.5px] font-extrabold uppercase tracking-tight leading-none mt-1 text-center">
+                    Descuento
+                  </span>
                 </div>
 
-                <div className="min-w-0 flex-1 space-y-0.5">
+                <div className="min-w-0 space-y-0.5">
                   <span className="text-xs sm:text-sm font-black text-slate-900 leading-tight block">
                     {product.discountTitle || `${product.discount} en el total del combo`}
                   </span>
