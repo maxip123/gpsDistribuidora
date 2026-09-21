@@ -5,8 +5,7 @@ import {
   ShoppingCart, 
   Info, 
   MessageCircle, 
-  Sparkles, 
-  Check 
+  Sparkles 
 } from 'lucide-react';
 import { STORE_CONFIG } from '../data/catalog';
 
@@ -158,21 +157,6 @@ export default function ComboCard({ product }) {
 
         </div>
 
-        {/* Bottom Feature Badges */}
-        <div className="relative z-10 flex items-center justify-between text-[9px] sm:text-[10px] text-cyan-100 font-semibold border-t border-white/15 pt-2">
-          <div className="flex items-center gap-1">
-            <Check className="w-3 h-3 text-emerald-400 shrink-0" />
-            <span>Todo lo que se muestra</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Check className="w-3 h-3 text-emerald-400 shrink-0" />
-            <span>Stock asegurado</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <Check className="w-3 h-3 text-emerald-400 shrink-0" />
-            <span>{product.giftName ? "Regalo incluido" : "Descuento incluido"}</span>
-          </div>
-        </div>
 
       </div>
 
