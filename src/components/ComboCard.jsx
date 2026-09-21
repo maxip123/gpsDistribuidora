@@ -12,7 +12,7 @@ import { STORE_CONFIG } from '../data/catalog';
 
 export default function ComboCard({ product }) {
   const whatsappMessage = encodeURIComponent(
-    `Hola G.P.S Distribuciones! Quisiera consultar por el ${product.name} (Cód: ${product.cod}): Comprando todo el combo completo para acceder al regalo de ${product.giftName}.`
+    `Hola G.P.S Distribuciones! Quisiera consultar por el ${product.name} (Cód: ${product.cod})${product.giftName ? `: comprando todo el combo para acceder al regalo de ${product.giftName}.` : product.discount ? `: comprando los 20 para acceder al ${product.discount} de descuento.` : '.'}`
   );
 
   return (
@@ -26,8 +26,8 @@ export default function ComboCard({ product }) {
         <div className="absolute bottom-0 left-0 w-44 h-44 bg-purple-500/20 rounded-full blur-2xl pointer-events-none" />
 
         {/* Top Header inside Banner */}
-        <div className="relative z-10 space-y-2">
-          <div className="flex items-center justify-between gap-2 flex-wrap">
+        <div className="relative z-10">
+          <div className="flex items-center justify-between gap-2 flex-wrap pb-1">
             {/* Pill Badge */}
             <span className="inline-flex items-center gap-1 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider bg-purple-600 text-white shadow-md shadow-purple-900/50 ring-1 ring-purple-300/40">
               <Sparkles className="w-3 h-3 text-purple-200" />
@@ -38,20 +38,6 @@ export default function ComboCard({ product }) {
             <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-200 bg-white/10 backdrop-blur-xs px-2.5 py-0.5 rounded-full border border-white/15">
               Promo Combo
             </span>
-          </div>
-
-          {/* Main Headline Banner (Visual Hero) */}
-          <div className="text-center pt-1 pb-1">
-            <div className="inline-block bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white font-black text-xs sm:text-[13px] px-3 py-1 rounded-xl uppercase tracking-tight shadow-md border border-rose-400/30">
-              {product.comboTitle || "Comprando el Combo Completo"}
-            </div>
-            <div className="text-amber-300 font-extrabold text-sm sm:text-base tracking-tight uppercase mt-1 drop-shadow-sm flex items-center justify-center gap-1.5">
-              <span>{product.comboSubtitle || `¡Llevate ${product.giftName} de regalo!`}</span>
-              <Gift className="w-4 h-4 text-amber-300 shrink-0 inline" />
-            </div>
-            <div className="text-cyan-100 text-[10px] font-semibold tracking-wider uppercase opacity-90 mt-0.5">
-              {product.comboTagline || "Comprando todos los productos te llevás el regalo"}
-            </div>
           </div>
         </div>
 
@@ -73,70 +59,102 @@ export default function ComboCard({ product }) {
                     className="max-h-full max-w-full object-contain drop-shadow-xs"
                   />
                 </div>
-                <div className="mt-1 w-full">
+                <div className="mt-1 w-full space-y-0.5">
                   <span className="text-[10px] sm:text-[11px] font-black text-slate-800 leading-tight block truncate">
                     {item.short || item.name}
                   </span>
-                  <div className="flex items-center justify-center gap-1 mt-0.5">
-                    <span className="text-[9.5px] font-extrabold text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded">
+                  <div className="flex items-center justify-center gap-1">
+                    <span className="text-[9.5px] font-extrabold text-blue-700 bg-blue-50 border border-blue-200/50 px-1.5 py-0.5 rounded">
                       {item.qty || item.vol}
                     </span>
                   </div>
+                  {item.priceBase && (
+                    <div className="text-[9.5px] font-bold text-slate-700 bg-slate-100/90 rounded px-1 py-0.5 mt-0.5 leading-tight border border-slate-200/60">
+                      <span className="text-slate-500 font-medium block text-[8px] uppercase tracking-wider">Precio Base</span>
+                      <span className="text-slate-950 font-black">${item.priceBase}</span>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Plus / Gift Divider Label */}
-          <div className="flex items-center justify-center gap-2 py-0.5">
-            <div className="h-px bg-white/25 flex-1" />
-            <span className="text-amber-300 font-black text-[11px] sm:text-xs uppercase tracking-wider flex items-center gap-1 drop-shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-              + TE DAN DE REGALO
-            </span>
-            <div className="h-px bg-white/25 flex-1" />
-          </div>
-
-          {/* Gift Card Below (Full Width, Featured with Sello) */}
-          <div className="relative bg-gradient-to-r from-white via-rose-50/70 to-white rounded-xl p-3 shadow-lg border-2 border-rose-400 ring-2 ring-rose-400/30 flex items-center gap-3 transition-transform duration-200 hover:scale-[1.02]">
-            
-            {/* Sello Flotante ¡DE REGALO! */}
-            <div className="absolute -top-3.5 right-3 z-20">
-              <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full bg-gradient-to-r from-rose-600 via-pink-600 to-red-600 text-white text-[9.5px] font-black uppercase tracking-tight shadow-md ring-2 ring-white animate-pulse">
-                <Gift className="w-3 h-3" />
-                ¡DE REGALO!
-              </span>
-            </div>
-
-            <div className="w-16 h-20 sm:w-18 sm:h-22 shrink-0 bg-white rounded-lg p-1.5 border border-rose-200 shadow-2xs flex items-center justify-center">
-              <img
-                src={product.comboGift?.image || product.giftImage}
-                alt={product.comboGift?.name || product.giftName}
-                loading="lazy"
-                className="max-h-full max-w-full object-contain drop-shadow-sm"
-              />
-            </div>
-
-            <div className="min-w-0 flex-1 space-y-1">
-              <span className="text-[9px] font-black uppercase tracking-wider text-rose-600 block">
-                {product.giftCategory || "Bonificación Especial"}
-              </span>
-              <span className="text-xs sm:text-sm font-black text-slate-900 leading-tight block">
-                {product.comboGift?.name || product.giftName}
-              </span>
-              <div className="flex items-center gap-1.5 pt-0.5">
-                <span className="text-[10px] font-black bg-rose-600 text-white px-2 py-0.5 rounded-md shadow-2xs uppercase tracking-tight">
-                  100% Bonificado
+          {/* Plus / Gift Divider or Discount Divider */}
+          {product.giftName ? (
+            <>
+              {/* Plus / Gift Divider Label */}
+              <div className="flex items-center justify-center gap-2 py-0.5">
+                <div className="h-px bg-white/25 flex-1" />
+                <span className="text-amber-300 font-black text-[11px] sm:text-xs uppercase tracking-wider flex items-center gap-1 drop-shadow-xs">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                  REGALO
                 </span>
-                {product.giftQtyLabel && (
-                  <span className="text-[10px] font-extrabold text-rose-800">
-                    {product.giftQtyLabel}
-                  </span>
-                )}
+                <div className="h-px bg-white/25 flex-1" />
               </div>
-            </div>
 
-          </div>
+              {/* Gift Card Below (Full Width, Featured with Sello) */}
+              <div className="relative bg-gradient-to-r from-white via-rose-50/70 to-white rounded-xl p-3 shadow-lg border-2 border-rose-400 ring-2 ring-rose-400/30 flex items-center gap-3 transition-transform duration-200 hover:scale-[1.02]">
+                
+                {/* Sello Flotante ¡DE REGALO! */}
+                <div className="absolute -top-3.5 right-3 z-20">
+                  <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full bg-gradient-to-r from-rose-600 via-pink-600 to-red-600 text-white text-[9.5px] font-black uppercase tracking-tight shadow-md ring-2 ring-white animate-pulse">
+                    <Gift className="w-3 h-3" />
+                    ¡DE REGALO!
+                  </span>
+                </div>
+
+                <div className="w-16 h-20 sm:w-18 sm:h-22 shrink-0 bg-white rounded-lg p-1.5 border border-rose-200 shadow-2xs flex items-center justify-center">
+                  <img
+                    src={product.comboGift?.image || product.giftImage}
+                    alt={product.comboGift?.name || product.giftName}
+                    loading="lazy"
+                    className="max-h-full max-w-full object-contain drop-shadow-sm"
+                  />
+                </div>
+
+                <div className="min-w-0 flex-1 space-y-1">
+                  <span className="text-xs sm:text-sm font-black text-slate-900 leading-tight block">
+                    {product.comboGift?.name || product.giftName}
+                  </span>
+                  {product.giftQtyLabel && (
+                    <span className="text-[10px] font-extrabold text-rose-800 block">
+                      {product.giftQtyLabel}
+                    </span>
+                  )}
+                </div>
+
+              </div>
+            </>
+          ) : product.discount ? (
+            <>
+              {/* Discount Divider Label */}
+              <div className="flex items-center justify-center gap-2 py-0.5">
+                <div className="h-px bg-white/25 flex-1" />
+                <span className="text-amber-300 font-black text-[11px] sm:text-xs uppercase tracking-wider flex items-center gap-1 drop-shadow-xs">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                  DESCUENTO EXCLUSIVO
+                </span>
+                <div className="h-px bg-white/25 flex-1" />
+              </div>
+
+              {/* Discount Banner Below (matching flyer red circle 10% Descuento) */}
+              <div className="relative bg-gradient-to-r from-white via-rose-50/80 to-white rounded-xl p-3 shadow-lg border-2 border-rose-400 ring-2 ring-rose-400/30 flex items-center gap-3 transition-transform duration-200 hover:scale-[1.02]">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-full bg-gradient-to-br from-red-600 via-rose-600 to-red-700 text-white flex flex-col items-center justify-center shadow-md border-2 border-white ring-2 ring-red-400/40">
+                  <span className="text-sm sm:text-base font-black leading-none">{product.discount}</span>
+                  <span className="text-[8px] sm:text-[8.5px] font-bold uppercase tracking-tight leading-none mt-0.5">Descuento</span>
+                </div>
+
+                <div className="min-w-0 flex-1 space-y-0.5">
+                  <span className="text-xs sm:text-sm font-black text-slate-900 leading-tight block">
+                    {product.discountTitle || `${product.discount} en el total del combo`}
+                  </span>
+                  <span className="text-[10.5px] font-extrabold text-rose-700 block">
+                    Comprando los 20 (5 de cada uno)
+                  </span>
+                </div>
+              </div>
+            </>
+          ) : null}
 
         </div>
 
@@ -152,7 +170,7 @@ export default function ComboCard({ product }) {
           </div>
           <div className="flex items-center gap-1">
             <Check className="w-3 h-3 text-emerald-400 shrink-0" />
-            <span>Regalo incluido</span>
+            <span>{product.giftName ? "Regalo incluido" : "Descuento incluido"}</span>
           </div>
         </div>
 
@@ -177,67 +195,65 @@ export default function ComboCard({ product }) {
           </h3>
         </div>
 
-        {/* Short Description */}
-        <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
-          {product.description}
-        </p>
-
-        {/* Structured Spec Box (matching catalog mockup) */}
+        {/* Structured Spec Box (matching flyer cleanly) */}
         <div className="bg-slate-50 border border-slate-200/90 rounded-xl p-3 sm:p-3.5 space-y-2.5">
           
-          {/* Incluye */}
+          {/* COMPRANDO */}
           <div className="space-y-1">
             <div className="flex items-center gap-1.5 text-blue-900 font-bold text-xs uppercase tracking-wider">
               <Package className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-              <span>COMPRANDO TODO LO QUE SE MUESTRA:</span>
+              <span>COMPRANDO:</span>
             </div>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1 pl-5 text-[11.5px] text-slate-700 font-medium list-disc">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11.5px]">
               {product.comboIncludes?.map((item, i) => (
-                <li key={i} className="leading-tight">
-                  <strong className="text-slate-900 font-bold">{item.qty}</strong> {item.name}
-                </li>
+                <div key={i} className="flex items-center justify-between gap-2 bg-white p-2 rounded-lg border border-slate-200/90 shadow-2xs">
+                  <div className="min-w-0 flex items-center gap-1.5">
+                    <span className="inline-flex items-center justify-center font-black text-[10px] text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded shrink-0">
+                      {item.qty}
+                    </span>
+                    <span className="font-bold text-slate-800 truncate text-[11.5px]">
+                      {item.name}
+                    </span>
+                  </div>
+                  {item.priceBase && (
+                    <div className="text-right shrink-0">
+                      <span className="text-[8.5px] font-semibold text-slate-400 uppercase block leading-none">Base</span>
+                      <span className="text-xs font-black text-slate-900">
+                        ${item.priceBase}
+                      </span>
+                    </div>
+                  )}
+                </div>
               ))}
-            </ul>
-          </div>
-
-          {/* Regalo */}
-          <div className="pt-2 border-t border-slate-200/80 flex items-start gap-2 bg-rose-50/70 p-2.5 rounded-xl border border-rose-200/60">
-            <Gift className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-            <div className="min-w-0">
-              <span className="text-[11px] font-extrabold text-rose-700 uppercase tracking-tight block">
-                TE DAN DE REGALO (100% BONIFICADO):
-              </span>
-              <span className="text-xs sm:text-sm font-black text-rose-950 block">
-                {product.comboGift?.name || product.giftName}
-              </span>
             </div>
           </div>
 
-          {/* Mínimo de Compra */}
-          <div className="pt-2 border-t border-slate-200/80 flex items-center justify-between gap-2">
-            <div className="flex items-center gap-1.5">
-              <ShoppingCart className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-              <div>
-                <span className="text-[10px] font-extrabold text-blue-950 uppercase tracking-tight block">
-                  Condición de la Promo
+          {/* BENEFICIO: REGALO O DESCUENTO */}
+          {product.giftName ? (
+            <div className="pt-2 border-t border-slate-200/80 flex items-start gap-2 bg-rose-50/70 p-2.5 rounded-xl border border-rose-200/60">
+              <Gift className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+              <div className="min-w-0">
+                <span className="text-[11px] font-extrabold text-rose-700 uppercase tracking-tight block">
+                  REGALO:
                 </span>
-                <span className="text-xs font-bold text-blue-800 block">
-                  {product.minOrderLabel || "Comprando todo lo que se muestra te dan el regalo"}
+                <span className="text-xs sm:text-sm font-black text-rose-950 block">
+                  {product.comboGift?.name || product.giftName}
                 </span>
               </div>
             </div>
-            <span className="text-[10px] font-bold text-purple-700 bg-purple-100 border border-purple-200 px-2 py-0.5 rounded-lg shrink-0">
-              Promo Combo
-            </span>
-          </div>
-
-          {/* Condición */}
-          <div className="pt-2 border-t border-slate-200/80 flex items-start gap-1.5 text-[10.5px] text-slate-500 font-medium">
-            <Info className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
-            <span>
-              <strong className="text-slate-700">Condición:</strong> {product.condition}
-            </span>
-          </div>
+          ) : product.discount ? (
+            <div className="pt-2 border-t border-slate-200/80 flex items-start gap-2 bg-rose-50/70 p-2.5 rounded-xl border border-rose-200/60">
+              <Sparkles className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
+              <div className="min-w-0">
+                <span className="text-[11px] font-extrabold text-rose-700 uppercase tracking-tight block">
+                  BENEFICIO COMBO:
+                </span>
+                <span className="text-xs sm:text-sm font-black text-rose-950 block">
+                  {product.discountTitle || `${product.discount} en el total del combo comprando los 20 productos`}
+                </span>
+              </div>
+            </div>
+          ) : null}
 
         </div>
 
@@ -255,7 +271,7 @@ export default function ComboCard({ product }) {
               </span>
             </div>
             <span className="bg-purple-600 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-lg shadow-sm">
-              COMBO
+              {product.discount || "COMBO"}
             </span>
           </div>
 

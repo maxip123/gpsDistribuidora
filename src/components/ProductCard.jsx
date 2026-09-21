@@ -163,17 +163,39 @@ export default function ProductCard({ product }) {
               </div>
             ) : (
               <div>
-                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
-                  {product.priceLabel ? `${product.priceLabel}:` : 'Precio por Unidad:'}
-                </span>
+                {product.originalPrice ? (
+                  <div className="flex items-center gap-1.5 mb-1 flex-wrap">
+                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                      ANTES:
+                    </span>
+                    <span className="text-sm font-bold text-slate-400 line-through">
+                      ${product.originalPrice.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                    {discountText && (
+                      <span className="inline-flex items-center text-[10.5px] font-black text-rose-600 bg-rose-50 border border-rose-200/90 px-1.5 py-0.2 rounded-md shadow-2xs">
+                        {discountText}
+                      </span>
+                    )}
+                  </div>
+                ) : (
+                  <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
+                    {product.priceLabel ? `${product.priceLabel}:` : 'Precio por Unidad:'}
+                  </span>
+                )}
+
                 <div className="flex items-baseline flex-wrap gap-1.5 mt-0.5">
+                  {product.originalPrice && (
+                    <span className="text-xs font-black uppercase text-rose-600 tracking-wider">
+                      AHORA:
+                    </span>
+                  )}
                   <span className="text-2xl sm:text-3xl font-extrabold text-slate-950 tracking-tight">
                     ${unitPrice.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
                   <span className="text-xs font-bold text-slate-500">
                     c/u
                   </span>
-                  {discountText && (
+                  {!product.originalPrice && discountText && (
                     <span className="ml-1 inline-flex items-center text-xs font-black text-rose-600 bg-rose-50 border border-rose-200/90 px-2 py-0.5 rounded-lg shadow-2xs">
                       {discountText}
                     </span>

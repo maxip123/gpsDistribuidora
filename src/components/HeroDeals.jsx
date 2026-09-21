@@ -22,7 +22,7 @@ export default function HeroDeals({
           
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[11px] sm:text-xs font-bold uppercase tracking-wider">
             <Flame className="w-3.5 h-3.5 text-rose-400 shrink-0" />
-            <span>Catálogo Virtual Mayorista</span>
+            <span>Catálogo Virtual</span>
           </div>
 
           <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
