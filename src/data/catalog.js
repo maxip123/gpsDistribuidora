@@ -56,7 +56,7 @@ export const PRODUCTS = [
       { name: "Mayonesa Hellmanns Light 237gr", short: "Mayonesa Light 237g", qty: "24 u.", image: "/ilovepdf_images-extracted24 (1)/img462.jpg" },
       { name: "Ketchup Hellmanns 250gr", short: "Ketchup 250g", qty: "24 u.", image: "/ilovepdf_images-extracted24 (1)/img458.jpg" },
       { name: "Mostaza Hellmanns 250gr", short: "Mostaza 250g", qty: "24 u.", image: "/ilovepdf_images-extracted24 (1)/img459.jpg" },
-      { name: "Aderezos Hellmanns 250gr (Pueden ser surtidos)", short: "Aderezos 250g", qty: "48 u.", image: "/ilovepdf_images-extracted24 (1)/img461.jpg" }
+      { name: "Aderezos Hellmanns 250gr (Pueden ser surtidos)", short: "Aderezos 250g", qty: "48 u.", image: "/ilovepdf_images-extracted24 (1)/img461.jpg", images: ["/ilovepdf_images-extracted24 (1)/img461.jpg", "/ilovepdf_images-extracted24 (1)/img464.jpg", "/ilovepdf_images-extracted24 (1)/img_asado_hellmanns.jpg"] }
     ],
     isWeeklyOffer: true,
     searchKeywords: "combo autoservicio hellmanns mayonesa ketchup mostaza aderezos regalo 120u unilever"
@@ -81,7 +81,12 @@ export const PRODUCTS = [
     giftImage: "/ilovepdf_images-extracted24 (1)/img464.jpg",
     comboGift: {
       name: "5u Aderezos Hellmann's 237gr (Pueden ser Surtidos)",
-      image: "/ilovepdf_images-extracted24 (1)/img464.jpg"
+      image: "/ilovepdf_images-extracted24 (1)/img464.jpg",
+      images: [
+        "/ilovepdf_images-extracted24 (1)/img461.jpg",
+        "/ilovepdf_images-extracted24 (1)/img464.jpg",
+        "/ilovepdf_images-extracted24 (1)/img_asado_hellmanns.jpg"
+      ]
     },
     comboIncludes: [
       { name: "Mayonesa Hellmanns 118gr", short: "Mayonesa 118g", qty: "20 u.", image: "/ilovepdf_images-extracted24 (1)/img457.jpg" },
@@ -109,12 +114,12 @@ export const PRODUCTS = [
     discountTitle: "10% de descuento en el total del combo",
     comboIncludes: [
       { name: "Rejilla Paño Doble 35x48", short: "Rejilla 35x48", qty: "5 u.", priceBase: "1.003,30", image: "/ilovepdf_images-extracted24 (1)/img424.jpg" },
-      { name: "Trapo Piso Azul Grande 50x60", short: "Trapo Azul 50x60", qty: "5 u.", priceBase: "955,03", image: "/ilovepdf_images-extracted24 (1)/img425.jpg" },
-      { name: "Trapo Piso Natural Grande 50x60", short: "Trapo Natural 50x60", qty: "5 u.", priceBase: "965,20", image: "/ilovepdf_images-extracted24 (1)/img426.jpg" },
-      { name: "Trapo Piso Rayado Grande 50x60", short: "Trapo Rayado 50x60", qty: "5 u.", priceBase: "1.030,97", image: "/ilovepdf_images-extracted24 (1)/img427.jpg" }
+      { name: "Trapito Azul Trapo Piso Gris Grande 50x60", short: "Trapo Gris 50x60", qty: "5 u.", priceBase: "955,03", image: "/ilovepdf_images-extracted24 (1)/img425.jpg" },
+      { name: "Trapito Azul Trapo Piso Natural Grande 50x60", short: "Trapo Natural 50x60", qty: "5 u.", priceBase: "965,20", image: "/ilovepdf_images-extracted24 (1)/img426.jpg" },
+      { name: "Trapito Azul Trapo Piso Rayado Grande 50x60", short: "Trapo Rayado 50x60", qty: "5 u.", priceBase: "1.030,97", image: "/ilovepdf_images-extracted24 (1)/img427.jpg" }
     ],
     isWeeklyOffer: true,
-    searchKeywords: "combo manos del norte rejilla trapo piso azul natural rayado 20 unidades 10% off"
+    searchKeywords: "combo manos del norte rejilla trapo piso gris natural rayado 20 unidades 10% off 6134 5908 5861 6042"
   },
   // ── FLYER 1: VIM / PLAYBOY / CHANGUITO ─────────────────────────────
   {
@@ -745,6 +750,145 @@ export const PRODUCTS = [
     image: "/Daddy/WhatsApp Image 2026-09-07 at 3.54.17 PM.jpeg",
     noPrice: true,
     searchKeywords: "toallas toallitas humedas daddy doddy vitamina e bebes nuevo ingreso"
+  },
+  // ── ESPECIAL KNORR ─────────────────────────────────────────────────
+  {
+    id: 201,
+    cod: "KNORR-SOPA-POLLO",
+    nombre: "Sopa Casera Knorr Pollo c/Fideos Dedalitos 115.6gr",
+    name: "Sopa Casera Knorr Pollo c/Fideos Dedalitos 115.6gr",
+    precio: 1920.68,
+    unitPrice: 1920.68,
+    priceBulto: 1920.68,
+    categoria: "Almacén",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    tag: "Especial Knorr",
+    condicion: "COMPRA 9 + 1 DE REGALO",
+    descripcion: "COMPRA 9 + 1 DE REGALO",
+    description: "COMPRA 9 + 1 DE REGALO",
+    bultoUnits: 9,
+    bultoUnitLabel: "9 + 1 de Regalo",
+    badgeText: "KNORR",
+    badgeType: "savings",
+    image: "/ilovepdf_ultimas/img82.jpg",
+    isWeeklyOffer: true,
+    searchKeywords: "knorr sopa casera pollo fideos dedalitos"
+  },
+  {
+    id: 202,
+    cod: "KNORR-SOPA-VEG-LETRAS",
+    nombre: "Sopa Casera Knorr Vegetales c/Fideos Letras 107.5gr",
+    name: "Sopa Casera Knorr Vegetales c/Fideos Letras 107.5gr",
+    precio: 1920.68,
+    unitPrice: 1920.68,
+    priceBulto: 1920.68,
+    categoria: "Almacén",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    tag: "Especial Knorr",
+    condicion: "COMPRA 9 + 1 DE REGALO",
+    descripcion: "COMPRA 9 + 1 DE REGALO",
+    description: "COMPRA 9 + 1 DE REGALO",
+    bultoUnits: 9,
+    bultoUnitLabel: "9 + 1 de Regalo",
+    badgeText: "KNORR",
+    badgeType: "savings",
+    image: "/ilovepdf_ultimas/img84.jpg",
+    isWeeklyOffer: true,
+    searchKeywords: "knorr sopa casera vegetales fideos letras"
+  },
+  {
+    id: 203,
+    cod: "KNORR-SOPA-VEG-TRICOLOR",
+    nombre: "Sopa Casera Knorr Vegetales Tricolor 107.5gr",
+    name: "Sopa Casera Knorr Vegetales Tricolor 107.5gr",
+    precio: 1920.68,
+    unitPrice: 1920.68,
+    priceBulto: 1920.68,
+    categoria: "Almacén",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    tag: "Especial Knorr",
+    condicion: "COMPRA 9 + 1 DE REGALO",
+    descripcion: "COMPRA 9 + 1 DE REGALO",
+    description: "COMPRA 9 + 1 DE REGALO",
+    bultoUnits: 9,
+    bultoUnitLabel: "9 + 1 de Regalo",
+    badgeText: "KNORR",
+    badgeType: "savings",
+    image: "/ilovepdf_ultimas/img104.jpg",
+    isWeeklyOffer: true,
+    searchKeywords: "knorr sopa casera vegetales tricolor caracolitos"
+  },
+  {
+    id: 204,
+    cod: "KNORR-CREMA-CHOCLO",
+    nombre: "Sopa Crema Knorr de Choclo 70gr",
+    name: "Sopa Crema Knorr de Choclo 70gr",
+    precio: 1920.68,
+    unitPrice: 1920.68,
+    priceBulto: 1920.68,
+    categoria: "Almacén",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    tag: "Especial Knorr",
+    condicion: "COMPRA 9 + 1 DE REGALO",
+    descripcion: "COMPRA 9 + 1 DE REGALO",
+    description: "COMPRA 9 + 1 DE REGALO",
+    bultoUnits: 9,
+    bultoUnitLabel: "9 + 1 de Regalo",
+    badgeText: "KNORR",
+    badgeType: "savings",
+    image: "/ilovepdf_ultimas/img105.jpg",
+    isWeeklyOffer: true,
+    searchKeywords: "knorr crema choclo sopa"
+  },
+  {
+    id: 205,
+    cod: "KNORR-CREMA-VEG",
+    nombre: "Sopa Crema Knorr de Vegetales 60gr",
+    name: "Sopa Crema Knorr de Vegetales 60gr",
+    precio: 1920.68,
+    unitPrice: 1920.68,
+    priceBulto: 1920.68,
+    categoria: "Almacén",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    tag: "Especial Knorr",
+    condicion: "COMPRA 9 + 1 DE REGALO",
+    descripcion: "COMPRA 9 + 1 DE REGALO",
+    description: "COMPRA 9 + 1 DE REGALO",
+    bultoUnits: 9,
+    bultoUnitLabel: "9 + 1 de Regalo",
+    badgeText: "KNORR",
+    badgeType: "savings",
+    image: "/ilovepdf_ultimas/img107.jpg",
+    isWeeklyOffer: true,
+    searchKeywords: "knorr crema vegetales sopa"
+  },
+  {
+    id: 206,
+    cod: "KNORR-CREMA-ZAPALLO",
+    nombre: "Sopa Crema Knorr de Zapallo 70gr",
+    name: "Sopa Crema Knorr de Zapallo 70gr",
+    precio: 1920.68,
+    unitPrice: 1920.68,
+    priceBulto: 1920.68,
+    categoria: "Almacén",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    tag: "Especial Knorr",
+    condicion: "COMPRA 9 + 1 DE REGALO",
+    descripcion: "COMPRA 9 + 1 DE REGALO",
+    description: "COMPRA 9 + 1 DE REGALO",
+    bultoUnits: 9,
+    bultoUnitLabel: "9 + 1 de Regalo",
+    badgeText: "KNORR",
+    badgeType: "savings",
+    image: "/ilovepdf_ultimas/img109.jpg",
+    isWeeklyOffer: true,
+    searchKeywords: "knorr crema zapallo sopa"
   }
 ];
 

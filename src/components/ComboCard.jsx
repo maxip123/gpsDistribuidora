@@ -50,17 +50,30 @@ export default function ComboCard({ product }) {
                 key={idx} 
                 className="bg-white/95 backdrop-blur-xs rounded-xl p-2 shadow-sm border border-white/80 flex flex-col items-center justify-between text-center transition-transform duration-200 hover:scale-[1.03]"
               >
-                <div className="w-full h-16 sm:h-20 flex items-center justify-center overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    loading="lazy"
-                    className="max-h-full max-w-full object-contain drop-shadow-xs"
-                  />
+                <div className="w-full h-14 sm:h-16 flex items-center justify-center overflow-hidden gap-1">
+                  {item.images && item.images.length > 1 ? (
+                    item.images.map((src, imgIdx) => (
+                      <img
+                        key={imgIdx}
+                        src={src}
+                        alt={item.name}
+                        loading="lazy"
+                        style={{ width: `${100 / item.images.length}%` }}
+                        className="h-full object-contain drop-shadow-xs"
+                      />
+                    ))
+                  ) : (
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      loading="lazy"
+                      className="max-h-full max-w-full object-contain drop-shadow-xs"
+                    />
+                  )}
                 </div>
-                <div className="mt-1 w-full space-y-0.5">
-                  <span className="text-[10px] sm:text-[11px] font-black text-slate-800 leading-tight block truncate">
-                    {item.short || item.name}
+                <div className="mt-1 w-full space-y-1">
+                  <span className="text-[10px] sm:text-[11px] font-black text-slate-800 leading-tight block text-center">
+                    {item.name.replace(/\s*\(.*?\)/g, '').trim()}
                   </span>
                   <div className="flex items-center justify-center gap-1">
                     <span className="text-[9.5px] font-extrabold text-blue-700 bg-blue-50 border border-blue-200/50 px-1.5 py-0.5 rounded">
@@ -102,13 +115,28 @@ export default function ComboCard({ product }) {
                   </span>
                 </div>
 
-                <div className="w-16 h-20 sm:w-18 sm:h-22 shrink-0 bg-white rounded-lg p-1.5 border border-rose-200 shadow-2xs flex items-center justify-center">
-                  <img
-                    src={product.comboGift?.image || product.giftImage}
-                    alt={product.comboGift?.name || product.giftName}
-                    loading="lazy"
-                    className="max-h-full max-w-full object-contain drop-shadow-sm"
-                  />
+                <div className="h-20 sm:h-22 shrink-0 bg-white rounded-lg p-1.5 border border-rose-200 shadow-2xs flex items-center justify-center gap-1 overflow-hidden"
+                  style={{ width: product.comboGift?.images?.length > 1 ? `${product.comboGift.images.length * 3}rem` : '4rem' }}
+                >
+                  {product.comboGift?.images?.length > 1 ? (
+                    product.comboGift.images.map((src, i) => (
+                      <img
+                        key={i}
+                        src={src}
+                        alt={product.comboGift.name}
+                        loading="lazy"
+                        style={{ width: `${100 / product.comboGift.images.length}%` }}
+                        className="h-full object-contain drop-shadow-sm"
+                      />
+                    ))
+                  ) : (
+                    <img
+                      src={product.comboGift?.image || product.giftImage}
+                      alt={product.comboGift?.name || product.giftName}
+                      loading="lazy"
+                      className="max-h-full max-w-full object-contain drop-shadow-sm"
+                    />
+                  )}
                 </div>
 
                 <div className="min-w-0 flex-1 space-y-1">
@@ -173,9 +201,6 @@ export default function ComboCard({ product }) {
             <span className="text-[10px] sm:text-[11px] font-bold text-purple-700 bg-purple-50 border border-purple-200 px-2.5 py-0.5 rounded-full">
               {product.categoryLabel || "Ofertas de la Semana"}
             </span>
-            <span className="text-[11px] font-mono font-bold text-slate-400">
-              Cód: {product.cod}
-            </span>
           </div>
 
           <h3 className="font-extrabold text-slate-900 text-lg sm:text-xl md:text-2xl tracking-tight leading-snug mt-1.5 group-hover:text-purple-700 transition-colors">
@@ -194,17 +219,17 @@ export default function ComboCard({ product }) {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11.5px]">
               {product.comboIncludes?.map((item, i) => (
-                <div key={i} className="flex items-center justify-between gap-2 bg-white p-2 rounded-lg border border-slate-200/90 shadow-2xs">
-                  <div className="min-w-0 flex items-center gap-1.5">
-                    <span className="inline-flex items-center justify-center font-black text-[10px] text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded shrink-0">
+                <div key={i} className="flex items-start justify-between gap-2 bg-white p-2 sm:p-2.5 rounded-lg border border-slate-200/90 shadow-2xs">
+                  <div className="min-w-0 flex items-start gap-1.5 flex-1">
+                    <span className="inline-flex items-center justify-center font-black text-[10px] text-blue-700 bg-blue-50 border border-blue-200 px-1.5 py-0.5 rounded shrink-0 mt-0.5">
                       {item.qty}
                     </span>
-                    <span className="font-bold text-slate-800 truncate text-[11.5px]">
+                    <span className="font-bold text-slate-800 text-[11px] sm:text-[11.5px] leading-snug">
                       {item.name}
                     </span>
                   </div>
                   {item.priceBase && (
-                    <div className="text-right shrink-0">
+                    <div className="text-right shrink-0 pl-1">
                       <span className="text-[8.5px] font-semibold text-slate-400 uppercase block leading-none">Base</span>
                       <span className="text-xs font-black text-slate-900">
                         ${item.priceBase}
