@@ -17,13 +17,12 @@ import { STORE_CONFIG } from '../data/catalog';
 export default function DailyOffersCarousel() {
   const getInitialIndex = () => {
     const now = new Date();
-    const isSept = now.getMonth() === 8;
-    const day = now.getDate();
-    if (isSept) {
-      const idx = DAILY_OFFERS.findIndex(o => o.dayNum === day);
-      if (idx !== -1) return idx;
-    }
-    return 0;
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    const todayStr = `${yyyy}-${mm}-${dd}`;
+    const idx = DAILY_OFFERS.findIndex(o => o.date === todayStr);
+    return idx !== -1 ? idx : 0;
   };
 
   const [currentIndex, setCurrentIndex] = useState(getInitialIndex);
@@ -153,7 +152,7 @@ export default function DailyOffersCarousel() {
               </h2>
               <span className="text-[11px] text-slate-400 hidden sm:inline">•</span>
               <span className="text-[11px] font-medium text-slate-600 bg-white px-2 py-0.5 rounded border border-slate-200/70">
-                21 al 24 de Septiembre
+                28 de Septiembre al 04 de Octubre
               </span>
               <span className="text-[11px] font-semibold text-rose-700 bg-rose-50 px-2 py-0.5 rounded border border-rose-200/70">
                 Únicamente para clientes
