@@ -27,6 +27,30 @@ const RAW_CATEGORIES = [
 ];
 
 export const PRODUCTS = [
+  // ── COMBO PROMOCIONAL: YERBAS JUNTAS (MATEANDO + CBSé SERRANA) ───
+  {
+    id: 139,
+    isCombo: true,
+    cod: "COMBO-YERB-MAT-CBSE",
+    nombre: "Combo Yerbas: Mateando + CBSé Serrana",
+    name: "Combo Yerbas: Mateando + CBSé Serrana",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Almacén",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    badgeText: "COMBO YERBAS",
+    badgeType: "savings",
+    brandLabel: "Mateando + CBSé Serrana",
+    comboIncludes: [
+      { name: "Yerba Mateando Suave 500gr", short: "Mateando 500gr", qty: "6 u.", priceBase: "1.736,60", image: "/ilovepdf_27/img481.jpg" },
+      { name: "Yerba CBSé Serrana 500gr", short: "CBSé Serrana 500gr", qty: "5 u.", priceBase: "1.761,85", image: "/ilovepdf_27/img482.jpg" }
+    ],
+    isWeeklyOffer: true,
+    searchKeywords: "combo yerbas mateando suave cbse serrana 500gr mate almacen promo juntas"
+  },
+
   // ── COMBO PROMOCIONAL: MANOS DEL NORTE ───────────────────────────
   {
     id: 113,
@@ -395,53 +419,7 @@ export const PRODUCTS = [
     searchKeywords: "maquina afeitar bic soleil rosa femenina 3 hojas 24 unidades antes ahora"
   },
 
-  // ── FLYER 4: OFERTA SEMANAL (YERBAS / KOLYNOS / PLAYBOY / CHANGUITO) ──
-  {
-    id: 137,
-    cod: "YERB-MAT-SUA-500",
-    nombre: "Yerba Mateando Suave 500gr",
-    name: "Yerba Mateando Suave 500gr",
-    precio: 1736.60,
-    unitPrice: 1736.60,
-    priceBulto: 8683.00,
-    categoria: "Almacén",
-    category: "ofertas",
-    categoryLabel: "Ofertas de la Semana",
-    tag: "Yerba Mate",
-    condicion: "COMPRA 5U",
-    descripcion: "COMPRA 5U",
-    description: "COMPRA 5U",
-    bultoUnits: 5,
-    bultoUnitLabel: "5 Unidades (500gr c/u)",
-    badgeText: "MATEANDO",
-    badgeType: "savings",
-    image: "/ilovepdf_27/img481.jpg",
-    isWeeklyOffer: true,
-    searchKeywords: "yerba mate mateando suave 500gr estacionamiento natural compre mas almacen"
-  },
-  {
-    id: 138,
-    cod: "YERB-CBSE-SER-500",
-    nombre: "Yerba CBSé Serrana 500gr",
-    name: "Yerba CBSé Serrana 500gr",
-    precio: 1761.85,
-    unitPrice: 1761.85,
-    priceBulto: 10571.10,
-    categoria: "Almacén",
-    category: "ofertas",
-    categoryLabel: "Ofertas de la Semana",
-    tag: "Yerba Mate",
-    condicion: "COMPRA 6U",
-    descripcion: "COMPRA 6U",
-    description: "COMPRA 6U",
-    bultoUnits: 6,
-    bultoUnitLabel: "6 Unidades (500gr c/u)",
-    badgeText: "CBSÉ",
-    badgeType: "savings",
-    image: "/ilovepdf_27/img482.jpg",
-    isWeeklyOffer: true,
-    searchKeywords: "yerba cbse serrana hierbas serranas 500gr compuesta compre mas mate almacen"
-  },
+  // ── FLYER 4: OFERTA SEMANAL (KOLYNOS / PLAYBOY / CHANGUITO) ──────
   {
     id: 112,
     cod: "KOLY-50",
