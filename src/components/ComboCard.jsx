@@ -58,7 +58,7 @@ export default function ComboCard({ product }) {
                         src={src}
                         alt={item.name}
                         loading="lazy"
-                        style={{ width: `${100 / item.images.length}%` }}
+                        style={{ flex: '1 1 0', minWidth: 0, maxWidth: '100%' }}
                         className="h-full object-contain drop-shadow-xs"
                       />
                     ))
@@ -125,7 +125,7 @@ export default function ComboCard({ product }) {
                         src={src}
                         alt={product.comboGift.name}
                         loading="lazy"
-                        style={{ width: `${100 / product.comboGift.images.length}%` }}
+                        style={{ flex: '1 1 0', minWidth: 0, maxWidth: '100%' }}
                         className="h-full object-contain drop-shadow-sm"
                       />
                     ))

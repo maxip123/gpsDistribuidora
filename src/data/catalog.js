@@ -27,6 +27,72 @@ const RAW_CATEGORIES = [
 ];
 
 export const PRODUCTS = [
+  // ── COMBO PROMOCIONAL: AUTOSERVICIO HELLMANN'S ────────────────────
+  {
+    id: 140,
+    isCombo: true,
+    cod: "COMBO-HELL-AUTO",
+    nombre: "Combo Autoservicio Hellmann's",
+    name: "Combo Autoservicio Hellmann's",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Almacén",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    badgeText: "COMBO AUTOSERVICIO",
+    badgeType: "purple",
+    brandLabel: "Especial Hellmann's Unilever",
+    giftName: "120u Mayonesa Hellmanns 118gr",
+    giftQtyLabel: "x 120 unidades",
+    giftImage: "/ilove29/img98.jpg",
+    comboGift: {
+      name: "120u Mayonesa Hellmanns 118gr",
+      image: "/ilove29/img98.jpg"
+    },
+    comboIncludes: [
+      { name: "Mayonesa Hellmanns 475gr", short: "Mayo 475gr", qty: "15 u.", image: "/ilove29/img104.jpg" },
+      { name: "Mayonesa Hellmanns 237gr", short: "Mayo 237gr", qty: "48 u.", image: "/ilove29/img104.jpg" },
+      { name: "Mayonesa Hellmanns Light 237gr", short: "Light 237gr", qty: "24 u.", image: "/ilove29/img110.jpg" },
+      { name: "Ketchup Hellmanns 250gr", short: "Ketchup 250gr", qty: "24 u.", image: "/ilove29/img100.jpg" },
+      { name: "Mostaza Hellmanns 250gr", short: "Mostaza 250gr", qty: "24 u.", image: "/ilove29/img102.jpg" },
+      { name: "Aderezos Hellmanns 250gr", short: "Aderezos 250gr", qty: "48 u.", images: ["/ilove29/img106.jpg", "/ilove29/img108.jpg", "/ilove29/img110.jpg"] }
+    ],
+    isWeeklyOffer: true,
+    searchKeywords: "combo autoservicio hellmanns mayonesa ketchup mostaza aderezos 475gr 237gr 250gr 118gr regalo unilever"
+  },
+
+  // ── COMBO PROMOCIONAL: ALMACENERO HELLMANN'S ──────────────────────
+  {
+    id: 141,
+    isCombo: true,
+    cod: "COMBO-HELL-ALMA",
+    nombre: "Combo Almacenero Hellmann's",
+    name: "Combo Almacenero Hellmann's",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Almacén",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    badgeText: "COMBO ALMACENERO",
+    badgeType: "purple",
+    brandLabel: "Especial Hellmann's Unilever",
+    giftName: "5u Aderezos Hellmanns 237gr (Surtidos)",
+    giftQtyLabel: "x 5 unidades",
+    giftImage: "/ilove29/img106.jpg",
+    comboGift: {
+      name: "5u Aderezos Hellmanns 237gr (Surtidos)",
+      images: ["/ilove29/img106.jpg", "/ilove29/img108.jpg", "/ilove29/img110.jpg"]
+    },
+    comboIncludes: [
+      { name: "Mayonesa Hellmanns 118gr", short: "Mayo 118gr", qty: "20 u.", image: "/ilove29/img98.jpg" },
+      { name: "Mayonesa Hellmanns Reg 247gr", short: "Mayo Reg 247gr", qty: "24 u.", image: "/ilove29/img104.jpg" }
+    ],
+    isWeeklyOffer: true,
+    searchKeywords: "combo almacenero hellmanns mayonesa clasica 118gr 247gr aderezos surtidos regalo unilever"
+  },
+
   // ── COMBO PROMOCIONAL: YERBAS JUNTAS (MATEANDO + CBSé SERRANA) ───
   {
     id: 139,
