@@ -55,7 +55,7 @@ export const PRODUCTS = [
       { name: "Mayonesa Hellmanns 237gr", short: "Mayo 237gr", qty: "48 u.", image: "/ilove29/img104.jpg" },
       { name: "Mayonesa Hellmanns Light 237gr", short: "Light 237gr", qty: "24 u.", image: "/ilove29/img110.jpg" },
       { name: "Ketchup Hellmanns 250gr", short: "Ketchup 250gr", qty: "24 u.", image: "/ilove29/img100.jpg" },
-      { name: "Mostaza Hellmanns 250gr", short: "Mostaza 250gr", qty: "24 u.", image: "/ilove29/img102.jpg" },
+      { name: "Mostaza Savora 250gr", short: "Mostaza 250gr", qty: "24 u.", image: "/ilovepdf_images-savora/img36.jpg" },
       { name: "Aderezos Hellmanns 250gr", short: "Aderezos 250gr", qty: "48 u.", images: ["/ilove29/img106.jpg", "/ilove29/img108.jpg", "/ilove29/img110.jpg"] }
     ],
     isWeeklyOffer: true,
@@ -280,9 +280,9 @@ export const PRODUCTS = [
   },
   {
     id: 135,
-    cod: "HELL-MOS-250",
-    nombre: "Mostaza Hellmann's 250gr",
-    name: "Mostaza Hellmann's 250gr",
+    cod: "SAV-MOS-250",
+    nombre: "Mostaza Savora 250gr",
+    name: "Mostaza Savora 250gr",
     precio: 1283.44,
     unitPrice: 1283.44,
     priceBulto: 30802.56,
@@ -295,12 +295,12 @@ export const PRODUCTS = [
     description: "COMPRA 24U",
     bultoUnits: 24,
     bultoUnitLabel: "24 Unidades (250gr c/u)",
-    badgeText: "HELLMANN'S",
+    badgeText: "SAVORA",
     badgeType: "savings",
-    brandLabel: "Especial Unilever",
-    image: "/ilovepdf_27/img386.jpg",
+    brandLabel: "Savora",
+    image: "/ilovepdf_images-savora/img36.jpg",
     isWeeklyOffer: true,
-    searchKeywords: "mostaza hellmanns 250gr doypack semillas aderezos unilever"
+    searchKeywords: "mostaza savora 250gr doypack aderezos"
   },
   {
     id: 136,

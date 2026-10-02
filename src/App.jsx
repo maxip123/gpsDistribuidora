@@ -73,6 +73,7 @@ export default function App() {
 
       {/* Main Content */}
       <main className="flex-1 w-full max-w-full overflow-x-clip">
+
         
         {/* Weekly Offers Hero Spotlight (Shown when no search is active) */}
         {!searchQuery && (selectedCategory === 'todas' || selectedCategory === 'ofertas') && (
@@ -99,7 +100,7 @@ export default function App() {
         <NewArrivalsSection products={NEW_ARRIVALS} />
 
         {/* Wholesale Features */}
-        <WholesaleFeatures />
+        <WholesaleFeatures className="festive-features-bg" />
 
       </main>
 

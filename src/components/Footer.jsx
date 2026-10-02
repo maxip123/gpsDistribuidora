@@ -24,6 +24,21 @@ function InstagramIcon({ className = "w-3.5 h-3.5" }) {
 export default function Footer() {
   return (
     <footer className="w-full max-w-full overflow-hidden bg-slate-950 text-slate-400 text-xs border-t border-slate-800">
+      
+      {/* 🎉 Festive anniversary strip */}
+      <div style={{
+        background: 'linear-gradient(90deg, #1B2E4B 0%, #2D1B5E 40%, #1E3A5F 70%, #1B2E4B 100%)',
+        borderBottom: '1px solid rgba(240, 192, 64, 0.2)',
+        padding: '10px 16px',
+        textAlign: 'center',
+        fontSize: '11px',
+        fontWeight: '700',
+        color: '#F0C040',
+        letterSpacing: '0.07em',
+      }}>
+        🌟 ¡Gracias por un mes más de confianza! · G.P.S Distribuciones · Octubre 2026 · Seguimos creciendo juntos 🥂
+      </div>
+
       <div className="max-w-7xl mx-auto px-3 sm:px-6 py-6 sm:py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
           

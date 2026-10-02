@@ -42,3 +42,1341 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* =========================================================
+   🎉 FESTIVE ANNIVERSARY THEME — GPS Distribuciones
+   Branch: festivo | Confetti + Golden Celebration
+   ========================================================= */
+
+/* --- Confetti keyframes --- */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(90px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti-sway {
+  0%, 100% { margin-left: 0px; }
+  25%       { margin-left: 8px; }
+  75%       { margin-left: -8px; }
+}
+
+/* --- Shimmer sweep keyframe --- */
+@keyframes shimmer-sweep {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* --- Star pulse keyframe --- */
+@keyframes star-pulse {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+  50%       { transform: scale(1.3) rotate(15deg); opacity: 1; }
+}
+
+/* --- Pop bounce keyframe --- */
+@keyframes pop-bounce {
+  0%, 100% { transform: rotate(-10deg) scale(1); }
+  50%       { transform: rotate(10deg) scale(1.15); }
+}
+
+/* --- Heart beat --- */
+@keyframes heart-beat {
+  0%, 100% { transform: scale(1); }
+  30%       { transform: scale(1.2); }
+  60%       { transform: scale(0.95); }
+}
+
+/* --- Golden ambient glow for hero --- */
+@keyframes golden-pulse {
+  0%, 100% { opacity: 0.12; transform: scale(1); }
+  50%       { opacity: 0.22; transform: scale(1.05); }
+}
+
+/* --- Text shimmer --- */
+@keyframes text-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ===================== ANNIVERSARY BANNER ===================== */
+
+.anniversary-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    #1B2E4B 0%,
+    #1E3A5F 30%,
+    #2D1B5E 60%,
+    #1B2E4B 100%
+  );
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid rgba(240, 192, 64, 0.4);
+  min-height: 80px;
+}
+
+/* Confetti particles container */
+.confetti-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti-particle {
+  position: absolute;
+  top: -10px;
+  animation: confetti-fall linear infinite, confetti-sway ease-in-out infinite;
+  border-radius: 1px;
+}
+
+.confetti-circle {
+  border-radius: 50%;
+}
+
+.confetti-rect {
+  border-radius: 2px;
+}
+
+/* Content wrapper */
+.anniversary-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Left & right decorative accents */
+.anniversary-accent-left,
+.anniversary-accent-right {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .anniversary-accent-left,
+  .anniversary-accent-right {
+    display: flex;
+  }
+}
+
+.anniversary-icon-pop {
+  width: 28px;
+  height: 28px;
+  color: #F0C040;
+  animation: pop-bounce 2s ease-in-out infinite;
+}
+
+.anniversary-icon-heart {
+  width: 22px;
+  height: 22px;
+  color: #FF6B9D;
+  animation: heart-beat 1.8s ease-in-out infinite;
+}
+
+.anniversary-stars {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.anniversary-star {
+  color: #F0C040;
+}
+
+.anniversary-star.s1 {
+  width: 10px; height: 10px;
+  animation: star-pulse 2.1s ease-in-out infinite;
+}
+.anniversary-star.s2 {
+  width: 14px; height: 14px;
+  animation: star-pulse 2.1s ease-in-out infinite 0.3s;
+}
+.anniversary-star.s3 {
+  width: 10px; height: 10px;
+  animation: star-pulse 2.1s ease-in-out infinite 0.6s;
+}
+
+/* Central message */
+.anniversary-message {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.anniversary-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #F0C040;
+}
+
+@media (min-width: 480px) {
+  .anniversary-eyebrow {
+    font-size: 11px;
+  }
+}
+
+.eyebrow-icon {
+  width: 12px;
+  height: 12px;
+  color: #F0C040;
+  flex-shrink: 0;
+}
+
+.anniversary-headline {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+  margin: 0;
+}
+
+@media (min-width: 480px) {
+  .anniversary-headline {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .anniversary-headline {
+    font-size: 17px;
+  }
+}
+
+.anniversary-headline strong {
+  background: linear-gradient(90deg, #F0C040, #FFD700, #F0C040, #FBBF24);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-shimmer 3s linear infinite;
+  font-weight: 900;
+}
+
+.anniversary-sub {
+  font-size: 10.5px;
+  color: rgba(203, 213, 225, 0.85);
+  margin: 0;
+  line-height: 1.5;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .anniversary-sub {
+    display: block;
+    font-size: 11px;
+  }
+}
+
+/* Shimmer sweep overlay */
+.anniversary-shimmer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(240, 192, 64, 0.08) 50%,
+    transparent 70%
+  );
+  animation: shimmer-sweep 4s ease-in-out infinite;
+}
+
+/* ===================== FESTIVE HERO OVERLAY ===================== */
+
+/* Golden ambient glow that sits on top of the hero bg */
+.festive-hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(240, 192, 64, 0.14) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 90% 50%, rgba(167, 139, 250, 0.10) 0%, transparent 60%);
+  animation: golden-pulse 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* Festive badge inside hero */
+.festive-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, rgba(240,192,64,0.2) 0%, rgba(240,192,64,0.08) 100%);
+  border: 1px solid rgba(240, 192, 64, 0.5);
+  border-radius: 999px;
+  color: #F0C040;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+
+.festive-badge-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+/* ===================== FESTIVE NAVBAR RIBBON ===================== */
+
+.festive-ribbon {
+  width: 100%;
+  background: linear-gradient(90deg, #1B2E4B 0%, #2D1B5E 50%, #1B2E4B 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 5px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #F0C040;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(240, 192, 64, 0.25);
+  overflow: hidden;
+  position: relative;
+}
+
+.festive-ribbon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 20%, rgba(240,192,64,0.06) 50%, transparent 80%);
+  animation: shimmer-sweep 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.festive-ribbon-sep {
+  color: rgba(240, 192, 64, 0.4);
+  font-size: 12px;
+}
+
+/* ===================== FESTIVE WHOLESALE SECTION ===================== */
+
+.festive-features-bg {
+  background: linear-gradient(
+    180deg,
+    #f8f4ff 0%,
+    #fff8f0 50%,
+    #f0f9ff 100%
+  ) !important;
+}
+
+/* ===================== FESTIVE HERO — INTEGRADO ===================== */
+
+.hero-festivo-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 35%, #1e1b4b 70%, #0f172a 100%);
+  color: white;
+  padding: 28px 12px;
+  border-bottom: 1px solid rgba(100, 116, 139, 0.3);
+}
+
+@media (min-width: 640px)  { .hero-festivo-wrapper { padding: 36px 24px; } }
+@media (min-width: 1024px) { .hero-festivo-wrapper { padding: 44px 32px; } }
+
+.hero-confetti-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+@keyframes hero-confetti-float {
+  0%   { transform: translateY(0px)   rotate(0deg);   opacity: 0.7; }
+  33%  { transform: translateY(-12px) rotate(120deg); opacity: 1;   }
+  66%  { transform: translateY(6px)   rotate(240deg); opacity: 0.6; }
+  100% { transform: translateY(0px)   rotate(360deg); opacity: 0.7; }
+}
+
+.hero-confetti-dot {
+  position: absolute;
+  border-radius: 2px;
+  animation: hero-confetti-float ease-in-out infinite;
+  opacity: 0.75;
+}
+
+.hero-confetti-circle { border-radius: 50%; }
+
+.hero-festivo-glow-gold {
+  position: absolute; top: -40px; right: -40px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(240,192,64,0.18) 0%, transparent 70%);
+  pointer-events: none;
+  animation: golden-pulse 5s ease-in-out infinite;
+}
+
+.hero-festivo-glow-purple {
+  position: absolute; bottom: -60px; left: 25%;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(139,92,246,0.14) 0%, transparent 70%);
+  pointer-events: none;
+  animation: golden-pulse 6s ease-in-out infinite 1s;
+}
+
+.hero-festivo-glow-blue {
+  position: absolute; top: 20%; left: -30px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+  pointer-events: none;
+  animation: golden-pulse 4.5s ease-in-out infinite 0.5s;
+}
+
+.hero-festivo-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .hero-festivo-grid {
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+  }
+}
+
+.hero-festivo-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 640px) { .hero-festivo-left { gap: 16px; } }
+
+/* Tarjeta festiva */
+.hero-festivo-card {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  background: linear-gradient(
+    135deg,
+    rgba(240,192,64,0.12) 0%,
+    rgba(139,92,246,0.10) 50%,
+    rgba(240,192,64,0.08) 100%
+  );
+  border: 1px solid rgba(240,192,64,0.35);
+  border-radius: 20px;
+  padding: 20px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  overflow: hidden;
+  backdrop-filter: blur(8px);
+}
+
+@media (min-width: 900px) { .hero-festivo-card { width: 260px; margin: 0; } }
+
+.hero-festivo-card-icon {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, rgba(240,192,64,0.25), rgba(240,192,64,0.08));
+  border: 1px solid rgba(240,192,64,0.4);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes popper-sway {
+  0%, 100% { transform: rotate(-8deg) scale(1);    }
+  50%       { transform: rotate(8deg)  scale(1.12); }
+}
+
+.hero-festivo-popper {
+  width: 28px; height: 28px;
+  color: #F0C040;
+  animation: popper-sway 2.4s ease-in-out infinite;
+}
+
+.hero-festivo-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hero-festivo-card-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #F0C040;
+}
+
+.hero-festivo-card-headline {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+.hero-festivo-card-headline strong {
+  background: linear-gradient(90deg, #F0C040, #FFD700, #FBBF24, #F0C040);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-shimmer 3s linear infinite;
+  font-weight: 900;
+}
+
+.hero-festivo-card-sub {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(203,213,225,0.8);
+  line-height: 1.5;
+}
+
+.hero-festivo-card-stars {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+@keyframes hf-star-float {
+  0%, 100% { transform: translateY(0)    scale(1);   opacity: 0.6; }
+  50%       { transform: translateY(-5px) scale(1.2); opacity: 1;   }
+}
+
+.hf-star {
+  position: absolute;
+  color: #F0C040;
+  font-size: 12px;
+  animation: hf-star-float ease-in-out infinite;
+}
+
+.hf-star-1 { top: 10%; left: 8%;     animation-duration: 2.5s; animation-delay: 0s;   }
+.hf-star-2 { top: 15%; right: 8%;    animation-duration: 3.1s; animation-delay: 0.6s; font-size: 9px; }
+.hf-star-3 { bottom: 12%; left: 12%; animation-duration: 2.8s; animation-delay: 1.2s; font-size: 10px; }
+.hf-star-4 { bottom: 18%; right: 10%;animation-duration: 2.2s; animation-delay: 0.4s; }
+
+@keyframes card-shimmer {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(250%)  skewX(-15deg); }
+}
+
+.hero-festivo-card-shimmer {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(240,192,64,0.10) 50%,
+    transparent 65%
+  );
+  animation: card-shimmer 3.5s ease-in-out infinite;
+}
+
+/* ===================== ANNIVERSARY EYEBROW ===================== */
+
+.hf-anniversary-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #F0C040;
+  padding: 4px 10px;
+  background: rgba(240,192,64,0.08);
+  border: 1px solid rgba(240,192,64,0.3);
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.hf-aniv-dot {
+  font-size: 9px;
+  opacity: 0.7;
+}
+
+/* ===================== 16 AÑOS CARD ===================== */
+
+/* Badge top */
+.hf-card-badge {
+  font-size: 8.5px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  background: rgba(230,57,70,0.35);
+  border: 1px solid rgba(230,57,70,0.5);
+  border-radius: 999px;
+  padding: 3px 10px;
+  white-space: nowrap;
+}
+
+/* Number wrap */
+.hf-card-number-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* The big "16" */
+.hf-card-number {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(160deg, #FFD700 0%, #F0C040 40%, #FBBF24 70%, #FFD700 100%);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-shimmer 3s linear infinite;
+  letter-spacing: -2px;
+  text-shadow: none;
+  filter: drop-shadow(0 0 18px rgba(240,192,64,0.45));
+}
+
+@media (min-width: 640px) {
+  .hf-card-number { font-size: 80px; }
+}
+
+/* "años" + mes label */
+.hf-card-number-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.hf-card-anos {
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.hf-card-mes {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(203,213,225,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+/* Tagline */
+.hf-card-tagline {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.04em;
+}
+
+/* ===================== REDUCED MOTION OVERRIDES ===================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .confetti-particle,
+  .hero-confetti-dot,
+  .aniv-confetti-dot,
+  .anniversary-shimmer,
+  .anniversary-icon-pop,
+  .anniversary-icon-heart,
+  .anniversary-star,
+  .anniversary-headline strong,
+  .festive-hero-glow,
+  .hero-festivo-glow-gold,
+  .hero-festivo-glow-purple,
+  .hero-festivo-glow-blue,
+  .hero-festivo-popper,
+  .hf-star,
+  .hero-festivo-card-shimmer,
+  .hero-festivo-card-headline strong,
+  .hf-card-number {
+    animation: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   ANIVERSARIO HERO — Referencia de marca
+   Navy · Rojo · Dorado · Octubre 2026
+═══════════════════════════════════════════════════ */
+
+/* Wrapper principal */
+.aniv-hero-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  background: 
+    radial-gradient(circle at 76% 40%, rgba(220, 20, 50, 0.28) 0%, transparent 55%),
+    radial-gradient(circle at 15% 30%, rgba(27, 63, 171, 0.35) 0%, transparent 50%),
+    #050E2D;
+  color: white;
+  padding: 30px 16px 36px;
+  border-bottom: 3px solid #E8192C;
+}
+
+@media (min-width: 640px)  { .aniv-hero-wrapper { padding: 40px 24px 44px; } }
+@media (min-width: 1024px) { .aniv-hero-wrapper { padding: 52px 44px 56px; } }
+@media (min-width: 1400px) { .aniv-hero-wrapper { padding: 58px 48px 62px; } }
+
+/* Resplandor ambiental */
+.aniv-bg-glow {
+  position: absolute;
+  top: -20%;
+  right: 15%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 25, 44, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+/* Rayos de fondo (sunburst) centrados a la derecha */
+.aniv-rays {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-conic-gradient(
+      from 0deg at 76% 50%,
+      rgba(255,255,255,0.035) 0deg 4deg,
+      transparent 4deg 9deg
+    );
+}
+
+/* Confetti layer */
+.aniv-confetti-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.aniv-confetti-dot {
+  position: absolute;
+  border-radius: 2px;
+  opacity: 0.75;
+}
+
+.aniv-confetti-circle { border-radius: 50%; }
+
+/* ── Grid ── */
+.aniv-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (min-width: 860px) {
+  .aniv-grid {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+}
+
+/* ── Columna izquierda ── */
+.aniv-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+  max-width: 680px;
+}
+
+/* Eyebrow badge pill "★ ANIVERSARIO GPS" */
+.aniv-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 16px;
+  border: 1.5px solid #E8192C;
+  border-radius: 9999px;
+  background: rgba(232,25,44,0.14);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  width: fit-content;
+  box-shadow: 0 0 14px rgba(232,25,44,0.3);
+}
+
+.aniv-badge-star {
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* ── Título principal ── */
+.aniv-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 2px 0 4px;
+}
+
+.aniv-title-row1 {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 12px;
+  position: relative;
+}
+
+/* Número "16" en rojo con borde blanco y 3D */
+.aniv-title-num {
+  font-size: clamp(54px, 7.8vw, 96px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -2px;
+  color: #E8192C;
+  -webkit-text-stroke: 2.5px #ffffff;
+  paint-order: stroke fill;
+  filter: drop-shadow(0 4px 0 #9E0B19) drop-shadow(0 8px 18px rgba(0,0,0,0.55));
+}
+
+/* Palabra "años" en blanco con relieve */
+.aniv-title-anos {
+  font-size: clamp(44px, 6.2vw, 78px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -1px;
+  color: #ffffff;
+  filter: drop-shadow(0 3px 0 #8899B5) drop-shadow(0 6px 14px rgba(0,0,0,0.45));
+}
+
+/* 3 destellos festivos amarillos \ | / */
+.aniv-sparks {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 32px;
+  margin-left: 2px;
+  position: relative;
+  top: -8px;
+}
+
+.aniv-spark-bar {
+  width: 4px;
+  background: #FFD200;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(255,210,0,0.7);
+}
+
+.aniv-spark-1 {
+  height: 18px;
+  transform: rotate(-26deg);
+  transform-origin: bottom center;
+}
+
+.aniv-spark-2 {
+  height: 28px;
+  transform: rotate(0deg);
+}
+
+.aniv-spark-3 {
+  height: 22px;
+  transform: rotate(26deg);
+  transform-origin: bottom center;
+}
+
+/* Segunda línea: "impulsando tu negocio" */
+.aniv-title-row2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.aniv-title-impulsando {
+  font-size: clamp(28px, 4.4vw, 54px);
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.45));
+}
+
+/* "tu negocio" — VIBRANTE ROJO, SIN NINGÚN RECUADRO */
+.aniv-title-negocio {
+  font-size: clamp(28px, 4.4vw, 54px);
+  font-weight: 900;
+  color: #E8192C;
+  -webkit-text-stroke: 1.6px #ffffff;
+  paint-order: stroke fill;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  filter: drop-shadow(0 3px 0 #9E0B19) drop-shadow(0 6px 14px rgba(0,0,0,0.45));
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Descripción */
+.aniv-description {
+  margin: 2px 0 4px;
+  font-size: clamp(13px, 1.35vw, 16px);
+  color: rgba(215, 230, 255, 0.92);
+  line-height: 1.55;
+  max-width: 520px;
+}
+
+.aniv-description strong {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+/* Feature pills */
+.aniv-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 2px 0;
+}
+
+.aniv-feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(230,240,255,0.95);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  backdrop-filter: blur(4px);
+}
+
+/* Botones */
+.aniv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding-top: 6px;
+}
+
+.aniv-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: #FFD200;
+  color: #071440;
+  font-weight: 900;
+  font-size: 13.5px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
+  box-shadow: 0 4px 18px rgba(255,210,0,0.4);
+}
+
+.aniv-btn-primary:hover  {
+  background: #FFE033;
+  box-shadow: 0 6px 22px rgba(255,210,0,0.55);
+}
+.aniv-btn-primary:active { transform: scale(0.97); }
+
+.aniv-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  background: rgba(18, 32, 68, 0.75);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13.5px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.aniv-btn-secondary:hover {
+  border-color: rgba(255,255,255,0.55);
+  background: rgba(25, 45, 95, 0.85);
+}
+
+/* ══════════════════════════════════════════
+   COLUMNA DERECHA — Escenario festivo
+   ══════════════════════════════════════════ */
+.aniv-right {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+@media (min-width: 860px) {
+  .aniv-right {
+    margin: 0;
+    width: 380px;
+    max-width: 420px;
+  }
+  .aniv-stage-container {
+    transform: scale(1.22);
+    transform-origin: center center;
+    margin: 20px 0 25px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .aniv-right {
+    width: 440px;
+    max-width: 480px;
+  }
+  .aniv-stage-container {
+    transform: scale(1.38);
+    transform-origin: center center;
+    margin: 30px 0 35px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .aniv-right {
+    width: 480px;
+    max-width: 520px;
+  }
+  .aniv-stage-container {
+    transform: scale(1.48);
+    transform-origin: center center;
+    margin: 40px 0 45px;
+  }
+}
+
+.aniv-stage-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  transition: transform 0.2s ease;
+}
+
+/* ── Globos 3D ── */
+.aniv-balloon {
+  position: absolute;
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  box-shadow: inset -6px -8px 16px rgba(0,0,0,0.5), 0 10px 24px rgba(0,0,0,0.35);
+  pointer-events: none;
+}
+
+.aniv-balloon-highlight {
+  position: absolute;
+  top: 12%;
+  left: 18%;
+  width: 28%;
+  height: 20%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, transparent 80%);
+  transform: rotate(-30deg);
+}
+
+.aniv-balloon-knot {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 6px;
+  background: inherit;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.aniv-balloon-blue {
+  top: -35px;
+  left: -20px;
+  width: 98px;
+  height: 120px;
+  background: radial-gradient(circle at 35% 30%, #548DFF 0%, #1A4ED8 45%, #0B257E 85%, #05103E 100%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aniv-balloon-brand {
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 0.95;
+  letter-spacing: 0.05em;
+  opacity: 0.95;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  transform: rotate(-6deg);
+}
+
+.aniv-balloon-brand small {
+  display: block;
+  font-size: 6.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.aniv-balloon-red {
+  top: 6px;
+  left: 36px;
+  width: 80px;
+  height: 98px;
+  background: radial-gradient(circle at 35% 30%, #FFA2AB 0%, #FF2B42 40%, #C80D1F 75%, #6A0009 100%);
+  z-index: 2;
+}
+
+/* Globos derecha — espejo del cluster izquierdo */
+.aniv-balloon-right-1 {
+  top: 6px;
+  left: auto;
+  right: 36px;
+  z-index: 2;
+}
+
+.aniv-balloon-right-2 {
+  top: -35px;
+  left: auto;
+  right: -20px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Globo dorado (3er globo de cada lado) */
+.aniv-balloon-gold {
+  width: 74px;
+  height: 90px;
+  background: radial-gradient(circle at 35% 30%, #FFE87A 0%, #F5C518 40%, #C9980A 75%, #7A5C00 100%);
+  z-index: 0;
+}
+
+.aniv-balloon-left-3 {
+  top: 80px;
+  left: 8px;
+  z-index: 0;
+}
+
+.aniv-balloon-right-3 {
+  top: 80px;
+  left: auto;
+  right: 8px;
+  z-index: 0;
+}
+
+/* ── Caja de regalo ── */
+.aniv-gift-box {
+  position: absolute;
+  bottom: 46px;
+  left: -14px;
+  width: 62px;
+  height: 56px;
+  background: linear-gradient(135deg, #ffffff 0%, #e8edf5 100%);
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  z-index: 4;
+}
+
+.aniv-gift-ribbon-v {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 11px;
+  background: #E8192C;
+}
+
+.aniv-gift-ribbon-h {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 11px;
+  background: #E8192C;
+}
+
+.aniv-gift-bow {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 13px;
+  background: #E8192C;
+  border-radius: 50% 50% 10% 10%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* ── Tarjeta blanca "Octubre de festejo" ── */
+.aniv-oct-card {
+  position: relative;
+  width: 236px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px 22px 22px;
+  z-index: 5;
+  box-shadow:
+    0 14px 40px rgba(0,0,0,0.48),
+    0 0 0 2px rgba(255,255,255,0.7);
+  transform: rotate(-2deg);
+  margin-bottom: -10px;
+}
+
+.aniv-oct-card-ribbon {
+  position: absolute;
+  top: -16px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  background: #E8192C;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(232,25,44,0.45);
+}
+
+.aniv-oct-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.aniv-oct-mes {
+  font-size: 26px;
+  font-weight: 900;
+  color: #E8192C;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.aniv-oct-de {
+  font-size: 21px;
+  font-weight: 900;
+  color: #071440;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.aniv-oct-sub {
+  margin: 6px 0 0;
+  font-size: 11.5px;
+  color: #4B5563;
+  line-height: 1.45;
+}
+
+/* ── Podio / Base 3D con banda ANIVERSARIO GPS ── */
+.aniv-podium {
+  position: relative;
+  width: 100%;
+  max-width: 290px;
+  z-index: 6;
+  margin-top: 14px;
+}
+
+.aniv-podium-top {
+  width: 100%;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, #1B3FAB 0%, #0B1C56 70%, #06113A 100%);
+  border: 1.5px solid rgba(100, 160, 255, 0.4);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  margin-bottom: -9px;
+}
+
+.aniv-podium-band {
+  width: 100%;
+  background: linear-gradient(90deg, #A00016 0%, #E8192C 30%, #FF2B42 50%, #E8192C 70%, #A00016 100%);
+  border-radius: 9999px;
+  padding: 9px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow:
+    0 6px 18px rgba(232,25,44,0.5),
+    inset 0 1px 1px rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.aniv-podium-text {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+.aniv-podium-spark {
+  color: #FFD200;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
+.aniv-podium-base {
+  width: 90%;
+  height: 12px;
+  margin: -4px auto 0;
+  border-radius: 0 0 16px 16px;
+  background: #050E2D;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.aniv-podium-base {
+  width: 90%;
+  height: 12px;
+  margin: -4px auto 0;
+  border-radius: 0 0 16px 16px;
+  background: #050E2D;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
