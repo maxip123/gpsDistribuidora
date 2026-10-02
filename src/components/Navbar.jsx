@@ -115,16 +115,6 @@ export default function Navbar({
   return (
     <header className="sticky top-0 z-40 w-full max-w-full bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
       
-      {/* 🎉 Festive monthly anniversary ribbon */}
-      <div className="festive-ribbon">
-        <span>🎉</span>
-        <span>¡Celebramos un mes más de distribución!</span>
-        <span className="festive-ribbon-sep">·</span>
-        <span>Gracias a todos nuestros clientes</span>
-        <span className="festive-ribbon-sep">·</span>
-        <span>🥂 G.P.S Distribuciones</span>
-      </div>
-
       {/* Main Brand & Search Bar */}
       <div className="max-w-7xl mx-auto px-2.5 sm:px-6 py-2 sm:py-3.5">
         <div className="flex items-center justify-between gap-1.5 sm:gap-4">
@@ -275,7 +265,7 @@ export default function Navbar({
               <Zap className="w-3.5 h-3.5 text-amber-600 fill-amber-500 shrink-0" />
               <span>Ofertas Comprá Ahora</span>
               <span className="text-[10px] font-bold uppercase px-1.5 py-0.2 rounded-md bg-amber-200 text-amber-900">
-                21-24 SEP
+                28 SEP-04 OCT
               </span>
             </button>
 
@@ -306,7 +296,7 @@ export default function Navbar({
                         ? 'bg-white/25 text-white'
                         : 'bg-rose-200 text-rose-900'
                     }`}>
-                      21-26 SEP
+                      28 SEP-04 OCT
                     </span>
                     <span className={`text-[10px] sm:text-[10.5px] font-extrabold px-1.5 py-0.2 rounded-full shrink-0 ${
                       isSelected
