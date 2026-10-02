@@ -6,6 +6,7 @@ import ProductGrid from './components/ProductGrid';
 import WholesaleFeatures from './components/WholesaleFeatures';
 import NewArrivalsSection from './components/NewArrivalsSection';
 import Footer from './components/Footer';
+import AnniversaryBanner from './components/AnniversaryBanner';
 import { CATEGORIES, PRODUCTS, NEW_ARRIVALS } from './data/catalog';
 
 export default function App() {
@@ -73,6 +74,9 @@ export default function App() {
 
       {/* Main Content */}
       <main className="flex-1 w-full max-w-full overflow-x-clip">
+
+        {/* 🎉 Anniversary Banner — festivo branch */}
+        <AnniversaryBanner />
         
         {/* Weekly Offers Hero Spotlight (Shown when no search is active) */}
         {!searchQuery && (selectedCategory === 'todas' || selectedCategory === 'ofertas') && (
@@ -99,7 +103,7 @@ export default function App() {
         <NewArrivalsSection products={NEW_ARRIVALS} />
 
         {/* Wholesale Features */}
-        <WholesaleFeatures />
+        <WholesaleFeatures className="festive-features-bg" />
 
       </main>
 

@@ -42,3 +42,364 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* =========================================================
+   🎉 FESTIVE ANNIVERSARY THEME — GPS Distribuciones
+   Branch: festivo | Confetti + Golden Celebration
+   ========================================================= */
+
+/* --- Confetti keyframes --- */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(90px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti-sway {
+  0%, 100% { margin-left: 0px; }
+  25%       { margin-left: 8px; }
+  75%       { margin-left: -8px; }
+}
+
+/* --- Shimmer sweep keyframe --- */
+@keyframes shimmer-sweep {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* --- Star pulse keyframe --- */
+@keyframes star-pulse {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+  50%       { transform: scale(1.3) rotate(15deg); opacity: 1; }
+}
+
+/* --- Pop bounce keyframe --- */
+@keyframes pop-bounce {
+  0%, 100% { transform: rotate(-10deg) scale(1); }
+  50%       { transform: rotate(10deg) scale(1.15); }
+}
+
+/* --- Heart beat --- */
+@keyframes heart-beat {
+  0%, 100% { transform: scale(1); }
+  30%       { transform: scale(1.2); }
+  60%       { transform: scale(0.95); }
+}
+
+/* --- Golden ambient glow for hero --- */
+@keyframes golden-pulse {
+  0%, 100% { opacity: 0.12; transform: scale(1); }
+  50%       { opacity: 0.22; transform: scale(1.05); }
+}
+
+/* --- Text shimmer --- */
+@keyframes text-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ===================== ANNIVERSARY BANNER ===================== */
+
+.anniversary-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    #1B2E4B 0%,
+    #1E3A5F 30%,
+    #2D1B5E 60%,
+    #1B2E4B 100%
+  );
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid rgba(240, 192, 64, 0.4);
+  min-height: 80px;
+}
+
+/* Confetti particles container */
+.confetti-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti-particle {
+  position: absolute;
+  top: -10px;
+  animation: confetti-fall linear infinite, confetti-sway ease-in-out infinite;
+  border-radius: 1px;
+}
+
+.confetti-circle {
+  border-radius: 50%;
+}
+
+.confetti-rect {
+  border-radius: 2px;
+}
+
+/* Content wrapper */
+.anniversary-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Left & right decorative accents */
+.anniversary-accent-left,
+.anniversary-accent-right {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .anniversary-accent-left,
+  .anniversary-accent-right {
+    display: flex;
+  }
+}
+
+.anniversary-icon-pop {
+  width: 28px;
+  height: 28px;
+  color: #F0C040;
+  animation: pop-bounce 2s ease-in-out infinite;
+}
+
+.anniversary-icon-heart {
+  width: 22px;
+  height: 22px;
+  color: #FF6B9D;
+  animation: heart-beat 1.8s ease-in-out infinite;
+}
+
+.anniversary-stars {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+
+.anniversary-star {
+  color: #F0C040;
+}
+
+.anniversary-star.s1 {
+  width: 10px; height: 10px;
+  animation: star-pulse 2.1s ease-in-out infinite;
+}
+.anniversary-star.s2 {
+  width: 14px; height: 14px;
+  animation: star-pulse 2.1s ease-in-out infinite 0.3s;
+}
+.anniversary-star.s3 {
+  width: 10px; height: 10px;
+  animation: star-pulse 2.1s ease-in-out infinite 0.6s;
+}
+
+/* Central message */
+.anniversary-message {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.anniversary-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #F0C040;
+}
+
+@media (min-width: 480px) {
+  .anniversary-eyebrow {
+    font-size: 11px;
+  }
+}
+
+.eyebrow-icon {
+  width: 12px;
+  height: 12px;
+  color: #F0C040;
+  flex-shrink: 0;
+}
+
+.anniversary-headline {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+  margin: 0;
+}
+
+@media (min-width: 480px) {
+  .anniversary-headline {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .anniversary-headline {
+    font-size: 17px;
+  }
+}
+
+.anniversary-headline strong {
+  background: linear-gradient(90deg, #F0C040, #FFD700, #F0C040, #FBBF24);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-shimmer 3s linear infinite;
+  font-weight: 900;
+}
+
+.anniversary-sub {
+  font-size: 10.5px;
+  color: rgba(203, 213, 225, 0.85);
+  margin: 0;
+  line-height: 1.5;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .anniversary-sub {
+    display: block;
+    font-size: 11px;
+  }
+}
+
+/* Shimmer sweep overlay */
+.anniversary-shimmer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(240, 192, 64, 0.08) 50%,
+    transparent 70%
+  );
+  animation: shimmer-sweep 4s ease-in-out infinite;
+}
+
+/* ===================== FESTIVE HERO OVERLAY ===================== */
+
+/* Golden ambient glow that sits on top of the hero bg */
+.festive-hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(240, 192, 64, 0.14) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 90% 50%, rgba(167, 139, 250, 0.10) 0%, transparent 60%);
+  animation: golden-pulse 4s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* Festive badge inside hero */
+.festive-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, rgba(240,192,64,0.2) 0%, rgba(240,192,64,0.08) 100%);
+  border: 1px solid rgba(240, 192, 64, 0.5);
+  border-radius: 999px;
+  color: #F0C040;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+}
+
+.festive-badge-icon {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+/* ===================== FESTIVE NAVBAR RIBBON ===================== */
+
+.festive-ribbon {
+  width: 100%;
+  background: linear-gradient(90deg, #1B2E4B 0%, #2D1B5E 50%, #1B2E4B 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 5px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #F0C040;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(240, 192, 64, 0.25);
+  overflow: hidden;
+  position: relative;
+}
+
+.festive-ribbon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 20%, rgba(240,192,64,0.06) 50%, transparent 80%);
+  animation: shimmer-sweep 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.festive-ribbon-sep {
+  color: rgba(240, 192, 64, 0.4);
+  font-size: 12px;
+}
+
+/* ===================== FESTIVE WHOLESALE SECTION ===================== */
+
+.festive-features-bg {
+  background: linear-gradient(
+    180deg,
+    #f8f4ff 0%,
+    #fff8f0 50%,
+    #f0f9ff 100%
+  ) !important;
+}
+
+/* ===================== REDUCED MOTION OVERRIDES ===================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .confetti-particle,
+  .anniversary-shimmer,
+  .anniversary-icon-pop,
+  .anniversary-icon-heart,
+  .anniversary-star,
+  .anniversary-headline strong,
+  .festive-hero-glow {
+    animation: none !important;
+  }
+}

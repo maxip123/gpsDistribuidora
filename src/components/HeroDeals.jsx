@@ -4,7 +4,8 @@ import {
   PackageCheck, 
   Sparkles,
   ShieldCheck,
-  Calendar
+  Calendar,
+  Star
 } from 'lucide-react';
 
 export default function HeroDeals({ 
@@ -16,10 +17,19 @@ export default function HeroDeals({
       {/* Background glow contained within boundaries */}
       <div className="absolute top-0 right-0 w-72 h-72 sm:w-96 sm:h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -translate-y-1/3 translate-x-1/3" />
       <div className="absolute bottom-0 left-1/3 w-64 h-64 sm:w-80 sm:h-80 bg-blue-500/15 rounded-full blur-3xl pointer-events-none translate-y-1/3" />
+      {/* 🎉 Festive golden ambient glow — anniversary branch */}
+      <div className="festive-hero-glow" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="max-w-3xl space-y-3 sm:space-y-4 text-left">
           
+          {/* 🎉 Festive anniversary badge */}
+          <div className="festive-badge">
+            <Star className="festive-badge-icon" fill="currentColor" />
+            <span>¡Festejamos un mes más con ustedes!</span>
+            <Star className="festive-badge-icon" fill="currentColor" />
+          </div>
+
           <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[11px] sm:text-xs font-bold uppercase tracking-wider">
             <Flame className="w-3.5 h-3.5 text-rose-400 shrink-0" />
             <span>Catálogo Virtual</span>
