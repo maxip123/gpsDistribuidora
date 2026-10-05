@@ -55,6 +55,16 @@ export default function ProductCard({ product }) {
           </div>
         )}
 
+        {/* Sello Aniversario 16 Años */}
+        <div className="absolute top-2 right-2 z-10 pointer-events-none select-none transition-transform duration-300 group-hover:scale-110 drop-shadow-md">
+          <img
+            src="/ChatGPT Image 4 oct 2026, 22_03_11.png"
+            alt="16 Años Aniversario"
+            className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
+            loading="lazy"
+          />
+        </div>
+
         {/* Product Image(s) */}
         {product.images && product.images.length > 1 ? (
           <div className={`grid gap-1.5 w-full px-2 h-44 ${product.images.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
