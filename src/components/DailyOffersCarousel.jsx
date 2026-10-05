@@ -38,7 +38,7 @@ export default function DailyOffersCarousel() {
 
   // Identify today's day number
   const todayDate = new Date();
-  const currentDayNum = (todayDate.getMonth() === 8) ? todayDate.getDate() : null;
+  const currentDayNum = (todayDate.getMonth() === 9) ? todayDate.getDate() : null;
 
   // Next & Prev handlers
   const goToNext = useCallback(() => {
@@ -152,7 +152,7 @@ export default function DailyOffersCarousel() {
               </h2>
               <span className="text-[11px] text-slate-400 hidden sm:inline">•</span>
               <span className="text-[11px] font-medium text-slate-600 bg-white px-2 py-0.5 rounded border border-slate-200/70">
-                28 de Septiembre al 04 de Octubre
+                05 al 12 de Octubre
               </span>
               <span className="text-[11px] font-semibold text-rose-700 bg-rose-50 px-2 py-0.5 rounded border border-rose-200/70">
                 Únicamente para clientes
