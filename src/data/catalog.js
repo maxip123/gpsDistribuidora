@@ -27,6 +27,68 @@ const RAW_CATEGORIES = [
 ];
 
 export const PRODUCTS = [
+  // ── COMBO PROMOCIONAL: AUTOSERVICIO DOVE ─────────────────────────
+  {
+    id: 143,
+    isCombo: true,
+    cod: "COMBO-DOVE-AUTO",
+    nombre: "Combo Autoservicio Dove Jabones",
+    name: "Combo Autoservicio Dove Jabones",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Perfumería",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    badgeText: "COMBO AUTOSERVICIO",
+    badgeType: "purple",
+    brandLabel: "Especial Dove Unilever",
+    giftName: "36 Jabón Suave Coco & Karité 220ml",
+    giftQtyLabel: "x 36 unidades",
+    giftImage: "/ilovepdf_pan/img150.jpg",
+    comboGift: {
+      name: "36 Jabón Suave Coco & Karité 220ml",
+      image: "/ilovepdf_pan/img150.jpg"
+    },
+    comboIncludes: [
+      { name: "Jabón Dove Coco 90gr", short: "Dove Coco 90gr", qty: "48 u.", image: "/ilovepdf_pan/img148.jpg" },
+      { name: "Jabón Dove Karité 90gr", short: "Dove Karité 90gr", qty: "48 u.", image: "/ilovepdf_pan/img149.jpg" }
+    ],
+    isWeeklyOffer: true,
+    searchKeywords: "combo autoservicio dove jabon coco karite 90gr suave 220ml regalo unilever perfumeria"
+  },
+
+  // ── COMBO PROMOCIONAL: ALMACENES DOVE ────────────────────────────
+  {
+    id: 144,
+    isCombo: true,
+    cod: "COMBO-DOVE-ALMA",
+    nombre: "Combo Almacenes Dove Jabones",
+    name: "Combo Almacenes Dove Jabones",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Perfumería",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    badgeText: "COMBO ALMACENES",
+    badgeType: "purple",
+    brandLabel: "Especial Dove Unilever",
+    giftName: "6 Jabón Suave Coco & Karité 220ml",
+    giftQtyLabel: "x 6 unidades",
+    giftImage: "/ilovepdf_pan/img150.jpg",
+    comboGift: {
+      name: "6 Jabón Suave Coco & Karité 220ml",
+      image: "/ilovepdf_pan/img150.jpg"
+    },
+    comboIncludes: [
+      { name: "Jabón Dove Coco 90gr", short: "Dove Coco 90gr", qty: "8 u.", image: "/ilovepdf_pan/img148.jpg" },
+      { name: "Jabón Dove Karité 90gr", short: "Dove Karité 90gr", qty: "8 u.", image: "/ilovepdf_pan/img149.jpg" }
+    ],
+    isWeeklyOffer: true,
+    searchKeywords: "combo almacenes dove jabon coco karite 90gr suave 220ml regalo unilever perfumeria"
+  },
+
   // ── COMBO PROMOCIONAL: AUTOSERVICIO HELLMANN'S ────────────────────
   {
     id: 140,
@@ -313,6 +375,31 @@ export const PRODUCTS = [
     image: "/ilovepdf_images-extracted (4)/img190.jpg",
     isWeeklyOffer: true,
     searchKeywords: "espirales sobre x5 36 unidades 4 espirales mosquitos insecticida"
+  },
+
+  // ── FLYER 4: OFERTA SEMANAL (PAN RALLADO LIBRES) ─────────────────
+  {
+    id: 120,
+    cod: "RIERA-PAN-500",
+    nombre: "Pan Rayado Libres 500gr",
+    name: "Pan Rayado Libres 500gr",
+    precio: 1097.73,
+    unitPrice: 1097.73,
+    priceBulto: 4390.92,
+    categoria: "Almacén",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    tag: "Almacén",
+    condicion: "COMPRA 4U",
+    descripcion: "COMPRA 4U",
+    description: "COMPRA 4U",
+    bultoUnits: 4,
+    bultoUnitLabel: "4 Unidades de 500gr",
+    badgeText: "LIBRES",
+    badgeType: "savings",
+    image: "/ilovepdf_pan/img121.jpg",
+    isWeeklyOffer: true,
+    searchKeywords: "pan rallado riera libres 500gr panificados almacen compra 4 unidades"
   },
 
   // ── NUEVOS INGRESOS: ACEITES, JABONES, LIMPIEZA Y BAZAR ─────────
