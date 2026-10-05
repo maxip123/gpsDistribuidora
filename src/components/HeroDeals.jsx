@@ -131,7 +131,7 @@ export default function HeroDeals({ totalOffersCount, onExploreClick }) {
                 className="aniv-btn-primary"
               >
                 <Flame className="w-4 h-4 fill-current shrink-0" />
-                <span>Ofertas Comprá Ahora (28 SEP al 04 OCT)</span>
+                <span>Ofertas Comprá Ahora (05 al 12 OCT)</span>
               </button>
 
               {onExploreClick && (
