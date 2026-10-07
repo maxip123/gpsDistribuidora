@@ -5,6 +5,7 @@ import DailyOffersCarousel from './components/DailyOffersCarousel';
 import ProductGrid from './components/ProductGrid';
 import WholesaleFeatures from './components/WholesaleFeatures';
 import NewArrivalsSection from './components/NewArrivalsSection';
+import MothersDaySection from './components/MothersDaySection';
 import Footer from './components/Footer';
 import { CATEGORIES, PRODUCTS, NEW_ARRIVALS } from './data/catalog';
 
@@ -84,6 +85,9 @@ export default function App() {
             />
             {/* Daily Offers Carousel (28 de Septiembre al 04 de Octubre) */}
             <DailyOffersCarousel />
+
+            {/* Nueva Sección Independiente: Especial Día de la Madre */}
+            <MothersDaySection />
           </>
         )}
 

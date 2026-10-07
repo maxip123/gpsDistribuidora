@@ -269,6 +269,29 @@ export default function Navbar({
               </span>
             </button>
 
+            {/* Direct button to Especial Día de la Madre */}
+            <button
+              onClick={() => {
+                if (selectedCategory !== 'ofertas' && selectedCategory !== 'todas') {
+                  onSelectCategory('ofertas');
+                }
+                setTimeout(() => {
+                  const el = document.getElementById('especial-dia-de-la-madre');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }, 50);
+              }}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs md:text-sm font-black bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white hover:brightness-110 border border-rose-300/40 transition-all shrink-0 cursor-pointer shadow-xs active:scale-95"
+              title="Ver Especial Día de la Madre"
+            >
+              <Heart className="w-3.5 h-3.5 text-white fill-white shrink-0 animate-pulse" />
+              <span>Especial Día de la Madre</span>
+              <span className="text-[10px] font-black uppercase px-1.5 py-0.2 rounded-md bg-white/25 text-white">
+                11% OFF
+              </span>
+            </button>
+
             {CATEGORIES.map((cat) => {
               const Icon = categoryIcons[cat.icon] || Sparkles;
               const isSelected = selectedCategory === cat.id;
