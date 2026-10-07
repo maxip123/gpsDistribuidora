@@ -5,7 +5,8 @@ import {
   Percent,
   Flame,
   Gift,
-  ChevronRight
+  ChevronRight,
+  Heart
 } from 'lucide-react';
 
 const CONFETTI = [
@@ -132,6 +133,17 @@ export default function HeroDeals({ totalOffersCount, onExploreClick }) {
               >
                 <Flame className="w-4 h-4 fill-current shrink-0" />
                 <span>Ofertas Comprá Ahora (05 al 12 OCT)</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  const el = document.getElementById('especial-dia-de-la-madre');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-black text-xs sm:text-sm bg-gradient-to-r from-rose-600 via-pink-600 to-rose-600 text-white hover:brightness-110 shadow-md transition-all active:scale-95 cursor-pointer border border-rose-300/40"
+              >
+                <Heart className="w-4 h-4 fill-current shrink-0 animate-pulse text-rose-200" />
+                <span>Especial Día de la Madre (11% OFF)</span>
               </button>
 
               {onExploreClick && (
