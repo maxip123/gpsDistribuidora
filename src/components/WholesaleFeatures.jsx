@@ -16,7 +16,7 @@ export default function WholesaleFeatures() {
         {/* Banner informativo de ofertas */}
         <div className="w-full rounded-2xl bg-gradient-to-r from-red-600 via-red-600 to-red-500 py-4 px-6 text-center shadow-md border border-red-500/30">
           <p className="text-white text-sm sm:text-base md:text-lg font-semibold leading-relaxed">
-            Ofertas válidas durante la semana de promoción.
+            Ofertas válidas durante la semana del 07 al 17 de septiembre.
             <br />
             Sujetas a disponibilidad de stock al momento de la compra.
           </p>
