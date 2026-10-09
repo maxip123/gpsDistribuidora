@@ -625,7 +625,7 @@
   opacity: 0.7;
 }
 
-/* ===================== 16 AÑOS CARD ===================== */
+/* ===================== 15 AÑOS CARD ===================== */
 
 /* Badge top */
 .hf-card-badge {
@@ -648,7 +648,7 @@
   gap: 10px;
 }
 
-/* The big "16" */
+/* The big "15" */
 .hf-card-number {
   font-size: 72px;
   font-weight: 900;
@@ -858,7 +858,7 @@
   position: relative;
 }
 
-/* Número "16" en rojo con borde blanco y 3D */
+/* Número "15" en rojo con borde blanco y 3D */
 .aniv-title-num {
   font-size: clamp(54px, 7.8vw, 96px);
   font-weight: 900;

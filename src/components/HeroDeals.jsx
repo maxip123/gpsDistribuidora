@@ -81,11 +81,11 @@ export default function HeroDeals({ totalOffersCount, onExploreClick }) {
             </div>
 
             {/* Título de impacto exactamente como el flyer:
-                Línea 1: "16 años" + 3 destellos amarillos
+                Línea 1: "15 años" + 3 destellos amarillos
                 Línea 2: "impulsando tu negocio" (tu negocio en rojo, sin ningún recuadro) */}
             <div className="aniv-title-group">
               <div className="aniv-title-row1">
-                <span className="aniv-title-num">16</span>
+                <span className="aniv-title-num">15</span>
                 <span className="aniv-title-anos">años</span>
                 {/* 3 destellos festivos amarillos \ | / */}
                 <span className="aniv-sparks" aria-hidden="true">

@@ -55,11 +55,11 @@ export default function ProductCard({ product }) {
           </div>
         )}
 
-        {/* Sello Aniversario 16 Años */}
+        {/* Sello Aniversario 15 Años */}
         <div className="absolute top-2 right-2 z-10 pointer-events-none select-none transition-transform duration-300 group-hover:scale-110 drop-shadow-md">
           <img
-            src="/ChatGPT Image 4 oct 2026, 22_03_11.png"
-            alt="16 Años Aniversario"
+            src="/Emblema%2015%20a%C3%B1os%20de%20celebraci%C3%B3n.png"
+            alt="15 Años Aniversario"
             className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
             loading="lazy"
           />

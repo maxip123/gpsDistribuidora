@@ -17,11 +17,11 @@ export default function ComboCard({ product }) {
   return (
     <div className="group relative bg-white rounded-2xl border-2 border-purple-300/80 hover:border-purple-600 hover:shadow-2xl transition-all duration-300 flex flex-col lg:flex-row overflow-hidden col-span-full shadow-md mb-2">
       
-      {/* Sello Aniversario 16 Años */}
+      {/* Sello Aniversario 15 Años */}
       <div className="absolute top-3 right-3 z-20 pointer-events-none select-none transition-transform duration-300 group-hover:scale-110 drop-shadow-md">
         <img
-          src="/ChatGPT Image 4 oct 2026, 22_03_11.png"
-          alt="16 Años Aniversario"
+          src="/Emblema%2015%20a%C3%B1os%20de%20celebraci%C3%B3n.png"
+          alt="15 Años Aniversario"
           className="w-14 h-14 sm:w-16 sm:h-16 object-contain"
           loading="lazy"
         />

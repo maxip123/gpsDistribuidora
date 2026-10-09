@@ -319,7 +319,7 @@ export default function Navbar({
                         ? 'bg-white/25 text-white'
                         : 'bg-rose-200 text-rose-900'
                     }`}>
-                      05 OCT-10 OCT
+                      07 SEP-17 SEP
                     </span>
                     <span className={`text-[10px] sm:text-[10.5px] font-extrabold px-1.5 py-0.2 rounded-full shrink-0 ${
                       isSelected
