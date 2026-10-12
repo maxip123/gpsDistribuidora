@@ -35,7 +35,7 @@ export default function ProductCard({ product }) {
     <div className="group relative bg-white rounded-2xl border border-slate-200/90 hover:border-blue-400/80 hover:shadow-xl transition-all duration-200 flex flex-col overflow-hidden h-full">
 
       {/* ── IMAGE AREA ─────────────────────────────────────────────── */}
-      <div className={`relative bg-slate-50 p-4 border-b border-slate-100 flex items-center justify-center overflow-hidden ${product.noPrice ? 'h-48' : 'h-52'}`}>
+      <div className={`relative bg-slate-50 p-3 border-b border-slate-100 flex items-center justify-center overflow-hidden ${product.noPrice ? 'h-48' : 'h-52'}`}>
 
         {/* Badge */}
         {product.badgeText && (
@@ -67,21 +67,62 @@ export default function ProductCard({ product }) {
 
         {/* Product Image(s) */}
         {product.images && product.images.length > 1 ? (
-          <div className={`grid gap-1.5 w-full px-2 h-44 ${product.images.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
-            {product.images.map((src, i) => (
-              <div key={i} className="relative w-full h-full">
-                <img
-                  src={src}
-                  alt={`${product.name} variante ${i + 1}`}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  onError={(e) => {
-                    e.target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=80";
-                  }}
-                />
+          product.images.length === 5 ? (
+            <div className="flex flex-col gap-1.5 w-full px-1.5 h-44 justify-center">
+              {/* Fila superior: 3 variantes */}
+              <div className="grid grid-cols-3 gap-1.5 h-[80px]">
+                {product.images.slice(0, 3).map((src, i) => (
+                  <div key={i} className="relative w-full h-full flex items-center justify-center p-0.5">
+                    <img
+                      src={src}
+                      alt={`${product.name} variante ${i + 1}`}
+                      loading="lazy"
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                      onError={(e) => {
+                        e.target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=80";
+                      }}
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+              {/* Fila inferior: 2 variantes centradas simétricamente */}
+              <div className="flex justify-center gap-1.5 h-[80px]">
+                {product.images.slice(3, 5).map((src, i) => (
+                  <div key={i + 3} className="relative w-[32%] h-full flex items-center justify-center p-0.5">
+                    <img
+                      src={src}
+                      alt={`${product.name} variante ${i + 4}`}
+                      loading="lazy"
+                      className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                      onError={(e) => {
+                        e.target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=80";
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className={`grid gap-1.5 w-full h-44 ${
+              product.images.length === 2 ? 'grid-cols-2 px-3' :
+              product.images.length === 4 ? 'grid-cols-4 px-1 gap-1' :
+              'grid-cols-3 px-2'
+            }`}>
+              {product.images.map((src, i) => (
+                <div key={i} className="relative w-full h-full flex items-center justify-center p-0.5">
+                  <img
+                    src={src}
+                    alt={`${product.name} variante ${i + 1}`}
+                    loading="lazy"
+                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                    onError={(e) => {
+                      e.target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=80";
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          )
         ) : (
           <img
             src={product.image}
