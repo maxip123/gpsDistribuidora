@@ -83,7 +83,7 @@ export default function App() {
               onExploreClick={handleScrollToCatalog}
               totalOffersCount={totalOffersCount}
             />
-            {/* Daily Offers Carousel (28 de Septiembre al 04 de Octubre) */}
+            {/* Daily Offers Carousel (13 al 18 de Octubre) */}
             <DailyOffersCarousel />
 
             {/* Nueva Sección Independiente: Especial Día de la Madre */}
