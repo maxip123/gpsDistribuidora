@@ -11,7 +11,7 @@ import { STORE_CONFIG } from '../data/catalog';
 
 export default function ComboCard({ product }) {
   const whatsappMessage = encodeURIComponent(
-    `Hola G.P.S Distribuciones! Quisiera consultar por el ${product.name} (Cód: ${product.cod})${product.giftName ? `: comprando todo el combo para acceder al regalo de ${product.giftName}.` : product.discount ? `: comprando los 20 para acceder al ${product.discount} de descuento.` : '.'}`
+    `Hola G.P.S Distribuciones! Quisiera consultar por el ${product.name} (Cód: ${product.cod})${product.giftName ? `: comprando todo el combo para acceder al regalo de ${product.giftName}.` : product.discount ? `: comprando el combo para acceder al ${product.discount} de descuento.` : '.'}`
   );
 
   return (
@@ -190,7 +190,7 @@ export default function ComboCard({ product }) {
                     {product.discountTitle || `${product.discount} en el total del combo`}
                   </span>
                   <span className="text-[10.5px] font-extrabold text-rose-700 block">
-                    Comprando los 20 (5 de cada uno)
+                    {product.discountSubtitle || "Comprando el combo completo"}
                   </span>
                 </div>
               </div>
@@ -272,8 +272,13 @@ export default function ComboCard({ product }) {
                   BENEFICIO COMBO:
                 </span>
                 <span className="text-xs sm:text-sm font-black text-rose-950 block">
-                  {product.discountTitle || `${product.discount} en el total del combo comprando los 20 productos`}
+                  {product.discountTitle || `${product.discount} en el total del combo`}
                 </span>
+                {product.discountSubtitle && (
+                  <span className="text-[11px] font-bold text-rose-800 block mt-0.5">
+                    {product.discountSubtitle}
+                  </span>
+                )}
               </div>
             </div>
           ) : null}
