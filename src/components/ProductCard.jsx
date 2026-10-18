@@ -109,16 +109,25 @@ export default function ProductCard({ product }) {
               'grid-cols-3 px-2'
             }`}>
               {product.images.map((src, i) => (
-                <div key={i} className="relative w-full h-full flex items-center justify-center p-0.5">
-                  <img
-                    src={src}
-                    alt={`${product.name} variante ${i + 1}`}
-                    loading="lazy"
-                    className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                    onError={(e) => {
-                      e.target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=80";
-                    }}
-                  />
+                <div 
+                  key={i} 
+                  className="relative w-full h-full flex items-center justify-center p-0.5"
+                >
+                  <div className={`w-full h-full flex items-center justify-center transition-transform duration-300 group-hover:scale-105 ${
+                    product.imageClasses && product.imageClasses[i]
+                      ? product.imageClasses[i]
+                      : ''
+                  }`}>
+                    <img
+                      src={src}
+                      alt={`${product.name} variante ${i + 1}`}
+                      loading="lazy"
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        e.target.src = "https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&auto=format&fit=crop&q=80";
+                      }}
+                    />
+                  </div>
                 </div>
               ))}
             </div>
