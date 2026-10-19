@@ -450,9 +450,9 @@ export const PRODUCTS = [
   },
   {
     id: 188,
-    cod: "FELP-HIG-4X30",
-    nombre: "Papel Higiénico Felpita 4 x 30 mt",
-    name: "Papel Higiénico Felpita 4 x 30 mt",
+    cod: "FELP-HIG-4X12X30",
+    nombre: "Papel Higiénico Felpita 4 x 12 x 30 mt",
+    name: "Papel Higiénico Felpita 4 x 12 x 30 mt",
     precio: 3898.28,
     unitPrice: 3898.28,
     priceBulto: 46779.36,
@@ -464,12 +464,12 @@ export const PRODUCTS = [
     descripcion: "COMPRA 12U",
     description: "COMPRA 12U",
     bultoUnits: 12,
-    bultoUnitLabel: "12 Packs (4x30mt)",
+    bultoUnitLabel: "12 Packs (4 x 12 x 30 mt)",
     badgeText: "FELPITA",
     badgeType: "savings",
-    image: "/ilovepdf_images-extracted 1010/img556.jpg",
+    image: "/felpita-4x12x30.jpeg",
     isWeeklyOffer: true,
-    searchKeywords: "papel higienico felpita 4 x 30 mt 12u limpieza oferta semanal"
+    searchKeywords: "papel higienico felpita 4 x 12 x 30 mt 12u limpieza oferta semanal"
   },
   {
     id: 189,
