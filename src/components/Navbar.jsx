@@ -265,7 +265,7 @@ export default function Navbar({
               <Zap className="w-3.5 h-3.5 text-amber-600 fill-amber-500 shrink-0" />
               <span>Ofertas Comprá Ahora</span>
               <span className="text-[10px] font-bold uppercase px-1.5 py-0.2 rounded-md bg-amber-200 text-amber-900">
-                19 OCT-22 OCT
+                19 OCT-25 OCT
               </span>
             </button>
 
