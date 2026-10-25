@@ -27,6 +27,38 @@ const RAW_CATEGORIES = [
 ];
 
 export const PRODUCTS = [
+  // ── COMBO PROMOCIONAL: CUBIERTOS ─────────────────────────────────
+  {
+    id: 200,
+    isCombo: true,
+    cod: "COMBO-CUBIERT-HELL",
+    nombre: "Combo Aderezos Hellmann's + Cubiertos de Regalo",
+    name: "Combo Aderezos Hellmann's + Cubiertos de Regalo",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Almacén",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    badgeText: "COMBO CUBIERTOS",
+    badgeType: "purple",
+    brandLabel: "Especial Hellmann's Unilever",
+    giftName: "Juego de Cubiertos",
+    giftQtyLabel: "Juego de Cubiertos",
+    giftImage: "/ilovepdf_images-cubiertos/img28.jpg",
+    comboGift: {
+      name: "Juego de Cubiertos",
+      image: "/ilovepdf_images-cubiertos/img28.jpg"
+    },
+    comboIncludes: [
+      { name: "Aderezo Hellmann's Ajo 250gr", short: "Ajo 250gr", image: "/ilovepdf_images-cubiertos/img22.jpg" },
+      { name: "Aderezo Hellmann's Pesto 250gr", short: "Pesto 250gr", image: "/ilovepdf_images-cubiertos/img55.jpg" },
+      { name: "Aderezo Hellmann's Asado 250gr", short: "Asado 250gr", image: "/ilovepdf_images-cubiertos/img23.jpg" }
+    ],
+    isWeeklyOffer: true,
+    searchKeywords: "combo aderezos hellmanns ajo pesto asado 250gr cubiertos tenedor cuchillo cuchara mango azul regalo promo unilever"
+  },
+
   // ── COMBO PROMOCIONAL: AUTOSERVICIO DOVE ─────────────────────────
   {
     id: 143,
