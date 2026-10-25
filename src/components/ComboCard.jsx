@@ -54,51 +54,72 @@ export default function ComboCard({ product }) {
         <div className="relative z-10 flex-1 flex flex-col justify-center space-y-3 my-2">
           
           {/* Products in Grid */}
-          <div className={`grid gap-2 ${product.comboIncludes?.length > 4 ? 'grid-cols-2 sm:grid-cols-3' : 'grid-cols-2'}`}>
-            {product.comboIncludes?.map((item, idx) => (
-              <div 
-                key={idx} 
-                className="bg-white/95 backdrop-blur-xs rounded-xl p-2 shadow-sm border border-white/80 flex flex-col items-center justify-between text-center transition-transform duration-200 hover:scale-[1.03]"
-              >
-                <div className="w-full h-14 sm:h-16 flex items-center justify-center overflow-hidden gap-1">
-                  {item.images && item.images.length > 1 ? (
-                    item.images.map((src, imgIdx) => (
+          <div className={`grid gap-2 ${
+            product.comboIncludes?.length === 1 
+              ? 'grid-cols-1' 
+              : product.comboIncludes?.length > 4 
+              ? 'grid-cols-2 sm:grid-cols-3' 
+              : 'grid-cols-2'
+          }`}>
+            {product.comboIncludes?.map((item, idx) => {
+              const isSingle = product.comboIncludes?.length === 1;
+              return (
+                <div 
+                  key={idx} 
+                  className={`bg-white/95 backdrop-blur-xs rounded-xl shadow-sm border border-white/80 transition-transform duration-200 ${
+                    isSingle 
+                      ? 'p-2.5 sm:p-3 flex items-center gap-3 text-left w-full hover:scale-[1.01]' 
+                      : 'p-2 flex flex-col items-center justify-between text-center hover:scale-[1.03]'
+                  }`}
+                >
+                  <div className={`flex items-center justify-center overflow-hidden shrink-0 ${
+                    isSingle 
+                      ? 'w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-lg p-1 border border-slate-100 shadow-2xs' 
+                      : 'w-full h-14 sm:h-16 gap-1'
+                  }`}>
+                    {item.images && item.images.length > 1 ? (
+                      item.images.map((src, imgIdx) => (
+                        <img
+                          key={imgIdx}
+                          src={src}
+                          alt={item.name}
+                          loading="lazy"
+                          style={{ flex: '1 1 0', minWidth: 0, maxWidth: '100%' }}
+                          className="h-full object-contain drop-shadow-xs"
+                        />
+                      ))
+                    ) : (
                       <img
-                        key={imgIdx}
-                        src={src}
+                        src={item.image}
                         alt={item.name}
                         loading="lazy"
-                        style={{ flex: '1 1 0', minWidth: 0, maxWidth: '100%' }}
-                        className="h-full object-contain drop-shadow-xs"
+                        className="max-h-full max-w-full object-contain drop-shadow-xs"
                       />
-                    ))
-                  ) : (
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      loading="lazy"
-                      className="max-h-full max-w-full object-contain drop-shadow-xs"
-                    />
-                  )}
-                </div>
-                <div className="mt-1 w-full space-y-1">
-                  <span className="text-[10px] sm:text-[11px] font-black text-slate-800 leading-tight block text-center">
-                    {item.name.replace(/\s*\(.*?\)/g, '').trim()}
-                  </span>
-                  <div className="flex items-center justify-center gap-1">
-                    <span className="text-[9.5px] font-extrabold text-blue-700 bg-blue-50 border border-blue-200/50 px-1.5 py-0.5 rounded">
-                      {item.qty || item.vol}
-                    </span>
+                    )}
                   </div>
-                  {item.priceBase && (
-                    <div className="text-[9.5px] font-bold text-slate-700 bg-slate-100/90 rounded px-1 py-0.5 mt-0.5 leading-tight border border-slate-200/60">
-                      <span className="text-slate-500 font-medium block text-[8px] uppercase tracking-wider">Precio Base</span>
-                      <span className="text-slate-950 font-black">${item.priceBase}</span>
+                  <div className={isSingle ? 'min-w-0 flex-1 space-y-1' : 'mt-1 w-full space-y-1'}>
+                    <span className={`font-black text-slate-800 leading-tight block ${
+                      isSingle ? 'text-xs sm:text-sm' : 'text-[10px] sm:text-[11px] text-center'
+                    }`}>
+                      {item.name.replace(/\s*\(.*?\)/g, '').trim()}
+                    </span>
+                    <div className={`flex items-center gap-1 ${isSingle ? 'justify-start' : 'justify-center'}`}>
+                      <span className={`font-extrabold text-blue-700 bg-blue-50 border border-blue-200/50 rounded ${
+                        isSingle ? 'text-[11px] px-2 py-0.5' : 'text-[9.5px] px-1.5 py-0.5'
+                      }`}>
+                        {item.qty || item.vol}
+                      </span>
                     </div>
-                  )}
+                    {item.priceBase && (
+                      <div className="text-[9.5px] font-bold text-slate-700 bg-slate-100/90 rounded px-1 py-0.5 mt-0.5 leading-tight border border-slate-200/60 inline-block">
+                        <span className="text-slate-500 font-medium block text-[8px] uppercase tracking-wider">Precio Base</span>
+                        <span className="text-slate-950 font-black">${item.priceBase}</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Plus / Gift Divider or Discount Divider */}
@@ -227,7 +248,7 @@ export default function ComboCard({ product }) {
               <Package className="w-3.5 h-3.5 text-blue-600 shrink-0" />
               <span>COMPRANDO:</span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11.5px]">
+            <div className={`grid gap-2 text-[11.5px] ${product.comboIncludes?.length === 1 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2'}`}>
               {product.comboIncludes?.map((item, i) => (
                 <div key={i} className="flex items-start justify-between gap-2 bg-white p-2 sm:p-2.5 rounded-lg border border-slate-200/90 shadow-2xs">
                   <div className="min-w-0 flex items-start gap-1.5 flex-1">

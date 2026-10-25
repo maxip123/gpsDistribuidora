@@ -152,7 +152,7 @@ export default function DailyOffersCarousel() {
               </h2>
               <span className="text-[11px] text-slate-400 hidden sm:inline">•</span>
               <span className="text-[11px] font-medium text-slate-600 bg-white px-2 py-0.5 rounded border border-slate-200/70">
-                19 al 25 de Octubre
+                26 al 31 de Octubre
               </span>
               <span className="text-[11px] font-semibold text-rose-700 bg-rose-50 px-2 py-0.5 rounded border border-rose-200/70">
                 Únicamente para clientes
