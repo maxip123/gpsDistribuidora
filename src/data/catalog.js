@@ -27,20 +27,20 @@ const RAW_CATEGORIES = [
 ];
 
 export const PRODUCTS = [
-  // ── COMBO PROMOCIONAL: CUBIERTOS ─────────────────────────────────
+  // ── COMBO PROMOCIONAL: CUBIERTOS (AJO + PESTO) ───────────────────
   {
     id: 200,
     isCombo: true,
-    cod: "COMBO-CUBIERT-HELL",
-    nombre: "Combo Aderezos Hellmann's + Cubiertos de Regalo",
-    name: "Combo Aderezos Hellmann's + Cubiertos de Regalo",
+    cod: "COMBO-CUBIERT-PESTO",
+    nombre: "Super Combo Hellmann's Ajo + Pesto",
+    name: "Super Combo Hellmann's Ajo + Pesto",
     precio: 0,
     unitPrice: 0,
     priceBulto: 0,
     categoria: "Almacén",
     category: "ofertas",
     categoryLabel: "Ofertas de la Semana",
-    badgeText: "COMBO CUBIERTOS",
+    badgeText: "SUPER COMBO",
     badgeType: "purple",
     brandLabel: "Especial Hellmann's Unilever",
     giftName: "Juego de Cubiertos",
@@ -52,11 +52,72 @@ export const PRODUCTS = [
     },
     comboIncludes: [
       { name: "Aderezo Hellmann's Ajo 250gr", short: "Ajo 250gr", image: "/ilovepdf_images-cubiertos/img22.jpg" },
-      { name: "Aderezo Hellmann's Pesto 250gr", short: "Pesto 250gr", image: "/ilovepdf_images-cubiertos/img55.jpg" },
+      { name: "Aderezo Hellmann's Pesto 250gr", short: "Pesto 250gr", image: "/ilovepdf_images-cubiertos/img55.jpg" }
+    ],
+    isWeeklyOffer: true,
+    searchKeywords: "super combo hellmanns ajo pesto 250gr cubiertos regalo promo unilever almacen"
+  },
+
+  // ── COMBO PROMOCIONAL: CUBIERTOS (AJO + PICANTE) ─────────────────
+  {
+    id: 201,
+    isCombo: true,
+    cod: "COMBO-CUBIERT-PICANTE",
+    nombre: "Super Combo Hellmann's Ajo + Picante",
+    name: "Super Combo Hellmann's Ajo + Picante",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Almacén",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    badgeText: "SUPER COMBO",
+    badgeType: "purple",
+    brandLabel: "Especial Hellmann's Unilever",
+    giftName: "Juego de Cubiertos",
+    giftQtyLabel: "Juego de Cubiertos",
+    giftImage: "/ilovepdf_images-cubiertos/img28.jpg",
+    comboGift: {
+      name: "Juego de Cubiertos",
+      image: "/ilovepdf_images-cubiertos/img28.jpg"
+    },
+    comboIncludes: [
+      { name: "Aderezo Hellmann's Ajo 250gr", short: "Ajo 250gr", image: "/ilovepdf_images-cubiertos/img22.jpg" },
+      { name: "Aderezo Hellmann's Picante 250gr", short: "Picante 250gr", image: "/ilovepdf_images-cubiertos/img38.jpg" }
+    ],
+    isWeeklyOffer: true,
+    searchKeywords: "super combo hellmanns ajo picante 250gr cubiertos regalo promo unilever almacen"
+  },
+
+  // ── COMBO PROMOCIONAL: CUBIERTOS (AJO + ASADO) ───────────────────
+  {
+    id: 202,
+    isCombo: true,
+    cod: "COMBO-CUBIERT-ASADO",
+    nombre: "Super Combo Hellmann's Ajo + Asado",
+    name: "Super Combo Hellmann's Ajo + Asado",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Almacén",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    badgeText: "SUPER COMBO",
+    badgeType: "purple",
+    brandLabel: "Especial Hellmann's Unilever",
+    giftName: "Juego de Cubiertos",
+    giftQtyLabel: "Juego de Cubiertos",
+    giftImage: "/ilovepdf_images-cubiertos/img28.jpg",
+    comboGift: {
+      name: "Juego de Cubiertos",
+      image: "/ilovepdf_images-cubiertos/img28.jpg"
+    },
+    comboIncludes: [
+      { name: "Aderezo Hellmann's Ajo 250gr", short: "Ajo 250gr", image: "/ilovepdf_images-cubiertos/img22.jpg" },
       { name: "Aderezo Hellmann's Asado 250gr", short: "Asado 250gr", image: "/ilovepdf_images-cubiertos/img23.jpg" }
     ],
     isWeeklyOffer: true,
-    searchKeywords: "combo aderezos hellmanns ajo pesto asado 250gr cubiertos tenedor cuchillo cuchara mango azul regalo promo unilever"
+    searchKeywords: "super combo hellmanns ajo asado 250gr cubiertos regalo promo unilever almacen"
   },
 
   // ── COMBO PROMOCIONAL: AUTOSERVICIO DOVE ─────────────────────────
@@ -526,9 +587,9 @@ export const PRODUCTS = [
     cod: "PROMO-CBSE-500",
     nombre: "Promo Yerba CBSé (Mango + Serranas)",
     name: "Promo Yerba CBSé (Mango + Serranas)",
-    precio: 1750.30,
-    unitPrice: 1750.30,
-    priceBulto: 8751.49,
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
     categoria: "Almacén",
     category: "ofertas",
     categoryLabel: "Ofertas de la Semana",
