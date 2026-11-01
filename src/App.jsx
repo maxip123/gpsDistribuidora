@@ -81,7 +81,7 @@ export default function App() {
               onExploreClick={handleScrollToCatalog}
               totalOffersCount={totalOffersCount}
             />
-            {/* Daily Offers Carousel (28 de Septiembre al 04 de Octubre) */}
+            {/* Daily Offers Carousel (2 al 9 de Noviembre) */}
             <DailyOffersCarousel />
           </>
         )}
@@ -95,7 +95,7 @@ export default function App() {
           onClearSearch={() => setSearchQuery('')}
         />
 
-        {/* Nuevos Ingresos Section (Toallas Húmedas Daddy) - Abajo del catálogo */}
+        {/* Nuevos Ingresos Section (Cif Destructor) - Abajo del catálogo */}
         <NewArrivalsSection products={NEW_ARRIVALS} />
 
         {/* Wholesale Features */}

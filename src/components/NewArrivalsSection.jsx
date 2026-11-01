@@ -131,7 +131,7 @@ export default function NewArrivalsSection({ products = [] }) {
                 </span>
               </div>
               <p className="text-xs text-slate-500 mt-0.5">
-                Aceites San Iginio, Jabones Ala Camellito, Vim, Encendedores BX7 y Toallas Doddy • Consultá disponibilidad por WhatsApp
+                Cif Destructor de Sarro y Cif Destructor de Grasa • Consultá disponibilidad por WhatsApp
               </p>
             </div>
           </div>
