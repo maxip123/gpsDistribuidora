@@ -125,6 +125,144 @@ export const PRODUCTS = [
     searchKeywords: "combo almacenes hellmanns mayonesa ketchup 118gr 237gr 250gr aderezos surtidos regalo unilever"
   },
 
+  // ── COMBO PROMOCIONAL: AUTOSERVICIO DOVE ─────────────────────────
+  {
+    id: 143,
+    isCombo: true,
+    cod: "COMBO-DOVE-AUTO",
+    nombre: "Combo Autoservicio Dove",
+    name: "Combo Autoservicio Dove",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Perfumería",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    badgeText: "COMBO AUTOSERVICIO",
+    badgeType: "purple",
+    brandLabel: "Especial Dove Unilever",
+    giftName: "18 Jabón Suave Coco & Karité 220ml",
+    giftQtyLabel: "x 18 unidades",
+    giftImage: "/ofertas-02-07-nov/suave-coco-karite-220ml.jpg",
+    comboGift: {
+      name: "18 Jabón Suave Coco & Karité 220ml",
+      image: "/ofertas-02-07-nov/suave-coco-karite-220ml.jpg"
+    },
+    comboIncludes: [
+      { name: "Jabón Dove 90gr", short: "Dove 90gr", qty: "30 u.", image: "/ofertas-02-07-nov/jabon-dove-90gr.jpg" }
+    ],
+    isWeeklyOffer: true,
+    searchKeywords: "combo autoservicio dove jabon 90gr suave coco karite 220ml regalo unilever perfumeria"
+  },
+
+  // ── COMBO PROMOCIONAL: ESPONJAS DEA X 36U ────────────────────────
+  {
+    id: 181,
+    isCombo: true,
+    cod: "COMBO-DEA-ESP-36",
+    nombre: "Combo Esponjas DEA",
+    name: "Combo Esponjas DEA",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Limpieza",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    badgeText: "COMBO DEA",
+    badgeType: "savings",
+    brandLabel: "Especial DEA Limpieza",
+    discount: "10% OFF",
+    discountTitle: "10% Descuento en el total del combo",
+    discountSubtitle: "Comprando el combo completo",
+    comboIncludes: [
+      { name: "Esponja Salvauñas x 12u", short: "Salvauñas x 12u", qty: "12 u.", priceBase: "434,39", image: "/ofertas-02-07-nov/dea-salvaunas.jpg" },
+      { name: "Esponja de Fibra Verde x 12u", short: "Fibra Verde x 12u", qty: "12 u.", priceBase: "353,01", image: "/ofertas-02-07-nov/dea-fibra-verde.jpg" },
+      { name: "Esponjosa x 12u", short: "Esponjosa x 12u", qty: "12 u.", priceBase: "839,91", image: "/ofertas-02-07-nov/dea-esponjosa.jpg" }
+    ],
+    condicion: "COMPRANDO EL COMBO - 10% OFF",
+    isWeeklyOffer: true,
+    searchKeywords: "combo esponjas dea salvaunas fibra verde esponjosa 10% descuento limpieza oferta semanal"
+  },
+
+  // ── COMBO PROMOCIONAL: ESPONJAS METÁLICAS DEA ────────────────────
+  {
+    id: 184,
+    isCombo: true,
+    cod: "COMBO-DEA-MET-48",
+    nombre: "Esponjas Doradas + Esponjas Lana Acero DEA",
+    name: "Esponjas Doradas + Esponjas Lana Acero DEA",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Limpieza",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    badgeText: "DEA 10% OFF",
+    badgeType: "savings",
+    brandLabel: "Especial DEA Limpieza",
+    discount: "10% OFF",
+    discountTitle: "10% Descuento",
+    discountSubtitle: "Comprando ambos productos",
+    comboIncludes: [
+      { name: "Esponjas Doradas x 24u", short: "Doradas x 24u", qty: "24 u.", priceBase: "746,73", image: "/ofertas-02-07-nov/dea-doradas.jpg" },
+      { name: "Esponjas Lana Acero 45g x 24u", short: "Lana Acero 45g x 24u", qty: "24 u.", priceBase: "647,00", image: "/ofertas-02-07-nov/dea-lana-acero.jpg" }
+    ],
+    condicion: "COMPRANDO AMBOS - 10% OFF",
+    isWeeklyOffer: true,
+    searchKeywords: "esponjas metalicas dea doradas lana acero 45g 10% descuento limpieza oferta semanal"
+  },
+
+  // ── OFERTA SEMANAL: GUANTES DEA ──────────────────────────────────
+  {
+    id: 186,
+    cod: "DEA-GUAN-SURT-12",
+    nombre: "Guantes Surtidos x 12u",
+    name: "Guantes Surtidos x 12u",
+    precio: 2108.95,
+    unitPrice: 2108.95,
+    priceBulto: 25307.40,
+    categoria: "Limpieza",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    tag: "Guantes",
+    condicion: "COMPRA 12U - 10% OFF",
+    descripcion: "COMPRA 12U - 10% OFF",
+    description: "COMPRA 12U - 10% OFF",
+    discount: "10% OFF",
+    bultoUnits: 12,
+    bultoUnitLabel: "12 Unidades",
+    badgeText: "DEA",
+    badgeType: "savings",
+    image: "/ofertas-02-07-nov/dea-guantes.jpg",
+    isWeeklyOffer: true,
+    searchKeywords: "guantes surtidos 12u dea afelpados 10% descuento limpieza oferta semanal"
+  },
+
+  // ── OFERTA SEMANAL: PLAYBOY ──────────────────────────────────────
+  {
+    id: 187,
+    cod: "PLAYBOY-PRES",
+    nombre: "Playboy Preservativo",
+    name: "Playboy Preservativo",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Perfumería",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    tag: "Preservativos",
+    condicion: "COMPRA 11U MÁS 1 DE REGALO",
+    descripcion: "COMPRA 11U MÁS 1 DE REGALO",
+    description: "COMPRA 11U MÁS 1 DE REGALO",
+    giftName: "1 Playboy Preservativo",
+    giftImage: "/ofertas-02-07-nov/playboy-regalo.jpg",
+    badgeText: "PLAYBOY",
+    badgeType: "savings",
+    image: "/ofertas-02-07-nov/playboy-preservativo.jpg",
+    isWeeklyOffer: true,
+    searchKeywords: "playboy preservativo preservativos condones compra 11u 1 de regalo perfumeria oferta semanal"
+  },
+
   // ── NUEVOS INGRESOS: CIF DESTRUCTOR ─────────────────────────────
   {
     id: 30,
