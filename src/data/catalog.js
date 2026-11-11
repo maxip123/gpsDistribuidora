@@ -125,6 +125,68 @@ export const PRODUCTS = [
     searchKeywords: "combo almacenes hellmanns mayonesa ketchup 118gr 237gr 250gr aderezos surtidos regalo unilever"
   },
 
+  // ── COMBO PROMOCIONAL: X5 INSECTICIDA + ESPIRALES EN CAJA (11 AL 30 NOV) ─
+  {
+    id: 330,
+    isCombo: true,
+    cod: "COMBO-X5-CAJA",
+    nombre: "Insecticida X5 360cc + Espirales X5 en Caja x 12",
+    name: "Insecticida X5 360cc + Espirales X5 en Caja x 12",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Limpieza",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    badgeText: "OFERTA ESPECIAL",
+    badgeType: "purple",
+    brandLabel: "Oferta Especial X5",
+    giftName: "8u Repelente Verde de 170cc",
+    giftQtyLabel: "x 8 unidades",
+    giftImage: "/ofertas-x5-nov/repelente-verde-170.jpg",
+    comboGift: {
+      name: "8u Repelente Verde de 170cc",
+      image: "/ofertas-x5-nov/repelente-verde-170.jpg"
+    },
+    comboIncludes: [
+      { name: "Insecticida X5 360cc", short: "Insecticida 360cc", qty: "6 u.", image: "/ofertas-x5-nov/insecticida-x5-360.jpg" },
+      { name: "Espirales X5 en Caja x 12", short: "Espirales Caja x 12", qty: "4 u.", image: "/ofertas-x5-nov/espirales-x5-caja-12.jpg" }
+    ],
+    isWeeklyOffer: true,
+    searchKeywords: "x5 insecticida 360cc espirales caja x 12 repelente verde 170cc regalo mosquitos limpieza oferta especial"
+  },
+
+  // ── COMBO PROMOCIONAL: X5 CUCARACHA + ESPIRALES EN SOBRE (11 AL 30 NOV) ─
+  {
+    id: 331,
+    isCombo: true,
+    cod: "COMBO-X5-SOBRE",
+    nombre: "Insecticida Cucaracha X5 360cc + Espirales X5 en Sobre",
+    name: "Insecticida Cucaracha X5 360cc + Espirales X5 en Sobre",
+    precio: 0,
+    unitPrice: 0,
+    priceBulto: 0,
+    categoria: "Limpieza",
+    category: "ofertas",
+    categoryLabel: "Ofertas de la Semana",
+    badgeText: "OFERTA ESPECIAL",
+    badgeType: "purple",
+    brandLabel: "Oferta Especial X5",
+    giftName: "10u Repelente Naranja de 170cc",
+    giftQtyLabel: "x 10 unidades",
+    giftImage: "/ofertas-x5-nov/repelente-naranja-170.jpg",
+    comboGift: {
+      name: "10u Repelente Naranja de 170cc",
+      image: "/ofertas-x5-nov/repelente-naranja-170.jpg"
+    },
+    comboIncludes: [
+      { name: "Insecticida Cucaracha X5 360cc", short: "Cucaracha 360cc", qty: "3 u.", image: "/ofertas-x5-nov/insecticida-cucaracha-x5-360.jpg" },
+      { name: "Espirales X5 en Sobre", short: "Espirales en Sobre", qty: "36 u.", image: "/ofertas-x5-nov/espirales-x5-sobre.jpg" }
+    ],
+    isWeeklyOffer: true,
+    searchKeywords: "x5 insecticida cucaracha 360cc espirales sobre repelente naranja 170cc regalo limpieza oferta especial"
+  },
+
   // ── OFERTA SEMANAL: ESPECIAL UNILEVER (09 AL 14 NOV) ─────────────
   {
     id: 300,
