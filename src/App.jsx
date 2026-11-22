@@ -81,7 +81,7 @@ export default function App() {
               onExploreClick={handleScrollToCatalog}
               totalOffersCount={totalOffersCount}
             />
-            {/* Daily Offers Carousel (16 al 23 de Noviembre) */}
+            {/* Daily Offers Carousel (24 al 29 de Noviembre) */}
             <DailyOffersCarousel />
           </>
         )}

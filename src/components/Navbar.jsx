@@ -265,7 +265,7 @@ export default function Navbar({
               <Zap className="w-3.5 h-3.5 text-amber-600 fill-amber-500 shrink-0" />
               <span>Ofertas Comprá Ahora</span>
               <span className="text-[10px] font-bold uppercase px-1.5 py-0.2 rounded-md bg-amber-200 text-amber-900">
-                16 NOV-23 NOV
+                24 NOV-29 NOV
               </span>
             </button>
 
@@ -296,7 +296,7 @@ export default function Navbar({
                         ? 'bg-white/25 text-white'
                         : 'bg-rose-200 text-rose-900'
                     }`}>
-                      16 NOV-21 NOV
+                      23 NOV-28 NOV
                     </span>
                     <span className={`text-[10px] sm:text-[10.5px] font-extrabold px-1.5 py-0.2 rounded-full shrink-0 ${
                       isSelected
