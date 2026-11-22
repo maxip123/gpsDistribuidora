@@ -212,7 +212,7 @@ export const PRODUCTS = [
     },
     comboIncludes: [
       { name: "Insecticida X5 Cucaracha 360cc", short: "Cucaracha 360cc", qty: "3 u.", image: "/ofertas-16-21-nov/insecticida-x5-cucaracha-360.jpg" },
-      { name: "Espirales X5 en Caja 12 x 12u", short: "Espirales Caja 12 x 12u", qty: "12 u.", image: "/ofertas-16-21-nov/espirales-x5-caja-12.jpg" }
+      { name: "Espirales X5 en Caja", short: "Espirales en Caja", qty: "12 x 12u", image: "/ofertas-16-21-nov/espirales-x5-caja-12.jpg" }
     ],
     isWeeklyOffer: true,
     searchKeywords: "x5 insecticida cucaracha 360cc espirales caja 12 x 12u repelente naranja 170cc regalo limpieza oferta especial"

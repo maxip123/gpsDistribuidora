@@ -131,7 +131,7 @@ export default function NewArrivalsSection({ products = [] }) {
                 </span>
               </div>
               <p className="text-xs text-slate-500 mt-0.5">
-                Cif Destructor de Sarro y Cif Destructor de Grasa • Consultá disponibilidad por WhatsApp
+                Good Knight Activ+ Repuesto 45ml, Cif Destructor de Sarro y Cif Destructor de Grasa • Consultá disponibilidad por WhatsApp
               </p>
             </div>
           </div>
