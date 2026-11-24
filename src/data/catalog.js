@@ -748,12 +748,12 @@ export const PRODUCTS = [
   },
   {
     id: 360,
-    cod: "KOLYNOS-CD-70",
-    nombre: "Crema Dental Kolynos 70gr",
-    name: "Crema Dental Kolynos 70gr",
-    precio: 1141.59,
-    unitPrice: 1141.59,
-    priceBulto: 13699.08,
+    cod: "KOLYNOS-CD-50",
+    nombre: "Crema Dental Kolynos 50gr",
+    name: "Crema Dental Kolynos 50gr",
+    precio: 999.48,
+    unitPrice: 999.48,
+    priceBulto: 11993.76,
     categoria: "Perfumería",
     category: "ofertas",
     categoryLabel: "Ofertas de la Semana",
@@ -765,9 +765,9 @@ export const PRODUCTS = [
     bultoUnits: 12,
     badgeText: "KOLYNOS",
     badgeType: "savings",
-    image: "/ofertas-23-28-nov/crema-dental-kolynos-70.jpg",
+    image: "/ofertas-23-28-nov/crema-dental-kolynos-50.jpg",
     isWeeklyOffer: true,
-    searchKeywords: "crema dental kolynos 70gr super blanco pasta dientes perfumeria oferta especial"
+    searchKeywords: "crema dental kolynos 50gr super blanco pasta dientes perfumeria oferta especial"
   },
 
   // ── OFERTA SEMANAL: ESPECIAL BIC (23 AL 28 NOV) ──────────────────
